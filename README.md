@@ -1,1 +1,1 @@
-# blupp.co
+# Blupp Company
