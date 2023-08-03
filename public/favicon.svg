@@ -1,9 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1080" height="1080" viewBox="0 0 1080 1080" xml:space="preserve">
+    <rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
+    <g transform="matrix(1 0 0 1 540 540)" id="eb86b02d-df1b-482a-88d4-c1b2e6c55f05"  >
+        <rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+    </g>
+    <g transform="matrix(1 0 0 1 540 540)" id="1cee12f3-690e-4b1d-a005-e6a718bda9f4"  >
+    </g>
+    <g transform="matrix(5.41 0 0 5.41 540 540)" id="40cf1e7e-0f57-4b19-b0cf-6ac0e5325658"  >
+        <path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-104.91, -267.19)" d="M 11.25 365.625 L 11.25 358.3125 L 34.875 351 L 34.875 183.375 L 11.25 176.0625 L 11.25 168.75 L 122.0625 168.75 Q 145.6875 169.3125 163.125 181.125 Q 180.5625 192.9375 181.6875 221.625 Q 181.125 250.3125 160.3125 263.25 Q 198 271.9688 198.5625 312.75 Q 198 363.9375 129.9375 365.625 L 11.25 365.625 Z M 49.5 351 L 63 351 L 63 183.375 L 49.5 183.375 L 49.5 351 Z M 77.625 351 L 114.1875 351 Q 155.25 349.875 155.8125 312.75 Q 155.25 275.625 114.1875 274.5 L 77.625 274.5 L 77.625 351 Z M 160.3125 345.375 Q 172.125 340.875 178.0312 333.8438 Q 183.9375 326.8125 183.9375 312.75 Q 183.9375 299.8125 178.0312 291.0938 Q 172.125 282.375 160.3125 279 Q 165.9375 287.4375 168.1875 296.7188 Q 170.4375 306 170.4375 312.75 Q 170.4375 318.9375 169.0312 327.0938 Q 167.625 335.25 160.3125 345.375 Z M 77.625 259.875 L 106.3125 259.875 Q 123.75 259.5938 131.2031 249.75 Q 138.6562 239.9062 138.9375 221.625 Q 138.6562 203.3438 131.2031 193.5 Q 123.75 183.6562 106.3125 183.375 L 77.625 183.375 L 77.625 259.875 Z M 146.8125 254.25 Q 158.625 248.625 162.8438 241.0312 Q 167.0625 233.4375 167.0625 221.625 Q 167.0625 210.9375 162.5625 202.7812 Q 158.0625 194.625 145.6875 189 Q 151.875 201.375 152.7188 208.4062 Q 153.5625 215.4375 153.5625 221.625 Q 153.5625 227.8125 152.4375 235.125 Q 151.3125 242.4375 146.8125 254.25 Z" stroke-linecap="round" />
+    </g>
 </svg>

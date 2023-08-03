@@ -1,0 +1,39 @@
+---
+import { TEAM } from "../../constants/team.js"
+import H1 from "../atom/H1.astro";
+---
+<section>
+    <H1
+        text="Team"
+    />
+    <div class="grid grid-cols-4 gap-4 py-4">
+    {
+
+        TEAM.map( ( member ) => {
+
+            return (
+                <div class="w-full flex flex-col items-center">
+                    <div class="bg-zinc-300 w-full aspect-square rounded-full relative overflow-hidden border border-zinc-200">
+                        <img
+                            src={ member.image }
+                            fill
+                            unoptimized
+                            priority={ true }
+                            alt={ member.name + "'s picture"}
+                        />
+                    </div>
+                    <div class="mt-2.5 items-center flex flex-col">
+                        <div class="font-semibold text-sm md:text-lg text-zinc-800">{ member.name }</div>
+                        <div class="font-normal text-xs md:text-sm text-zinc-800">{ member.designation }</div>
+                        <a href={ "https://x.com/" + member.twitter } target="_blank" class="mt-2.5">
+                            <div class="relative w-6 h-6 font-bold">&#120143;</div>
+                        </a>
+                    </div>
+                </div>
+            )
+
+        })
+
+    }
+    </div>
+</section>
