@@ -1,9 +1,20 @@
 ---
+// IMPORTING COMPONENTS
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
+import MetaTags from "../components/MetaTags.astro"
+
+// IMPORTING CONSTANTS
+import { BASE_URL } from "../constants"
 ---
 
 <html lang="en">
+	<MetaTags
+		title="Home | Blupp Company"
+		description="Blupp Company"
+		image="ttps://metatags.io/images/meta-tags.png"
+		url={ BASE_URL }
+	/>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
