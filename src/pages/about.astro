@@ -1,25 +1,36 @@
 ---
+// IMPORTING COMPONENTS
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
+import MetaTags from "../components/MetaTags.astro"
+
+// IMPORTING ATOMS
+import H1 from "../components/atom/H1.astro"
+import P from "../components/atom/P.astro"
+
+// IMPORTING CONSTANTS
+import { BASE_URL } from "../constants"
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Blupp.co</title>
-	</head>
+	<MetaTags
+		title="About | Blupp Company"
+		description="About Blupp Company"
+		image="ttps://metatags.io/images/meta-tags.png"
+		url={ BASE_URL + "about" }
+	/>
 	<body>
 		<section class="min-h-screen flex flex-col">
 			<!-- COMPONENT FOR HEADER -->
 			<Header />
 
-			<section class="container max-w-4xl lg:max-w-6xl mx-auto py-6 flex items-center justify-center grow px-4 xl:px-0 flex-col gap-12">
-				<h1 class="text-center text-4xl xl:text-8xl font-bold text-zinc-900">About Blupp Company</h1>
-				<div class="bg-purple-100 px-10 py-2">
-					<h1 class="text-center text-4xl xl:text-6xl font-bold text-purple-900">Making web 2.0 faster.</h1>
-				</div>
+			<section class="container max-w-4xl lg:max-w-6xl mx-auto py-6 flex grow px-4 xl:px-0 flex-col">
+				<H1
+					text="About Blupp Company"
+				/>
+				<P
+					text="I will write about out company and our vision on this page as I get time."
+				/>
 			</section>
 		</section>
 		<!-- FOOTER -->
