@@ -1,0 +1,29 @@
+---
+const {
+
+    blupp_size,
+    blupp_width,
+    size,
+    title,
+    width,
+    without_units,
+
+} = Astro.props
+
+import BluppBar from "./BluppBar.astro"
+import OthersBar from "./OthersBar.astro"
+
+---
+<div class="gap-2 flex flex-col">
+    <div class="font-semibold text-sm">{ title }</div>
+    <BluppBar
+        size={ blupp_size }
+        width={ blupp_width }
+        without_units={ without_units }
+    />
+    <OthersBar
+        size={ size }
+        width={ width }
+        without_units={ without_units }
+    />
+</div>

@@ -1,0 +1,133 @@
+---
+// IMPORTING COMPONENTS
+import Header from "../../components/Header.astro"
+import Footer from "../../components/Footer.astro"
+import MetaTags from "../../components/MetaTags.astro"
+import BluppBar from "../../components/benchmarking/BluppBar.astro"
+import OthersBar from "../../components/benchmarking/OthersBar.astro"
+import Bar from "../../components/benchmarking/Bar.astro"
+
+// IMPORTING CONSTANTS
+import { BASE_URL } from "../../constants"
+
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+
+	const workEntries = await getCollection('benchmarking');
+  	return workEntries.map(entry => ({
+
+		params: { slug: entry.slug }, props: { entry },
+
+  	}))
+
+}
+const { entry } = Astro.props;
+---
+
+<html lang="en">
+	<MetaTags
+		title="Home | Blupp Company"
+		description="Blupp Company"
+		image="ttps://metatags.io/images/meta-tags.png"
+		url={ BASE_URL }
+	/>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Blupp.co</title>
+	</head>
+	<body>
+		<section class="min-h-screen flex flex-col">
+			<!-- COMPONENT FOR HEADER -->
+			<Header />
+			<section class="container max-w-4xl lg:max-w-6xl mx-auto py-6 flex grow px-4 xl:px-0 flex-col gap-12">
+				<div class="font-bold text-4xl text-zinc-900">{ entry.data.page }</div>
+				{
+
+					entry.data.pages?.map( ( data ) =>{
+
+						return (
+							<div class="p-8 bg-zinc-100 rounded border border-zinc-200">
+								<div class="font-bold text-3xl">{ data.name }</div>
+								{
+
+									data.type.map( ( type ) => {
+
+										return (
+
+											<div class="grid grid-cols-3 gap-8 mt-4">
+												<div class="bg-zinc-200 col-span-2 p-8 gap-4 flex flex-col rounded border border-zinc-300">
+													<div class="text-xl font-bold text-zinc-800">{ type.name }</div>
+													<Bar
+														title="Size"
+														blupp_width={ Math.round(type.size_blupp / (type.size + type.size_blupp) * 100) }
+														blupp_size={ type.size_blupp }
+														size={ type.size }
+														width={ Math.round(type.size / (type.size + type.size_blupp) * 100) }
+													/>
+													<Bar
+														title="Transfers"
+														blupp_width={ Math.round(type.transfer_blupp / (type.transfer + type.transfer_blupp) * 100) }
+														blupp_size={ type.transfer_blupp }
+														size={ type.transfer }
+														width={ Math.round(type.transfer / (type.transfer + type.transfer_blupp) * 100) }
+													/>
+													<Bar
+														title="Requests"
+														blupp_width={ Math.round(type.requests_blupp / (type.requests + type.requests_blupp) * 100) }
+														blupp_size={ type.requests_blupp }
+														size={ type.requests }
+														width={ Math.round(type.requests / (type.requests + type.requests_blupp) * 100) }
+														without_units={ true }
+													/>
+												</div>
+												<div class="bg-zinc-200 flex items-center justify-center flex-col gap-4 rounded border border-zinc-300">
+													<div class="text-center">
+														<div class="font-bold text-3xl">
+															{ (type.size / type.size_blupp).toFixed(2) }x
+														</div>
+														<div class="font-light text-zinc-600 text-xs">Size</div>
+													</div>
+													<div class="text-center">
+														<div class="font-bold text-3xl">
+															{ (type.transfer / type.transfer_blupp).toFixed(2) }x
+														</div>
+														<div class="font-light text-zinc-600 text-xs">Transfer</div>
+													</div>
+													<div class="text-center">
+														<div class="font-bold text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+															{ ((type.transfer - type.transfer_blupp)).toFixed(2) }Tb
+														</div>
+														<div class="font-light text-zinc-600 text-xs">Saved</div>
+													</div>
+												</div>
+											</div>
+
+										)
+
+									})
+
+								}
+							</div>
+						)
+
+					})
+
+				}
+				<div class="flex gap-8">
+					<div class="flex gap-4 items-center">
+						<div class="h-8 w-8 bg-gradient-to-r from-indigo-500 to-emerald-400 rounded"></div>
+						<div class="">Blupp</div>
+					</div>
+					<div class="flex gap-4 items-center">
+						<div class="h-8 w-8 bg-slate-700 rounded"></div>
+						<div class="">Other</div>
+					</div>
+				</div>
+			</section>
+		</section>
+		<!-- FOOTER -->
+		<Footer />
+	</body>
+</html>
