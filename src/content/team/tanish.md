@@ -1,6 +1,6 @@
 ---
 name: "Tanish"
-image: "https://imagedelivery.net/Fa78fXSHPrjuUqH3jLh72Q/536d85ca-ab9e-494a-0ebd-66017ad11800/public"
+image: "https://blupp.b-cdn.net/blupp/tanish.avif"
 twitter: "tanishdotdev"
 designation: "Chief of Staff"
 order: 2
