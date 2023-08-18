@@ -1,0 +1,13 @@
+---
+const {
+
+    size,
+    width,
+    without_units,
+
+} = Astro.props
+---
+<div class="flex gap-4 items-center">
+    <div class={`h-8 rounded bg-gradient-to-r from-indigo-500 to-emerald-400`} style={`width: ${ width }%`} />
+    <div class="font-light text-sm text-zinc-700">{ size }{ without_units ? "": "Kb" }</div>
+</div>
