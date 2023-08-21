@@ -3,5 +3,5 @@ const { size, width, without_units } = Astro.props
 ---
 <div class="flex gap-4 items-center">
     <div class={`h-8 rounded bg-slate-700`} style={`width: ${ width }%`} />
-    <div class="font-light text-sm text-zinc-700">{ size }{ without_units ? "": "Kb" }</div>
+    <div class="font-light text-sm text-zinc-700">{ size > 1000 ? (size/1000).toFixed(2) : size }{ without_units ? "": size > 1000 ? "Mb" : "Kb" }</div>
 </div>
