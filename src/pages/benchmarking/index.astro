@@ -8,6 +8,9 @@ import P from "../../components/atom/P.astro"
 
 // IMPORTING CONSTANTS
 import { BASE_URL } from "../../constants"
+
+import { getCollection } from 'astro:content';
+const benchmarking = await getCollection('benchmarking');
 ---
 
 <html lang="en">
@@ -31,6 +34,19 @@ import { BASE_URL } from "../../constants"
 			<H1
 				text="Benchmarking Results"
 			/>
+			{
+
+				benchmarking.map( ( project ) => {
+					return(
+						<a href={ "/benchmarking/" + project.slug }>
+							<div>
+								<div>{ project.data.page }</div>
+							</div>
+						</a>
+					)
+				})
+
+			}
 		</section>
 
 		<!-- FOOTER -->
