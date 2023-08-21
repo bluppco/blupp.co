@@ -110,7 +110,18 @@ entry.data.pages?.map( ( pages ) => {
 							</div>
 							<div class="text-center">
 								<div class="font-bold text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
-									{ ((+data.transfer - +data.transfer_blupp)).toFixed(2) }Tb<sup>*</sup>
+									{
+
+										(+data.transfer - +data.transfer_blupp) < 1000 &&
+										<div>{ ((+data.transfer - +data.transfer_blupp)).toFixed(2) }Tb<sup>*</sup></div>
+
+									}
+									{
+
+										(+data.transfer - +data.transfer_blupp) > 1000 &&
+										<div>{ ((+data.transfer - +data.transfer_blupp)/1000).toFixed(2) }Pb<sup>*</sup></div>
+
+									}
 								</div>
 								<div class="font-light text-zinc-600 text-xs">Saved</div>
 							</div>
@@ -124,14 +135,14 @@ entry.data.pages?.map( ( pages ) => {
 
 						return (
 							<div class="p-8 bg-zinc-100 rounded border border-zinc-200">
-								<div class="font-bold text-3xl">{ data.name }</div>
+								<div class="font-bold text-3xl">{ data.name } Page</div>
 								{
 
 									data.type.map( ( type ) => {
 
 										return (
 
-											<div class="grid grid-cols-3 gap-8 mt-4">
+											<div class="grid grid-cols-3 gap-8 mt-8">
 												<div class="bg-zinc-200 col-span-2 p-8 gap-4 flex flex-col rounded border border-zinc-300">
 													<div class="text-xl font-bold text-zinc-800">{ type.name }</div>
 													<Bar
@@ -160,13 +171,13 @@ entry.data.pages?.map( ( pages ) => {
 												<div class="bg-zinc-200 flex items-center justify-center flex-col gap-4 rounded border border-zinc-300">
 													<div class="text-center">
 														<div class="font-bold text-3xl">
-															{ (type.size / type.size_blupp).toFixed(2) }x
+															{ Number.isFinite(+(type.size / type.size_blupp).toFixed(2)) ? (type.size / type.size_blupp).toFixed(2) +"x" : "🚀" }
 														</div>
 														<div class="font-light text-zinc-600 text-xs">Size</div>
 													</div>
 													<div class="text-center">
 														<div class="font-bold text-3xl">
-															{ (type.transfer / type.transfer_blupp).toFixed(2) }x
+															{ Number.isFinite(+(type.transfer / type.transfer_blupp).toFixed(2)) ? (type.transfer / type.transfer_blupp).toFixed(2) +"x" : "🚀" }
 														</div>
 														<div class="font-light text-zinc-600 text-xs">Transfer</div>
 													</div>
