@@ -4,6 +4,7 @@ const benchmarkingCollection = defineCollection({
 	schema: z.object({
 
 		page: z.string(),
+		other_technology: z.string(),
 		pages: z.array(z.object({
 
 			name: z.string(),
