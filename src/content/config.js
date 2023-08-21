@@ -4,6 +4,7 @@ const benchmarkingCollection = defineCollection({
 	schema: z.object({
 
 		page: z.string(),
+		other_technology: z.string(),
 		pages: z.array(z.object({
 
 			name: z.string(),
@@ -23,9 +24,18 @@ const benchmarkingCollection = defineCollection({
 	})
 
 })
+const teamCollection = defineCollection({
+
+	designation: z.string(),
+	image: z.string(),
+	name: z.string(),
+	twitter: z.string(),
+
+})
 
 export const collections = {
 
 	"benchmarking": benchmarkingCollection,
+	"team": teamCollection,
 
 }
