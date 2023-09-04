@@ -1,0 +1,203 @@
+---
+import Bar from "../../components/benchmarking/Bar.astro"
+const { data } = Astro.props
+// console.log( data )
+let statistics = {
+
+    name: "Overall",
+    requests_blupp: "0",
+    requests: "0",
+    size_blupp: "0",
+    size: "0",
+    transfer_blupp: "0",
+    transfer: "0",
+
+}
+data.type.map( (page) => {
+
+    statistics.requests_blupp = ( parseFloat(statistics.requests_blupp) + parseFloat(page.requests_blupp)).toFixed(2)
+    statistics.requests = ( parseFloat(statistics.requests) + parseFloat(page.requests)).toFixed(2)
+    statistics.size_blupp = ( parseFloat(statistics.size_blupp) + parseFloat(page.size_blupp)).toFixed(2)
+    statistics.size = ( parseFloat(statistics.size) + parseFloat(page.size)).toFixed(2)
+    statistics.transfer_blupp = ( parseFloat(statistics.transfer_blupp) + parseFloat(page.transfer_blupp)).toFixed(2)
+    statistics.transfer = ( parseFloat(statistics.transfer) + parseFloat(page.transfer)).toFixed(2)
+
+})
+const bandwidth_saved_25000 = (+statistics.transfer - +statistics.transfer_blupp) * 25000
+const bandwidth_saved_100000 = (+statistics.transfer - +statistics.transfer_blupp) * 100000
+const bandwidth_saved_1000000 = (+statistics.transfer - +statistics.transfer_blupp) * 1000000
+
+const savings = {
+
+    vercel: {
+        1: (bandwidth_saved_25000 * .4 / ( 1000 * 1000 ) ).toFixed(2), // .4 per GB
+        2: (bandwidth_saved_100000 * .4 / ( 1000 * 1000 ) ).toFixed(2), // .4 per GB
+        3: (bandwidth_saved_1000000 * .4 / ( 1000 * 1000 ) ).toFixed(2) // .4 per GB
+    },
+    kinsta: {
+        1: (bandwidth_saved_25000 * .1 / ( 1000 * 1000 ) ).toFixed(2), // .1 per GB
+        2: (bandwidth_saved_100000 * .1 / ( 1000 * 1000 ) ).toFixed(2), // .1 per GB
+        3: (bandwidth_saved_1000000 * .1 / ( 1000 * 1000 ) ).toFixed(2) // .1 per GB
+    }
+
+}
+---
+<section>
+    <div class="grid grid-cols-3 gap-8 mt-4">
+        <div class="bg-zinc-200 col-span-1 p-8 gap-4 flex flex-col rounded border border-zinc-300">
+            <div class="text-xl font-bold text-zinc-800">{ statistics.name }</div>
+            <Bar
+                title="Size"
+                blupp_width={ Math.round(+statistics.size_blupp / (+statistics.size + +statistics.size_blupp) * 100) }
+                blupp_size={ +statistics.size_blupp }
+                size={ +statistics.size }
+                width={ Math.round(+statistics.size / (+statistics.size + +statistics.size_blupp) * 100) }
+            />
+            <Bar
+                title="Transfers"
+                blupp_width={ Math.round(+statistics.transfer_blupp / (+statistics.transfer + +statistics.transfer_blupp) * 100) }
+                blupp_size={ +statistics.transfer_blupp }
+                size={ +statistics.transfer }
+                width={ Math.round(+statistics.transfer / (+statistics.transfer + +statistics.transfer_blupp) * 100) }
+            />
+            <Bar
+                title="Requests"
+                blupp_width={ Math.round(+statistics.requests_blupp / (+statistics.requests + +statistics.requests_blupp) * 100) }
+                blupp_size={ +statistics.requests_blupp }
+                size={ +statistics.requests }
+                width={ Math.round(+statistics.requests / (+statistics.requests + +statistics.requests_blupp) * 100) }
+                without_units={ true }
+            />
+        </div>
+        <div class="bg-zinc-200 flex items-center justify-center flex-col gap-4 rounded border border-zinc-300 relative">
+            <div class="text-center">
+                <div class="font-bold text-4xl text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-emerald-400">
+                    { (+statistics.size / +statistics.size_blupp).toFixed(2) }x
+                </div>
+                <div class="font-light text-zinc-600 text-xs">Size</div>
+            </div>
+            <div class="text-center">
+                <div class="font-bold text-4xl text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-emerald-400">
+                    { (+statistics.transfer / +statistics.transfer_blupp).toFixed(2) }x
+                </div>
+                <div class="font-light text-zinc-600 text-xs">Transfer</div>
+            </div>
+            <!-- 25000 hits -->
+            <div class="text-center">
+                <div class="font-bold text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    {
+
+                        ((bandwidth_saved_25000) < 1000) &&
+                        <div>{ (bandwidth_saved_25000).toFixed(2) }Kb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        ((bandwidth_saved_25000) < 1000000) &&
+                        <div>{ (bandwidth_saved_25000 / 1000).toFixed(2) }Mb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        (bandwidth_saved_25000) > 1000000 && (bandwidth_saved_25000) < 1000000000 &&
+                        <div>{ (bandwidth_saved_25000 / 1000000).toFixed(2) }Gb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        bandwidth_saved_25000 > 1000000000 && bandwidth_saved_25000 < 10000000000000 &&
+                        <div>{ (bandwidth_saved_25000 / 1000000000).toFixed(2) }Tb<sup>*</sup></div>
+
+                    }
+                </div>
+                <div class="font-light text-zinc-600 text-xs">Saved over 25,000 hits</div>
+            </div>
+            <!-- 100,000 hits -->
+            <div class="text-center">
+                <div class="font-bold text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    {
+
+                        ((bandwidth_saved_100000) < 1000) &&
+                        <div>{ (bandwidth_saved_100000).toFixed(2) }Kb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        ((bandwidth_saved_100000) < 1000000) &&
+                        <div>{ (bandwidth_saved_100000 / 1000).toFixed(2) }Mb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        (bandwidth_saved_100000) > 1000000 && (bandwidth_saved_100000) < 1000000000 &&
+                        <div>{ (bandwidth_saved_100000 / 1000000).toFixed(2) }Gb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        bandwidth_saved_100000 > 1000000000 && bandwidth_saved_25000 < bandwidth_saved_100000 &&
+                        <div>{ (bandwidth_saved_100000 / 1000000000).toFixed(2) }Tb<sup>*</sup></div>
+
+                    }
+                </div>
+                <div class="font-light text-zinc-600 text-xs">Saved over 100,000 hits</div>
+            </div>
+            <!-- 1,000,000 hits -->
+            <div class="text-center">
+                <div class="font-bold text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    {
+
+                        ((bandwidth_saved_1000000) < 1000) &&
+                        <div>{ (bandwidth_saved_1000000).toFixed(2) }Kb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        ((bandwidth_saved_1000000) < 1000000) &&
+                        <div>{ (bandwidth_saved_1000000 / 1000).toFixed(2) }Mb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        (bandwidth_saved_1000000) > 1000000 && (bandwidth_saved_1000000) < 1000000000 &&
+                        <div>{ (bandwidth_saved_1000000 / 1000000).toFixed(2) }Gb<sup>*</sup></div>
+
+                    }
+                    {
+
+                        bandwidth_saved_1000000 > 1000000000 && bandwidth_saved_25000 < bandwidth_saved_1000000 &&
+                        <div>{ (bandwidth_saved_1000000 / 1000000000).toFixed(2) }Tb<sup>*</sup></div>
+
+                    }
+                </div>
+                <div class="font-light text-zinc-600 text-xs">Saved over 1M hits</div>
+            </div>
+        </div>
+        <div class="bg-zinc-200 flex items-center justify-center flex-col gap-4 rounded border border-zinc-300 relative">
+            <div class="flex justify-between gap-4">
+                <div class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    ${ savings.vercel[1] }
+                </div>
+                <div class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    ${ savings.vercel[2] }
+                </div>
+                <div class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    ${ savings.vercel[3] }
+                </div>
+            </div>
+            <div class="font-light text-zinc-600 text-xs">Vercel</div>
+            <div class="flex justify-between gap-4">
+                <div class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    ${ savings.kinsta[1] }
+                </div>
+                <div class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    ${ savings.kinsta[2] }
+                </div>
+                <div class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                    ${ savings.kinsta[3] }
+                </div>
+            </div>
+            <div class="font-light text-zinc-600 text-xs">Kinsta</div>
+        </div>
+    </div>
+</section>
