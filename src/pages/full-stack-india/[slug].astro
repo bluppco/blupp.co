@@ -16,15 +16,7 @@ const { Content } = await Astro.props.entry.render();
 import Header from "../../components/Header.astro"
 import Footer from "../../components/Footer.astro"
 import Layout from "../../layouts/Layout.astro"
-import Container from "../../layouts/Container.astro"
-
-import {
-
-	CDN_LINK,
-	IMAGE_QUALITY
-
-} from "../../constants/images"
-
+import ContainerNoPadding from '../../layouts/ContainerNoPadding.astro'
 ---
 <Layout
 	title={ entry.data.seo_title }
@@ -32,7 +24,7 @@ import {
 	image={entry.data.image}
 >
 	<Header />
-	<Container>
+	<ContainerNoPadding>
 		<section class="min-h-screen">
 			<div class="space-y-2 py-6">
 				<div class="text-2xl font-bold">{ entry.data.title }</div>
@@ -45,6 +37,6 @@ import {
 				<Content />
 			</div>
 		</section>
-	</Container>
+	</ContainerNoPadding>
 	<Footer />
 </Layout>
