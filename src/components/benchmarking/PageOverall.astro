@@ -43,7 +43,7 @@ const savings = {
 }
 ---
 <section>
-    <div class="grid grid-cols-3 gap-8 mt-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
         <div class="bg-zinc-200 col-span-1 p-8 gap-4 flex flex-col rounded border border-zinc-300">
             <div class="text-xl font-bold text-zinc-800">{ statistics.name }</div>
             <Bar
@@ -69,22 +69,22 @@ const savings = {
                 without_units={ true }
             />
         </div>
-        <div class="bg-zinc-200 flex items-center justify-center flex-col gap-4 rounded border border-zinc-300 relative">
+        <div class="p-4 bg-zinc-200 flex items-center justify-center flex-col gap-4 rounded border border-zinc-300 relative">
             <div class="text-center">
-                <div class="font-bold text-4xl text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-emerald-400">
+                <div class="font-bold text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-emerald-400">
                     { (+statistics.size / +statistics.size_blupp).toFixed(2) }x
                 </div>
                 <div class="font-light text-zinc-600 text-xs">Size</div>
             </div>
             <div class="text-center">
-                <div class="font-bold text-4xl text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-emerald-400">
+                <div class="font-bold text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-emerald-400">
                     { (+statistics.transfer / +statistics.transfer_blupp).toFixed(2) }x
                 </div>
                 <div class="font-light text-zinc-600 text-xs">Transfer</div>
             </div>
             <!-- 25000 hits -->
             <div class="text-center">
-                <div class="font-bold text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                <div class="font-bold text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
                     {
 
                         ((bandwidth_saved_25000) < 1000) &&
@@ -114,7 +114,7 @@ const savings = {
             </div>
             <!-- 100,000 hits -->
             <div class="text-center">
-                <div class="font-bold text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                <div class="font-bold text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
                     {
 
                         ((bandwidth_saved_100000) < 1000) &&
@@ -144,7 +144,7 @@ const savings = {
             </div>
             <!-- 1,000,000 hits -->
             <div class="text-center">
-                <div class="font-bold text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
+                <div class="font-bold text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
                     {
 
                         ((bandwidth_saved_1000000) < 1000) &&
@@ -173,8 +173,8 @@ const savings = {
                 <div class="font-light text-zinc-600 text-xs">Saved over 1M hits</div>
             </div>
         </div>
-        <div class="bg-zinc-200 flex items-center justify-center flex-col gap-4 rounded border border-zinc-300 relative">
-            <div class="flex justify-between gap-4">
+        <div class="p-4 bg-zinc-200 flex items-center justify-center flex-col gap-4 rounded border border-zinc-300 relative">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                 <div class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
                     ${ savings.vercel[1] }
                 </div>
@@ -186,7 +186,7 @@ const savings = {
                 </div>
             </div>
             <div class="font-light text-zinc-600 text-xs">Vercel</div>
-            <div class="flex justify-between gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                 <div class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600">
                     ${ savings.kinsta[1] }
                 </div>
