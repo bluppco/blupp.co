@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 const { entry } = Astro.props;
 const { Content } = await Astro.props.entry.render();
-import Header from "../../components/Header.astro"
+import Header from "../../components/header/Header.astro"
 import Footer from "../../components/Footer.astro"
 import Layout from "../../layouts/Layout.astro"
 import ContainerNoPadding from '../../layouts/ContainerNoPadding.astro'
