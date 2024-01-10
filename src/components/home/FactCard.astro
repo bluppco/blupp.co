@@ -10,14 +10,14 @@ const {
 
 } = Astro.props
 ---
-<div class={` ${ large ? "w-60 h-[400px]" : "w-60 h-80" } bg-emerald-50 rounded-2xl border border-black p-4 flex flex-col gap-4 items-center hover:shadow-2xl`}>
-    <div class="size-10">
+<div class={` ${ large ? "w-full h-full" : "w-full h-full" } bg-slate-100 rounded-2xl border border-black p-4 flex flex-col gap-4 items-center hover:shadow-2xl`}>
+    <div class="w-20 aspect-video">
         <img
             src={ src }
             alt={ alt }
             class="w-full h-full object-contain"
         />
     </div>
-    <p class="text-lg text-center font-medium">{ title }</p>
+    <p class="text-lg text-center font-playfair font-medium">{ title }</p>
     <p class="text-center">{ description }</p>
 </div>
