@@ -4,6 +4,12 @@ module.exports = {
 	theme: {
 		extend: {
 
+			fontFamily: {
+
+				"abril": ["Abril Fatface", "display"],
+				"almarai": ["Almarai", "sans-serif"]
+			},
+
 			colors: {
 
 				blupp_black: "#030303",
