@@ -1,27 +1,39 @@
+---
+// IMPORTING LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+// IMPORTING ATOMS
+import ButtonLight from "../atom/ButtonLight.astro"
+---
 <!-- HEADER COMPONENT WITH TAILWIND -->
-<header class="bg-zinc-700">
+<header class="h-20 bg-zinc-700 flex items-center">
     <!--  FIX FOR IPAD -->
-    <div class="container max-w-4xl lg:max-w-6xl mx-auto py-2 px-4 xl:px-0 flex justify-between">
-        <h1 class="font-bold text-lg md:text-2xl text-white">
-            <a href="/">
-                <span class="text-6xl">&#120121;</span>
-            </a>
-        </h1>
-        <ul class="flex items-center gap-4 md:gap-10">
-            <li>
-                <a href="/projects">
-                    <span class="md:font-medium text-md md:text-lg text-white hover:cursor-pointer">
-                        Projects
-                    </span>
+    <Container>
+        <div class="flex h-full items-center justify-between">
+            <h1 class="font-bold text-lg md:text-2xl text-white">
+                <a href="/">
+                    <span class="text-6xl">&#120121;</span>
                 </a>
-            </li>
-            <li>
-                <a href="/about">
-                    <span class="md:font-medium text-md md:text-lg text-white hover:cursor-pointer">
-                        Company
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </div>
+            </h1>
+            <div class="flex items-center gap-20">
+                <ul class="flex items-center gap-4 md:gap-10">
+                    <li>
+                        <a href="/projects">
+                            <span class="md:font-medium text-md md:text-lg text-white hover:cursor-pointer">
+                                Projects
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <span class="md:font-medium text-md md:text-lg text-white hover:cursor-pointer">
+                                Company
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <ButtonLight href="" aria_label="">Get in touch</ButtonLight>
+            </div>
+        </div>
+    </Container>
 </header>
