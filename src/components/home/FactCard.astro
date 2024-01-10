@@ -10,8 +10,8 @@ const {
 
 } = Astro.props
 ---
-<div class={` ${ large ? "w-full h-full" : "w-full h-full" } bg-slate-100 rounded-2xl border border-black p-4 flex flex-col gap-4 items-center hover:shadow-2xl`}>
-    <div class="w-20 aspect-video">
+<div class={` ${ large ? "w-full h-full" : "w-full h-full" } bg-slate-100 rounded-2xl border border-zinc-200 p-4 flex flex-col gap-4 items-center hover:shadow-2xl`}>
+    <div class="w-40 aspect-video">
         <img
             src={ src }
             alt={ alt }
@@ -19,5 +19,7 @@ const {
         />
     </div>
     <p class="text-lg text-center font-playfair font-medium">{ title }</p>
+    <p class="text-lg text-center font-playfair font-medium">Cloudflare</p>
+    <p class="text-lg text-center font-playfair font-medium">Notion</p>
     <p class="text-center">{ description }</p>
 </div>
