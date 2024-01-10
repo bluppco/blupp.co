@@ -2,33 +2,38 @@
 // IMPORTING COMPONENTS
 import FactCard from "./FactCard.astro"
 
-const data = Array(3).fill({
+const data = Array(1).fill({
 
-    src: "/image.png",
+    src: "/server.svg",
     alt: "",
-    title: "Why are we using Astro",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque est voluptatum, rerum deleniti vitae nostrum maxime vel itaque.",
+    title: "Astro",
+    description: "That's the recipe for our speed.",
     href: ""
 
 })
 ---
-<section class="grid grid-cols-2 gap-10 h-full">
-    <!-- <a href="/">
-        <span class="text-[120px] text-white bg-black rounded-full px-12 py-4">&#120121;</span>
-    </a> -->
-    <div class="flex justify-center items-center">
-        <a href="">
-            <div class="p-12 bg-zinc-100 rounded-full w-fit hover:shadow-2xl">
-                <div class="w-24 aspect-square rounded-full">
-                    <img
-                        src="/blupp_favicon.svg"
-                        alt=""
-                        class="w-24 aspect-square"
-                    />
+<section class="grid grid-cols-1 gap-4 h-full">
+    <a href="/" class="flex items-start justify-start">
+        <span class="text-[60px] text-white bg-black rounded-full w-1/2 aspect-square text-center flex justify-center items-center">&#120121;</span>
+    </a>
+    {
+
+        false &&
+        <div class="flex justify-center items-center">
+            <a href="">
+                <div class="p-12 bg-zinc-100 rounded-full w-fit hover:shadow-2xl">
+                    <div class="w-24 aspect-square rounded-full">
+                        <img
+                            src="/blupp_favicon.svg"
+                            alt=""
+                            class="w-24 aspect-square"
+                        />
+                    </div>
                 </div>
-            </div>
-        </a>
-    </div>
+            </a>
+        </div>
+
+    }
     {
 
         data.map( ( value, index ) => {

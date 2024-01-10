@@ -1,13 +1,15 @@
 ---
 // IMPORTING COMPONENTS
-import Headeritem from "./Headeritem.astro"
+import HeaderItem from "./HeaderItem.astro"
 ---
 <header class="hidden md:block h-14">
-    <nav class="flex items-center h-full">
+    <nav class="flex items-center h-full justify-end">
         <ul class="flex gap-8">
-            <Headeritem href="/">Home</Headeritem>
-            <Headeritem href="/projects">Projects</Headeritem>
-            <Headeritem href="/about">Company</Headeritem>
+            <HeaderItem href="/projects">Projects</HeaderItem>
+            <HeaderItem href="/about">Company</HeaderItem>
+            <div class="font-playfair tracking-wide underline">
+                <a href="mailto:contact@blupp.co"><span class="font-medium">mohit@blupp.co</span></a>
+            </div>
         </ul>
     </nav>
 </header>
