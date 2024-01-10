@@ -1,8 +1,9 @@
 ---
 const { href } = Astro.props
 ---
-<li class="text-sm uppercase">
+<li class="uppercase group">
     <a href={ href }>
         <slot/>
     </a>
+    <div class="w-0 bg-black group-hover:w-full h-[1px] transition-width duration-300 ease-in"></div>
 </li>

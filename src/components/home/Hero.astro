@@ -1,8 +1,37 @@
 ---
-// IMPORT ATOMS
+// IMPORTING ATOMS
 import Button from "../atom/Button.astro"
+
+// IMPORTING COMPONENTS
+import InformationCard from "./InformationCard.astro"
+
+const data = Array(1).fill({
+
+    title: "For your business",
+    description: "Our services are designed with the cutting edge technology.",
+
+})
 ---
-<section>
+<section class="flex flex-col gap-10">
     <h1 class="text-8xl font-medium">Making web 2.0 faster.</h1>
-    <Button href="" aria_label="get in touch" >Get in touch</Button>
+    <div class="space-y-1">
+        <Button href="" aria_label="get in touch" >Get in touch</Button>
+        <p class="text-xs">Or email us at : <a href="mailto:contact@blupp.co"><span class="font-medium">contact@blupp.co</span></a></p>
+    </div>
+    <div class="pt-10">
+        {
+
+            data.map( ( value ) => {
+
+                return(
+                    <InformationCard
+                        title={ value.title }
+                        description={ value.description }
+                    />
+                )
+
+            })
+
+        }
+    </div>
 </section>
