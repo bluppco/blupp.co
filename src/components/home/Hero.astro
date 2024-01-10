@@ -1,6 +1,10 @@
 ---
-// IMPORTING ATOMS
+// IMPORTING ASTRO ATOMS
 import Button from "../atom/Button.astro"
+
+// IMPORTING JSX ATOMS
+import AnnotateUnderline from "../atom/jsx/annotation/Underline"
+import AnnotateCircle from "../atom/jsx/annotation/Circle"
 
 // IMPORTING COMPONENTS
 import InformationCard from "./InformationCard.astro"
@@ -13,10 +17,18 @@ const data = Array(1).fill({
 })
 ---
 <section class="flex flex-col gap-10">
-    <h1 class="text-8xl font-medium">Making web 2.0 faster.</h1>
-    <div class="space-y-1">
+        <div>
+            <span class="text-8xl font-medium">Making </span>
+            <AnnotateUnderline client:load>
+                <span class="text-8xl font-medium">web 2.0 </span>
+            </AnnotateUnderline>
+            <AnnotateCircle client:load>
+                <span class="text-8xl font-medium">faster.</span>
+            </AnnotateCircle>
+        </div>
+    <div class="space-y-2 pt-10">
         <Button href="" aria_label="get in touch" >Get in touch</Button>
-        <p class="text-xs">Or email us at : <a href="mailto:contact@blupp.co"><span class="font-medium">contact@blupp.co</span></a></p>
+        <p class="text-sm">Or email us at : <a href="mailto:contact@blupp.co"><span class="font-medium">contact@blupp.co</span></a></p>
     </div>
     <div class="pt-10">
         {
