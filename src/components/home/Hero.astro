@@ -18,22 +18,22 @@ const data = Array(1).fill({
 ---
 <section class="flex flex-col gap-10">
         <div>
-            <span class="text-8xl font-medium font-abril">Making </span>
+            <span class="text-7xl md:text-8xl font-medium font-abril">Making </span>
             <AnnotateUnderline client:load>
-                <span class="text-8xl font-medium font-abril">web 2.0 </span>
+                <span class="text-7xl md:text-8xl font-medium font-abril">web 2.0 </span>
             </AnnotateUnderline>
-            <span class="text-8xl font-medium font-abril"> ultra </span>
+            <span class="text-7xl md:text-8xl font-medium font-abril"> ultra </span>
             <AnnotateCircle client:load>
-                <span class="text-8xl font-medium font-abril">fast.</span>
+                <span class="text-7xl md:text-8xl font-medium font-abril">fast.</span>
             </AnnotateCircle>
         </div>
-    <div class="space-y-2 pt-10">
+    <div class="space-y-2 pt-4 md:pt-10">
         <!-- TRACK THIS EVENTw -->
         <a href="https://cal.com/mohitdotdev">
             <Button href="" aria_label="get in touch" >Get in Touch</Button>
         </a>
     </div>
-    <div class="pt-10">
+    <div class="md:pt-10">
         {
 
             data.map( ( value ) => {
