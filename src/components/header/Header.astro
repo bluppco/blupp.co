@@ -4,8 +4,10 @@ import Container from "../../layouts/Container.astro"
 
 // IMPORTING ATOMS
 import ButtonLight from "../atom/ButtonLight.astro"
+
+// IMPORTING COMPONENTS
+import HeaderItem from "./HeaderItem.astro"
 ---
-<!-- HEADER COMPONENT WITH TAILWIND -->
 <header class="h-20 bg-zinc-700 flex items-center">
     <!--  FIX FOR IPAD -->
     <Container>
@@ -17,20 +19,8 @@ import ButtonLight from "../atom/ButtonLight.astro"
             </h1>
             <div class="flex items-center gap-20">
                 <ul class="flex items-center gap-4 md:gap-10">
-                    <li>
-                        <a href="/projects">
-                            <span class="md:font-medium text-md md:text-lg text-white hover:cursor-pointer">
-                                Projects
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about">
-                            <span class="md:font-medium text-md md:text-lg text-white hover:cursor-pointer">
-                                Company
-                            </span>
-                        </a>
-                    </li>
+                    <HeaderItem href="/projects">Projects</HeaderItem>
+                    <HeaderItem href="/about">Company</HeaderItem>
                 </ul>
                 <ButtonLight href="" aria_label="">Get in touch</ButtonLight>
             </div>
