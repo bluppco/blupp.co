@@ -1,4 +1,7 @@
 ---
+// IMPORTING ATOMS
+import HeadingThree from "../atom/heading/Three.astro"
+
 const {
 
     name,
@@ -19,8 +22,8 @@ const {
             class="w-full h-full object-cover"
         />
     </div>
-    <div class="space-y-4">
-        <p class="text-2xl font-playfair">{ name }</p>
+    <div class="space-y-6">
+        <HeadingThree>{ name }</HeadingThree>
         <p class="text-lg">{ description }</p>
         <div class="flex gap-10 items-center">
             <a href={ github_link } target="_blank">
