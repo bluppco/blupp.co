@@ -11,8 +11,8 @@ import InformationCard from "./InformationCard.astro"
 
 const data = Array(1).fill({
 
-    title: "For your business",
-    description: "Our services are designed with the cutting edge technology.",
+    title: "This page serves only xkb of html, yKb of css, zKb of JS and loads under 50ms. Yours can too.",
+    description: "Let us help you, get your website ultra fast.",
 
 })
 ---
@@ -22,13 +22,16 @@ const data = Array(1).fill({
             <AnnotateUnderline client:load>
                 <span class="text-8xl font-medium font-abril">web 2.0 </span>
             </AnnotateUnderline>
+            <span class="text-8xl font-medium font-abril"> ultra </span>
             <AnnotateCircle client:load>
-                <span class="text-8xl font-medium font-abril">faster.</span>
+                <span class="text-8xl font-medium font-abril">fast.</span>
             </AnnotateCircle>
         </div>
     <div class="space-y-2 pt-10">
-        <Button href="" aria_label="get in touch" >Get in touch</Button>
-        <p class="text-sm">Or email us at : <a href="mailto:contact@blupp.co"><span class="font-medium">contact@blupp.co</span></a></p>
+        <!-- TRACK THIS EVENTw -->
+        <a href="https://cal.com/mohitdotdev">
+            <Button href="" aria_label="get in touch" >Get in Touch</Button>
+        </a>
     </div>
     <div class="pt-10">
         {
