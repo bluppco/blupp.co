@@ -9,12 +9,11 @@ const {
     src,
     alt,
     github_link,
-    benchmarking_link,
     website_link
 
 } = Astro.props
 ---
-<div class="space-y-8 p-4 rounded border border-zinc-200 bg-gray-50 shadow">
+<div class="space-y-6 md:space-y-8 p-4 rounded border border-zinc-200 bg-gray-50 shadow">
     <div class="w-full aspect-video bg-zinc-200">
         <img
             src={ src }
@@ -22,9 +21,9 @@ const {
             class="w-full h-full object-cover"
         />
     </div>
-    <div class="space-y-6">
+    <div class="space-y-4 md:space-y-6">
         <HeadingThree>{ name }</HeadingThree>
-        <p class="text-lg">{ description }</p>
+        <p class="md:text-lg">{ description }</p>
         <div class="flex gap-10 items-center">
             <a href={ github_link } target="_blank">
                 <div class="w-8 aspect-square">
