@@ -11,9 +11,9 @@ const HeaderMobile = () => {
     return (
         <header className="md:hidden bg-white px-6 py-4 fixed z-20 w-full border-b border-b-zinc-200">
             <div className="flex justify-between items-center z-20">
-                <p class="font-bold text-lg md:text-2xl text-black">
+                <p className="font-bold text-lg md:text-2xl text-black">
                     <a href="/">
-                        <span class="text-5xl">&#120121;</span>
+                        <span className="text-5xl">&#120121;</span>
                     </a>
                 </p>
                 <div onClick={ () => updateOpen( !isOpen ) }>
