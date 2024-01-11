@@ -1,0 +1,64 @@
+---
+// IMPORTING ATOMS
+import HeadingThree from "../atom/heading/Three.astro"
+
+const {
+
+    name,
+    description,
+    src,
+    alt,
+    github_link,
+    website_link
+
+} = Astro.props
+---
+<div class="space-y-6 md:space-y-8 p-4 rounded border border-zinc-200 bg-gray-50 shadow">
+    <div class="w-full aspect-video bg-zinc-200">
+        <img
+            src={ src }
+            alt={ alt }
+            class="w-full h-full object-cover"
+        />
+    </div>
+    <div class="space-y-4 md:space-y-6">
+        <HeadingThree>{ name }</HeadingThree>
+        <p class="md:text-lg">{ description }</p>
+        <div class="flex gap-10 items-center">
+            <a href={ github_link } target="_blank">
+                <div class="w-8 aspect-square">
+                    <img
+                        src="/github.svg"
+                        alt=""
+                        class="w-8 aspect-square"
+                    />
+                </div>
+            </a>
+            <a href={ website_link + "/benchmarking" } target="_blank">
+                <div class="w-7 aspect-square">
+                    <img
+                        src="/icons/benchmarking.svg"
+                        alt=""
+                        class="w-7 aspect-square"
+                    />
+                </div>
+            </a>
+            <div class="w-7 aspect-square">
+                <img
+                    src="/icons/notion.svg"
+                    alt=""
+                    class="w-7 aspect-square"
+                />
+            </div>
+            <!-- <a href={ website_link }>
+                <div class="w-8 aspect-square">
+                    <img
+                        src="/icons/website.svg"
+                        alt=""
+                        class="w-8 aspect-square"
+                    />
+                </div>
+            </a> -->
+        </div>
+    </div>
+</div>

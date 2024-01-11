@@ -1,0 +1,45 @@
+---
+// IMPORTING LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+// IMPORTING COMPONENTS
+import ProjectCard from "./ProjectCard.astro"
+
+// IMPORTING ATOMS
+import HeadingOne from "../atom/heading/One.astro"
+
+const data = Array(6).fill({
+
+    name: "OseNorth",
+    description: "An award winning full-service creative agency, infinitely crazy about functional, emotional and polished digital interfaces and products.",
+    cover: "/osenorth-cover.png",
+    github_link: "https://github.com/bluppco/osenorth",
+    website_link: "https://osenorth.blupp.co"
+
+})
+---
+<Container>
+    <section class="py-4 md:py-10 space-y-4 md:space-y-10 pt-28 md:pt-0">
+        <HeadingOne>Projects</HeadingOne>
+        <section class="grid md:grid-cols-2 gap-10">
+            {
+
+                data.map( ( value ) => {
+
+                    return(
+                        <ProjectCard
+                            name={ value.name }
+                            description={ value.description }
+                            src={ value.cover }
+                            alt={ value.name }
+                            github_link={ value.github_link }
+                            website_link={ value.website_link }
+                        />
+                    )
+
+                })
+
+            }
+        </section>
+    </section>
+</Container>
