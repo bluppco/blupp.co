@@ -18,11 +18,13 @@ import HeaderItem from "./HeaderItem.astro"
                 </a>
             </h1>
             <div class="flex items-center gap-20">
-                <ul class="flex items-center gap-4 md:gap-10">
+                <ul class="flex items-center gap-6 md:gap-10">
                     <HeaderItem href="/projects">Projects</HeaderItem>
                     <HeaderItem href="/about">Company</HeaderItem>
                 </ul>
-                <ButtonLight href="" aria_label="">Get in touch</ButtonLight>
+                <div class="hidden md:block">
+                    <ButtonLight href="" aria_label="">Get in touch</ButtonLight>
+                </div>
             </div>
         </div>
     </Container>
