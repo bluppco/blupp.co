@@ -1,6 +1,9 @@
 ---
-// IMPORTING COMPONENTS
+// IMPORTING ASTRO COMPONENTS
 import HomeHeaderitem from "./HomeHeaderitem.astro"
+
+// IMPORTING JSX COMPONENTS
+import HeaderMobile from "./HeaderMobile"
 ---
 <header class="hidden md:block h-14">
     <nav class="flex items-center h-full justify-end">
@@ -13,3 +16,4 @@ import HomeHeaderitem from "./HomeHeaderitem.astro"
         </ul>
     </nav>
 </header>
+<HeaderMobile client:load />
