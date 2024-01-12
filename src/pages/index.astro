@@ -13,17 +13,9 @@ import Footer from "../components/Footer.astro"
 	description="Blupp Company"
 	image=""
 >
-	<section class="grid md:grid-cols-5 gap-4 md:h-screen md:max-h-screen overflow-hidden bg-gray-50">
-		<section class="hidden md:block p-4">
-			<Masthead />
-		</section>
-		<section class="md:col-span-4 md:p-4 h-full flex flex-col gap-4 md:gap-0 justify-between">
-			<HomeHeader />
-			<Hero />
-			<section class="md:hidden p-4">
-				<Masthead />
-			</section>
-		</section>
+	<section class="flex flex-col md:justify-between mac:justify-start mac:gap-20 md:h-screen md:max-h-screen overflow-hidden bg-gray-50 pb-10 mac:pb-10">
+		<HomeHeader />
+		<Hero />
 	</section>
 	<div class="md:hidden">
 		<Footer />

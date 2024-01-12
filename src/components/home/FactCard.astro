@@ -5,12 +5,11 @@ const {
     alt,
     title,
     description,
-    href,
-    large
+    href
 
 } = Astro.props
 ---
-<div class={` ${ large ? "w-full h-full" : "w-full h-full" } bg-slate-100 rounded-2xl border border-zinc-200 p-4 flex flex-col gap-4 items-center hover:shadow-2xl`}>
+<div class="w-full h-full bg-slate-100 rounded-2xl border border-zinc-200 p-4 flex flex-col gap-4 items-center hover:shadow-2xl">
     <div class="w-40 aspect-video">
         <img
             src={ src }

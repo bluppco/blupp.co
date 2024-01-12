@@ -8,6 +8,8 @@ import AnnotateCircle from "../atom/jsx/annotation/Circle"
 
 // IMPORTING COMPONENTS
 import InformationCard from "./InformationCard.astro"
+import FactCard from "./FactCard.astro"
+import Container from "../../layouts/Container.astro"
 
 const data = Array(1).fill({
 
@@ -15,38 +17,74 @@ const data = Array(1).fill({
     description: "Let us help you, get your website ultra fast.",
 
 })
+
+const tech_data = Array(1).fill({
+
+    src: "/server.svg",
+    alt: "",
+    title: "Astro",
+    description: "That's the recipe for our speed.",
+    href: ""
+
+})
 ---
-<section class="flex flex-col gap-10 mt-24 md:mt-0 p-4 md:p-0">
-        <div>
-            <span class="text-7xl md:text-8xl font-medium font-abril">Making </span>
-            <AnnotateUnderline client:load>
-                <span class="text-7xl md:text-8xl font-medium font-abril">web 2.0 </span>
-            </AnnotateUnderline>
-            <span class="text-7xl md:text-8xl font-medium font-abril"> ultra </span>
-            <AnnotateCircle client:load>
-                <span class="text-7xl md:text-8xl font-medium font-abril">fast.</span>
-            </AnnotateCircle>
-        </div>
-    <div class="space-y-2 pt-4 md:pt-10">
-        <!-- TRACK THIS EVENTw -->
-        <a href="https://cal.com/mohitdotdev">
-            <Button href="" aria_label="get in touch" >Get in Touch</Button>
-        </a>
-    </div>
-    <div class="md:pt-10">
-        {
+<Container>
+    <section class="flex flex-col-reverse md:flex-row gap-20 md:items-center h-full w-full">
+        <section>
+            {
 
-            data.map( ( value ) => {
+                tech_data.map( ( value, index ) => {
 
-                return(
-                    <InformationCard
-                        title={ value.title }
-                        description={ value.description }
-                    />
-                )
+                    return(
+                        <div class="md:h-96 mac:h-[440px] w-full md:w-80">
+                            <FactCard
+                                src={ value.src }
+                                alt={ value.alt }
+                                title={ value.title }
+                                description={ value.description }
+                                href={ value.href }
+                            />
+                        </div>
+                    )
 
-            })
+                })
 
-        }
-    </div>
-</section>
+            }
+        </section>
+        <section class="space-y-10 mt-28 md:mt-0">
+            <div>
+                <span class="text-7xl md:text-8xl font-medium font-abril">Making </span>
+                <AnnotateUnderline client:load>
+                    <span class="text-7xl md:text-8xl font-medium font-abril">web 2.0 </span>
+                </AnnotateUnderline>
+                <span class="text-7xl md:text-8xl font-medium font-abril"> ultra </span>
+                <AnnotateCircle client:load>
+                    <span class="text-7xl md:text-8xl font-medium font-abril">fast.</span>
+                </AnnotateCircle>
+            </div>
+            <!-- <p class="text-5xl font-playfair">We are Blupp</p> -->
+            <div>
+                <!-- TRACK THIS EVENTw -->
+                <a href="https://cal.com/mohitdotdev">
+                    <Button href="" aria_label="get in touch" >Get in Touch</Button>
+                </a>
+            </div>
+            <div>
+                {
+
+                    data.map( ( value ) => {
+
+                        return(
+                            <InformationCard
+                                title={ value.title }
+                                description={ value.description }
+                            />
+                        )
+
+                    })
+
+                }
+            </div>
+        </section>
+    </section>
+</Container>

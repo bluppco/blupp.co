@@ -4,16 +4,27 @@ import HomeHeaderitem from "./HomeHeaderitem.astro"
 
 // IMPORTING JSX COMPONENTS
 import HeaderMobile from "./HeaderMobile"
+import Container from "../../layouts/Container.astro";
 ---
-<header class="hidden md:block h-14">
-    <nav class="flex items-center h-full justify-end">
-        <ul class="flex gap-8">
-            <HomeHeaderitem href="/projects">Projects</HomeHeaderitem>
-            <HomeHeaderitem href="/about">Company</HomeHeaderitem>
-            <div class="font-playfair tracking-wide underline">
-                <a href="mailto:contact@blupp.co"><span class="font-medium">mohit@blupp.co</span></a>
-            </div>
-        </ul>
-    </nav>
+<header class="hidden md:flex items-center h-44">
+    <Container>
+        <section class="flex justify-between items-center">
+            <div class="flex items-center gap-6">
+            <a href="/" class="hidden md:flex items-start justify-start">
+                <span class="text-[60px] text-white bg-black rounded-full md:w-28 mac:w-40 aspect-square text-center flex justify-center items-center">&#120121;</span>
+            </a>
+            <p class="text-4xl font-playfair tracking-wide animate-fade">Blupp Company</p>
+        </div>
+            <nav class="flex items-center h-full justify-end">
+                <ul class="flex gap-8">
+                    <HomeHeaderitem href="/projects">Projects</HomeHeaderitem>
+                    <HomeHeaderitem href="/about">Company</HomeHeaderitem>
+                    <div class="font-playfair tracking-wide underline">
+                        <a href="mailto:mohit@blupp.co"><span class="font-medium">mohit@blupp.co</span></a>
+                    </div>
+                </ul>
+            </nav>
+        </section>
+    </Container>
 </header>
 <HeaderMobile client:load />

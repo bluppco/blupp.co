@@ -12,10 +12,7 @@ const data = Array(1).fill({
 
 })
 ---
-<section class="grid grid-cols-1 gap-4 h-full">
-    <a href="/" class="hidden md:flex items-start justify-start">
-        <span class="text-[60px] text-white bg-black rounded-full w-1/2 aspect-square text-center flex justify-center items-center">&#120121;</span>
-    </a>
+<section class="flex flex-col gap-28 h-full">
     {
 
         false &&
@@ -45,7 +42,6 @@ const data = Array(1).fill({
                     title={ value.title }
                     description={ value.description }
                     href={ value.href }
-                    large={ index % 2 }
                 />
             )
 
