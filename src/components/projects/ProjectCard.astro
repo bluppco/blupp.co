@@ -13,7 +13,7 @@ const {
 
 } = Astro.props
 ---
-<div class="space-y-6 md:space-y-8 p-4 rounded border border-zinc-200 bg-gray-50 shadow">
+<div class="space-y-4 md:space-y-6 p-4 rounded border border-zinc-200 bg-gray-50 shadow">
     <div class="w-full aspect-video bg-zinc-200">
         <img
             src={ src }
@@ -21,44 +21,100 @@ const {
             class="w-full h-full object-cover"
         />
     </div>
-    <div class="space-y-4 md:space-y-6">
-        <HeadingThree>{ name }</HeadingThree>
-        <p class="md:text-lg">{ description }</p>
-        <div class="flex gap-10 items-center">
-            <a href={ github_link } target="_blank">
-                <div class="w-8 aspect-square">
+    <div>
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <a href={ website_link }>
+                <HeadingThree>{ name }</HeadingThree>
+            </a>
+            <div class="flex gap-2 items-center md:justify-end">
+                <div class="flex items-center gap-1">
+                    <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded flex items-center gap-2">Is Client ?
+                        <div class="w-4 aspect-square">
+                            <img
+                                src="/icons/cross.svg"
+                                alt=""
+                                class="w-4 aspect-square"
+                            />
+                        </div>
+                        <!-- <div class="w-4 aspect-square">
+                            <img
+                                src="/icons/tick.svg"
+                                alt=""
+                                class="w-4 aspect-square"
+                            />
+                        </div> -->
+                    </button>
+                </div>
+                <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded">Open Source</button>
+                <div class="w-5 aspect-square">
                     <img
-                        src="/github.svg"
+                        src="/icons/in_progress.svg"
                         alt=""
-                        class="w-8 aspect-square"
+                        class="w-5 aspect-square"
                     />
                 </div>
-            </a>
-            <a href={ website_link + "/benchmarking" } target="_blank">
-                <div class="w-7 aspect-square">
-                    <img
-                        src="/icons/benchmarking.svg"
-                        alt=""
-                        class="w-7 aspect-square"
-                    />
-                </div>
-            </a>
-            <div class="w-7 aspect-square">
-                <img
-                    src="/icons/notion.svg"
-                    alt=""
-                    class="w-7 aspect-square"
-                />
             </div>
-            <!-- <a href={ website_link }>
-                <div class="w-8 aspect-square">
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+            <div class="flex gap-6 items-center">
+                <div class="w-6 aspect-square">
                     <img
-                        src="/icons/website.svg"
+                        src="/images/astro-logo.svg"
                         alt=""
-                        class="w-8 aspect-square"
+                        class="w-6 aspect-square"
                     />
                 </div>
-            </a> -->
+                <div class="w-6 aspect-square">
+                    <img
+                        src="/images/tailwindcss-logo.svg"
+                        alt=""
+                        class="w-6 aspect-square"
+                    />
+                </div>
+                <div class="w-12 aspect-video">
+                    <img
+                        src="/images/cloudflare-logo.png"
+                        alt=""
+                        class="w-full h-full"
+                    />
+                </div>
+                <div class="w-16 aspect-square">
+                    <img
+                        src="/icons/notion.svg"
+                        alt=""
+                        class="w-16 aspect-square"
+                    />
+                </div>
+            </div>
+            <div class="flex gap-6 items-center">
+                <a href={ website_link }>
+                    <div class="w-5 aspect-square">
+                        <img
+                            src="/icons/website.svg"
+                            alt=""
+                            class="w-5 aspect-square"
+                        />
+                    </div>
+                </a>
+                <a href={ github_link } target="_blank">
+                    <div class="w-6 aspect-square">
+                        <img
+                            src="/github.svg"
+                            alt=""
+                            class="w-6 aspect-square"
+                        />
+                    </div>
+                </a>
+                <a href={ website_link + "/benchmarking" } target="_blank">
+                    <div class="w-5 aspect-square">
+                        <img
+                            src="/icons/benchmarking.svg"
+                            alt=""
+                            class="w-5 aspect-square"
+                        />
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>
