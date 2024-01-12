@@ -11,7 +11,6 @@ import HeadingOne from "../atom/heading/One.astro"
 const data = Array(6).fill({
 
     name: "OseNorth",
-    description: "An award winning full-service creative agency, infinitely crazy about functional, emotional and polished digital interfaces and products.",
     cover: "/osenorth-cover.png",
     github_link: "https://github.com/bluppco/osenorth",
     website_link: "https://osenorth.blupp.co"
@@ -29,7 +28,6 @@ const data = Array(6).fill({
                     return(
                         <ProjectCard
                             name={ value.name }
-                            description={ value.description }
                             src={ value.cover }
                             alt={ value.name }
                             github_link={ value.github_link }
