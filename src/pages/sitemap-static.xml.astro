@@ -1,0 +1,52 @@
+---
+// GET SITE CONFIGURATION
+import Config from "../../astro.config.mjs"
+
+// GET STATIC FILES THAT ARE TO BE INDEXED
+const pages = await Astro.glob("./**/*.astro")
+
+// EXCLUDE PATHS
+const exclude_urls = ["/benchmarking/[slug]","/full-stack-india/[slug]","","/sitemap-dynamic.xml"]
+
+// INCLUDE PATH ARRAY
+let included_urls = []
+
+// LOOP THROUGH THE INCLUDED PATHS
+pages.map( ( page ) => {
+
+    if( exclude_urls.indexOf( page.url ) === -1 ){
+
+        included_urls.push( page.url )
+        console.log( page.url )
+
+    }
+
+})
+
+// BUILD SITEMAP
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+        ${
+            included_urls.map((path) => {
+                const route = path === "/index" ? "" : path;
+                return `
+                        <url>
+                            <loc>${Config.site}${route}/</loc>
+                        </url>
+                    `;
+            }).join("")
+        }
+    </urlset>`
+
+// RETURN RESPONSE
+return new Response( sitemap, {
+
+    status: 200,
+    headers: {
+
+        "Content-Type": "application/xml"
+
+    }
+
+})
+---
