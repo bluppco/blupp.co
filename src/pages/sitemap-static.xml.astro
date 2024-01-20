@@ -1,6 +1,6 @@
 ---
 // GET SITE CONFIGURATION
-import Config from "../../astro.config.mjs"
+const config  = "https://blupp.co"
 
 // GET STATIC FILES THAT ARE TO BE INDEXED
 const pages = await Astro.glob("./**/*.astro")
@@ -10,8 +10,10 @@ const exclude_urls = [
     "/benchmarking/[slug]",
     "/full-stack-india/[slug]",
     "",
+    "/full-stack-india",
     "/sitemap-dynamic.xml",
-    "/sitemap-dynamic-blogs.xml"
+    "/sitemap-dynamic-blogs.xml",
+    "/projects/[...slug]",
 ]
 
 // INCLUDE PATH ARRAY
@@ -37,7 +39,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
                 const route = path === "/index" ? "" : path;
                 return `
                         <url>
-                            <loc>${Config.site}${route}/</loc>
+                            <loc>${config}${route}/</loc>
                         </url>
                     `;
             }).join("")
