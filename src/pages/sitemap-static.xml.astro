@@ -6,7 +6,12 @@ import Config from "../../astro.config.mjs"
 const pages = await Astro.glob("./**/*.astro")
 
 // EXCLUDE PATHS
-const exclude_urls = ["/benchmarking/[slug]","/full-stack-india/[slug]","","/sitemap-dynamic.xml"]
+const exclude_urls = [
+    "/benchmarking/[slug]",
+    "/full-stack-india/[slug]",
+    "",
+    "/sitemap-dynamic.xml"
+]
 
 // INCLUDE PATH ARRAY
 let included_urls = []

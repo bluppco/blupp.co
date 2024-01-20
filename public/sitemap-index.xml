@@ -2,6 +2,8 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
         <loc>https://blupp.co/sitemap-static.xml</loc>
+    </sitemap>
+    <sitemap>
         <loc>https://blupp.co/sitemap-dynamic.xml</loc>
     </sitemap>
 </sitemapindex>
