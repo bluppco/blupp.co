@@ -7,6 +7,10 @@ import HeaderMobile from "./HeaderMobile"
 
 // IMPORTING ASTRO LAYOUTS
 import Container from "../../layouts/Container.astro"
+
+// IMPORTING ASTRO ATOMS
+import PrimaryButton from "@/atoms/buttons/primary/index.astro"
+import Link from "@/atoms/links/index.astro"
 ---
 <header class="hidden md:flex items-center h-20 bg-gray-100">
     <Container>
@@ -18,12 +22,15 @@ import Container from "../../layouts/Container.astro"
             <p class="text-2xl font-playfair tracking-wide animate-fade">Blupp Company</p>
         </div>
             <nav class="flex items-center h-full justify-end">
-                <ul class="flex gap-8">
+                <ul class="flex items-center gap-8">
                     <HomeHeaderitem href="/projects">Projects</HomeHeaderitem>
                     <HomeHeaderitem href="/about">Company</HomeHeaderitem>
-                    <div class="font-the_seasons tracking-wide underline">
+                    <Link href="mailto:mohit@blupp.co" aria_label="">
+                        <PrimaryButton>Contact</PrimaryButton>
+                    <Link>
+                    <!-- <div class="font-the_seasons tracking-wide underline">
                         <a href="mailto:mohit@blupp.co"><span class="font-medium">mohit@blupp.co</span></a>
-                    </div>
+                    </div> -->
                 </ul>
             </nav>
         </section>

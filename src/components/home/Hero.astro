@@ -13,31 +13,12 @@ import AnnotateUnderline from "../atom/jsx/annotation/Underline"
 import AnnotateCircle from "../atom/jsx/annotation/Circle"
 
 // IMPORTING COMPONENTS
-import InformationCard from "./InformationCard.astro"
-import FactCard from "./FactCard.astro"
 import Globe from "@/components/home/globe/index.astro"
 import GlobeJSX from "@/components/home/globe/globe.jsx"
-
-const data = Array(1).fill({
-
-    title: "This page serves only xkb of html, yKb of css, zKb of JS and loads under 50ms. Yours can too.",
-    description: "Let us help you, get your website ultra fast.",
-
-})
-
-const tech_data = Array(1).fill({
-
-    src: "/server.svg",
-    alt: "",
-    title: "Astro",
-    description: "That's the recipe for our speed.",
-    href: ""
-
-})
 ---
 <Container>
     <section class="py-10">
-        <section class="w-[50%] mx-auto space-y-6 pt-10">
+        <section class="w-[70%] mx-auto space-y-6 pt-10">
             <!-- <div>
                 <span class="text-7xl md:text-7xl font-medium font-abril">Making </span>
                 <AnnotateUnderline client:load>
