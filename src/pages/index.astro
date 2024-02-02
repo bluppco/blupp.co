@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro"
 // IMPORTING COMPONENTS
 import HomeHeader from "../components/header/HomeHeader.astro"
 import Hero from "../components/home/Hero.astro"
-import Masthead from "../components/home/Masthead.astro"
+import HowWeWork from "@/components/home/how-we-work/index.astro"
 import Footer from "../components/Footer.astro"
 ---
 <Layout
@@ -17,7 +17,6 @@ import Footer from "../components/Footer.astro"
 		<HomeHeader />
 		<Hero />
 	</section>
-	<div class="md:hidden">
-		<Footer />
-	</div>
+	<HowWeWork />
+	<Footer />
 </Layout>
