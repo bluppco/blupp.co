@@ -1,6 +1,6 @@
 ---
 // IMPORTING ATOMS
-import HeadingThree from "@/atoms/headings/three/index.astro"
+import HeadingFour from "@/atoms/headings/four/index.astro"
 
 const {
 
@@ -12,7 +12,7 @@ const {
 
 } = Astro.props
 ---
-<div class="space-y-4 md:space-y-6 rounded border border-zinc-200 bg-gray-50 shadow overflow-hidden">
+<div class="rounded border border-zinc-200 bg-gray-50 shadow overflow-hidden">
     <a href="/projects">
         <div class="w-full aspect-video bg-zinc-200 overflow-hidden">
             <img
@@ -25,10 +25,10 @@ const {
     <div class="p-4">
         <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <a href={ website_link }>
-                <HeadingThree>{ name }</HeadingThree>
+                <HeadingFour>{ name }</HeadingFour>
             </a>
         </div>
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <!-- <div class="flex flex-col md:flex-row md:items-center md:justify-between">
             <div class="flex gap-6 items-center">
                 <div class="w-6 aspect-square">
                     <img
@@ -88,6 +88,6 @@ const {
                     </div>
                 </a>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
