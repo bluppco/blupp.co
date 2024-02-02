@@ -1,34 +1,40 @@
 ---
 // IMPORTS ASTRO COMPONENTS
 import HowWeWorkItem from "./item/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro"
 ---
-<section class="grid grid-cols-4 py-20">
-    <HowWeWorkItem
-        color="bg-purple-300"
-        index={ 1 }
-        title="Discovery call"
-        sub_title="30 min"
-        description="This initial 1-on-1 chat allows us to understand your company's goals, target audience, and current digital presence and challenges."
-    />
-    <HowWeWorkItem
-        color="bg-cyan-300"
-        index={ 2 }
-        title="Strategic audit"
-        sub_title="2 weeks"
-        description="Our team will conduct a comprehensive audit of your existing website and craft a customized plan for your company."
-    />
-    <HowWeWorkItem
-        color="bg-emerald-200"
-        index={ 3 }
-        title="Trial subscription"
-        sub_title="3 months"
-        description="Implementation of the transformed website with monthly analytics reports. This phase ensures our tactics align with your goals."
-    />
-    <HowWeWorkItem
-        color="bg-pink-300"
-        index={ 4 }
-        title="Long-term partnership"
-        sub_title="12+ months"
-        description="Building on insights from the 3-month trial, we'll transition into a long-term partnership with your team, continually optimizing and innovating the website to foster speed."
-    />
+<section class="space-y-6 py-10">
+    <HeadingTwo>How we work</HeadingTwo>
+    <section class="grid grid-cols-4">
+        <HowWeWorkItem
+            color="bg-zinc-300"
+            index={ 1 }
+            title="Discovery call"
+            sub_title="30 min"
+            description="This initial 1-on-1 chat allows us to understand your company's goals, target audience, and current digital presence and challenges."
+        />
+        <HowWeWorkItem
+            color="bg-zinc-400"
+            index={ 2 }
+            title="Strategic audit"
+            sub_title="2 weeks"
+            description="Our team will conduct a comprehensive audit of your existing website and craft a customized plan for your company."
+        />
+        <HowWeWorkItem
+            color="bg-zinc-500"
+            index={ 3 }
+            title="Trial subscription"
+            sub_title="3 months"
+            description="Implementation of the transformed website with monthly analytics reports. This phase ensures our tactics align with your goals."
+        />
+        <HowWeWorkItem
+            color="bg-zinc-600"
+            index={ 4 }
+            title="Long-term partnership"
+            sub_title="12+ months"
+            description="Building on insights from the 3-month trial, we'll transition into a long-term partnership with your team, continually optimizing and innovating the website to foster speed."
+        />
+    </section>
 </section>
