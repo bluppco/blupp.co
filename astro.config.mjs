@@ -6,6 +6,11 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://blupp.co/',
-  integrations: [tailwind(), mdx(), react()]
+	site: 'https://blupp.co/',
+	integrations: [
+		tailwind({
+			applyBaseStyles: false,
+
+		}), , mdx(), react()]
+
 });
