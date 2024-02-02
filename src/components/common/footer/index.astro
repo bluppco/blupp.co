@@ -1,0 +1,55 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/Container.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Li from "./li/index.astro"
+---
+<footer class="bg-gray-100">
+    <Container>
+        <section class="grid grid-cols-4 gap-4 py-20">
+            <section class="flex items-center gap-6 col-span-2">
+                <a href="/" class="hidden md:flex items-start justify-start">
+                    <span class="text-7xl text-white bg-black rounded-full w-32 aspect-square text-center flex justify-center items-center">&#120121;</span>
+                </a>
+                <p class="text-5xl font-playfair tracking-wide animate-fade">Blupp Company</p>
+            </section>
+            <section>
+                <ul class="space-y-2">
+                    <Li href="/about" aria_label="">About</Li>
+                    <Li href="/projects" aria_label="">Projects</Li>
+                    <Li href="/blogs" aria_label="">Blogs</Li>
+                    <Li href="/contact-us" aria_label="">Contact Us</Li>
+                    <Li href="/privacy-policy" aria_label="">Privacy Policy</Li>
+                    <Li href="/terms-and-conditions" aria_label="">Terms and conditions</Li>
+                </ul>
+            </section>
+            <section class="space-y-2">
+                <p class="font-the_seasons font-semibold text-2xl tracking-wider">Follow Us</p>
+                <div class="flex gap-4 items-center">
+                    <a href="https://github.com/bluppco" target="_blank">
+                        <img
+                            src="/github.svg"
+                            class="w-8 h-8"
+                        />
+                    </a>
+                    <a href="https://x.com/bluppco" target="_blank">
+                        <div class="text-3xl">&#120143;</div>
+                    </a>
+                    <a href="https://www.linkedin.com/company/blupp" target="_blank">
+                        <img
+                            src="/icons/linkedin.svg"
+                            class="w-7 h-7"
+                        />
+                    </a>
+                </div>
+            </section>
+        </section>
+    </Container>
+    <section class="bg-black py-4">
+        <div class="flex flex-col gap-1 justify-center items-center">
+            <p class="font-light text-xs text-white tracking-wider">Blupp Co &copy; { new Date().getFullYear() + 1 } (YES)</p>
+            <p class="font-light text-xs text-white tracking-wider">New Delhi, India</p>
+        </div>
+    </section>
+</footer>
