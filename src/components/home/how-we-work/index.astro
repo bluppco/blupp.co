@@ -1,4 +1,7 @@
 ---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/Container.astro"
+
 // IMPORTS ASTRO COMPONENTS
 import HowWeWorkItem from "./item/index.astro"
 
@@ -6,7 +9,9 @@ import HowWeWorkItem from "./item/index.astro"
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 ---
 <section class="space-y-6 py-10">
-    <HeadingTwo>How we work</HeadingTwo>
+    <Container>
+        <HeadingTwo>How we work</HeadingTwo>
+    </Container>
     <section class="grid grid-cols-4">
         <HowWeWorkItem
             color="bg-zinc-300"
