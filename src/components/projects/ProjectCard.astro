@@ -1,11 +1,15 @@
 ---
+import TooltipJSX from "./tooltip/index"
+
 // IMPORTING ATOMS
 import HeadingThree from "../atom/heading/Three.astro"
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
 
 const {
 
     name,
-    description,
     src,
     alt,
     github_link,
@@ -13,15 +17,15 @@ const {
 
 } = Astro.props
 ---
-<div class="space-y-4 md:space-y-6 p-4 rounded border border-zinc-200 bg-gray-50 shadow">
+<div class="space-y-4 md:space-y-6 rounded border border-zinc-200 bg-gray-50 shadow">
     <div class="w-full aspect-video bg-zinc-200">
         <img
-            src={ src }
+            src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
             alt={ alt }
             class="w-full h-full object-cover"
         />
     </div>
-    <div>
+    <div class="px-4">
         <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <a href={ website_link }>
                 <HeadingThree>{ name }</HeadingThree>
@@ -46,75 +50,79 @@ const {
                     </button>
                 </div>
                 <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded">Open Source</button>
-                <div class="w-5 aspect-square">
-                    <img
-                        src="/icons/in_progress.svg"
-                        alt=""
-                        class="w-5 aspect-square"
-                    />
-                </div>
+                <TooltipJSX
+                    client:load
+                    text="Project in progress"
+                    src="/icons/in_progress.svg"
+                    size="w-5 aspect-square"
+                    image_size="w-5 aspect-square"
+                />
             </div>
         </div>
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-            <div class="flex gap-6 items-center">
-                <div class="w-6 aspect-square">
-                    <img
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between pb-10">
+            <div>
+                <div class="flex gap-6 items-center">
+                    <TooltipJSX
+                        client:load
+                        text="Astro framework"
                         src="/images/astro-logo.svg"
-                        alt=""
-                        class="w-6 aspect-square"
+                        size="w-6 aspect-square"
+                        image_size="w-6 aspect-square"
                     />
-                </div>
-                <div class="w-6 aspect-square">
-                    <img
+                    <TooltipJSX
+                        client:load
+                        text="Tailwind CSS"
                         src="/images/tailwindcss-logo.svg"
-                        alt=""
-                        class="w-6 aspect-square"
+                        size="w-6 aspect-square"
+                        image_size="w-6 aspect-square"
                     />
-                </div>
-                <div class="w-12 aspect-video">
-                    <img
+                    <TooltipJSX
+                        client:load
+                        text="Cloudflare"
                         src="/images/cloudflare-logo.png"
-                        alt=""
-                        class="w-full h-full"
+                        size="w-12 aspect-video"
+                        image_size="w-full h-full"
                     />
-                </div>
-                <div class="w-16 aspect-square">
-                    <img
+                    <TooltipJSX
+                        client:load
+                        text="Notion"
                         src="/icons/notion.svg"
-                        alt=""
-                        class="w-16 aspect-square"
+                        size="w-16 aspect-square"
+                        image_size="w-16 aspect-square"
                     />
                 </div>
+                <p class="text-xs font-the_seasons font-semibold uppercase tracking-widest">Tech stack</p>
             </div>
             <div class="flex gap-6 items-center">
-                <a href={ website_link }>
-                    <div class="w-5 aspect-square">
-                        <img
-                            src="/icons/website.svg"
-                            alt=""
-                            class="w-5 aspect-square"
-                        />
-                    </div>
+                <a href={ website_link } target="_blank">
+                    <TooltipJSX
+                        client:load
+                        text="Visit website"
+                        src="/icons/website.svg"
+                        size="w-5 aspect-square"
+                        image_size="w-5 aspect-square"
+                    />
                 </a>
                 <a href={ github_link } target="_blank">
-                    <div class="w-6 aspect-square">
-                        <img
-                            src="/github.svg"
-                            alt=""
-                            class="w-6 aspect-square"
-                        />
-                    </div>
+                    <TooltipJSX
+                        client:load
+                        text="View github"
+                        src="/github.svg"
+                        size="w-6 aspect-squar"
+                        image_size="w-6 aspect-squar"
+                    />
                 </a>
                 <a href={ website_link + "/benchmarking" } target="_blank">
-                    <div class="w-5 aspect-square">
-                        <img
-                            src="/icons/benchmarking.svg"
-                            alt=""
-                            class="w-5 aspect-square"
-                        />
-                    </div>
+                    <TooltipJSX
+                        client:load
+                        text="View benchmarking results"
+                        src="/icons/benchmarking.svg"
+                        size="w-5 aspect-squar"
+                        image_size="w-5 aspect-squar"
+                    />
                 </a>
             </div>
         </div>
     </div>
 </div>
+

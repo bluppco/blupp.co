@@ -1,0 +1,36 @@
+---
+// LAYOUTS
+import Layout from "@/layouts/Layout.astro"
+import Container from "@/layouts/Container.astro"
+
+// COMPONENTS
+import HomeHeader from "@/components/header/HomeHeader.astro"
+import Footer from "@/components/Footer.astro"
+import Blogs from "@/components/blog/item/index.astro"
+
+// CONSTANTS
+import { CDN_LINK } from "../../constants/images"
+
+// FETCH URL FROM SERVER AND DISPLAY THE DATA
+const data = await fetch("https://staging.api.blupp.co/blogs")
+const data_json = await data.json()
+if( data.status !== 200 ){
+
+    return Astro.redirect("/")
+
+}
+const blog = data_json.data.blogs
+
+// META
+const meta = data_json.data.meta_tags
+---
+<Layout
+    title={ meta.title }
+    description={ meta.description }
+    image={ CDN_LINK + meta.cover }
+>
+<Layout>
+	<HomeHeader />
+	<Blogs blog= { blog } />
+	<Footer />
+</Layout>

@@ -1,10 +1,21 @@
 ---
+// NETWORK CALL
+const data = await fetch( "https://staging.api.blupp.co/projects" )
+const data_json = await data.json()
+const projects = data_json.data.projects
+
+if( data.status !== 200 ){
+
+    return Astro.redirect("/")
+
+}
+
 // IMPORTING LAYOUTS
 import Layout from "../../layouts/Layout.astro"
 
 // IMPORTING COMPONENTS
-import Header from "../../components/header/Header.astro"
-import Footer from "../../components/Footer.astro"
+import HomeHeader from "@/components/header/HomeHeader.astro"
+import Footer from "@/components/Footer.astro"
 import OurProjects from "../../components/projects/OurProjects.astro"
 ---
 <Layout
@@ -12,7 +23,7 @@ import OurProjects from "../../components/projects/OurProjects.astro"
     description="Projects | Blupp Company"
     image=""
 >
-    <Header />
-    <OurProjects />
+    <HomeHeader />
+    <OurProjects data={ projects } />
     <Footer />
 </Layout>

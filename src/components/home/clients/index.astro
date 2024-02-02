@@ -1,0 +1,32 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/Container.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import ClientLogo from "./client-logo/index.astro"
+---
+<Container>
+    <section class="space-y-6 py-10">
+        <HeadingTwo>Clients</HeadingTwo>
+        <section class="flex gap-20">
+            <ClientLogo
+                href="https://www.eroshotels.co.in/"
+                src="/logo/eros-logo.png"
+                alt=""
+            />
+            <ClientLogo
+                href="https://www.gomaldives.co/"
+                src="/logo/gomo-logo.png"
+                alt=""
+            />
+            <ClientLogo
+                href="https://www.reethifaru.com/"
+                src="/logo/reethifaru-logo.png"
+                alt=""
+            />
+        </section>
+    </section>
+</Container>

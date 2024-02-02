@@ -1,3 +1,21 @@
-h2 {
-    @apply font-bold pt-4 text-xl  !important;
+.markdown h1 {
+    @apply text-6xl font-the_seasons font-bold pb-4 !important;
+}
+.markdown h2 {
+    @apply text-5xl font-the_seasons font-bold pb-4 !important;
+}
+.markdown h3 {
+    @apply text-3xl font-the_seasons font-bold pb-4 !important;
+}
+.markdown h4 {
+    @apply text-2xl font-the_seasons font-bold pb-4 !important;
+}
+.markdown h5 {
+    @apply text-xl font-the_seasons font-bold pb-4 !important;
+}
+.markdown h6 {
+    @apply text-lg font-the_seasons font-bold pb-4 !important;
+}
+.markdown p {
+    @apply text-base font-the_seasons py-2 !important;
 }
