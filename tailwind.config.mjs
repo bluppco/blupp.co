@@ -1,13 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ["class"],
-	content: [
-		'./pages/**/*.{js,jsx}',
-		'./components/**/*.{js,jsx}',
-		'./app/**/*.{js,jsx}',
-		'./src/**/*.{js,jsx}',
-		'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-	],
+	content: [ './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	prefix: "",
 	theme: {
 
@@ -36,6 +30,7 @@ module.exports = {
 				"almarai": ["Almarai", "sans-serif"],
 				"playfair": ["Playfair Display", "sans-serif"],
 				"the_seasons": ["the-seasons", "sans-serif"]
+
 			},
 
 			colors: {
