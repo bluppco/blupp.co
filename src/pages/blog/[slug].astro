@@ -30,7 +30,7 @@ if( data.status !== 200 ){
 
 }
 const blog = data_json.data
-// const body_md = marked.parse( blog.md )
+const body_md = marked.parse( blog.md )
 ---
 <Layout
 	title={ blog.seo_title }
@@ -61,7 +61,7 @@ const blog = data_json.data
 
 				</div>
 			</div>
-			<!-- <div class="py-2 markdown" set:html={ body_md }/> -->
+			<div class="py-2 markdown" set:html={ body_md }/>
 		</section>
 	</ContainerBlog>
 	<Footer />
