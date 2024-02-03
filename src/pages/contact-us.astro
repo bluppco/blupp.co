@@ -1,0 +1,29 @@
+---
+// IMPORTING ASTRO LAYOUTS
+import Layout from "../layouts/Layout.astro"
+import Container from "@/layouts/Container.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import HomeHeader from "../components/header/HomeHeader.astro"
+import Footer from "../components/Footer.astro"
+
+// IMPORTS JSX COMPONENTS
+import ContactForm from "@/components/contact-us/contact-form/index.jsx"
+
+// IMPORTS ASTRO ATOMS
+import HeadingOne from "@/atoms/headings/one/index.astro"
+---
+<Layout
+	title="Contact Us | Blupp Company"
+	description="Blupp Company"
+	image=""
+>
+	<HomeHeader />
+	<Container>
+		<section class="py-20 space-y-10">
+			<HeadingOne>Contact Us</HeadingOne>
+			<ContactForm client:load />
+		</section>
+	</Container>
+	<Footer />
+</Layout>

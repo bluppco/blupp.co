@@ -1,0 +1,51 @@
+---
+// IMPORTING COMPONENTS
+import FactCard from "./FactCard.astro"
+
+const data = Array(1).fill({
+
+    src: "/server.svg",
+    alt: "",
+    title: "Astro",
+    description: "That's the recipe for our speed.",
+    href: ""
+
+})
+---
+<section class="flex flex-col gap-28 h-full">
+    {
+
+        false &&
+        <div class="flex justify-center items-center">
+            <a href="">
+                <div class="p-12 bg-zinc-100 rounded-full w-fit hover:shadow-2xl">
+                    <div class="w-24 aspect-square rounded-full">
+                        <img
+                            src="/blupp_favicon.svg"
+                            alt=""
+                            class="w-24 aspect-square"
+                        />
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    }
+    {
+
+        data.map( ( value, index ) => {
+
+            return(
+                <FactCard
+                    src={ value.src }
+                    alt={ value.alt }
+                    title={ value.title }
+                    description={ value.description }
+                    href={ value.href }
+                />
+            )
+
+        })
+
+    }
+</section>

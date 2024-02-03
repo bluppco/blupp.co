@@ -1,14 +1,17 @@
 ---
-import H1 from "../atom/H1.astro";
+// IMPORTING LAYOUTS
+import Container from "../../layouts/Container.astro"
 
-import { getCollection } from 'astro:content';
+// IMPORTING ATOMS
+import HeadingOne from "../atom/heading/One.astro"
+
+// IMPORTING COLLECTION FROM MDX
+import { getCollection } from 'astro:content'
 let team = await getCollection('team');
 team = team.sort((a, b) => a.data.order - b.data.order)
 ---
-<section>
-    <H1
-        text="Team"
-    />
+<Container>
+    <HeadingOne>Team</HeadingOne>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
     {
 
@@ -37,4 +40,4 @@ team = team.sort((a, b) => a.data.order - b.data.order)
 
     }
     </div>
-</section>
+</Container>

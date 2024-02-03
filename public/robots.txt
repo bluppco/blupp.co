@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blupp.co/sitemap-index.xml

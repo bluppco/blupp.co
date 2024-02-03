@@ -1,0 +1,48 @@
+---
+// IMPORTING ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+// IMPORTING ASTRO ATOMS
+import Button from "../atom/Button.astro"
+import PrimaryButton from "@/atoms/buttons/primary/index.astro"
+import SecondaryButton from "@/atoms/buttons/secondary/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+// IMPORTING JSX ATOMS
+import AnnotateUnderline from "../atom/jsx/annotation/Underline"
+import AnnotateCircle from "../atom/jsx/annotation/Circle"
+
+// IMPORTING COMPONENTS
+import Globe from "@/components/home/globe/index.astro"
+import GlobeJSX from "@/components/home/globe/globe.jsx"
+---
+<Container>
+    <section class="py-10">
+        <section class="w-[70%] mx-auto space-y-6 pt-10">
+            <!-- <div>
+                <span class="text-7xl md:text-7xl font-medium font-abril">Making </span>
+                <AnnotateUnderline client:load>
+                    <span class="text-7xl md:text-7xl font-medium font-abril">web 2.0 </span>
+                </AnnotateUnderline>
+                <span class="text-7xl md:text-7xl font-medium font-abril"> ultra </span>
+                <AnnotateCircle client:load>
+                    <span class="text-7xl md:text-7xl font-medium font-abril">fast.</span>
+                </AnnotateCircle>
+            </div> -->
+            <p class="text-7xl md:text-7xl font-medium font-abril text-center !leading-tight">Making web 2.0 ultra fast.</p>
+            <p class="text-xl font-the_seasons text-center tracking-wider">Swiftly Elevate Your Web 2.0 Adventure with Blazing Speeds!</p>
+            <div class="flex justify-center gap-4">
+                <Link href="" aria-label="">
+                    <PrimaryButton>Get Started</PrimaryButton>
+                </Link>
+                <Link href="" aria-label="">
+                    <SecondaryButton>Request a demo</SecondaryButton>
+                </Link>
+            </div>
+        </section>
+        <section class="flex justify-center">
+            <Globe />
+            <!-- <GlobeJSX client:load /> -->
+        </section>
+    </section>
+</Container>

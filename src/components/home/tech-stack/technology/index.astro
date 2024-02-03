@@ -1,0 +1,27 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import Paragraph from "@/atoms/paragraphs/regular/index.astro"
+
+const {
+
+    src,
+    alt,
+    title,
+    description
+
+} = Astro.props
+---
+<div class="space-y-4 p-8 rounded-lg border border-zinc-400 bg-gray-50">
+    <div class="flex items-center gap-6">
+        <div class="w-12 aspect-square">
+            <img
+                src={ src }
+                alt={ alt }
+                class="w-full h-full"
+            />
+        </div>
+        <HeadingThree>{ title }</HeadingThree>
+    </div>
+    <Paragraph>{ description }</Paragraph>
+</div>

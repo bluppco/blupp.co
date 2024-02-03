@@ -1,0 +1,35 @@
+---
+// IMPORTING LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+// IMPORTING ATOMS
+import ButtonLight from "../atom/ButtonLight.astro"
+
+// IMPORTING ASTRO COMPONENTS
+import HeaderItem from "./HeaderItem.astro"
+
+// IMPORTING JSX COMPONENTS
+import HeaderMobile from "./HeaderMobile"
+---
+<header class="h-20 bg-zinc-700 hidden md:flex items-center">
+    <!--  FIX FOR IPAD -->
+    <Container>
+        <div class="flex h-full items-center justify-between">
+            <h1 class="font-bold text-lg md:text-2xl text-white">
+                <a href="/">
+                    <span class="text-6xl">&#120121;</span>
+                </a>
+            </h1>
+            <div class="flex items-center gap-20">
+                <ul class="flex items-center gap-10">
+                    <HeaderItem href="/projects">Projects</HeaderItem>
+                    <HeaderItem href="/about">Company</HeaderItem>
+                </ul>
+                <div>
+                    <ButtonLight href="" aria_label="">Get in touch</ButtonLight>
+                </div>
+            </div>
+        </div>
+    </Container>
+</header>
+<HeaderMobile client:load />

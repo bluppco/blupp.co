@@ -1,0 +1,24 @@
+---
+const {
+
+    src,
+    alt,
+    title,
+    description,
+    href
+
+} = Astro.props
+---
+<div class="w-full h-full bg-slate-100 rounded-2xl border border-zinc-200 p-4 flex flex-col gap-4 items-center hover:shadow-2xl">
+    <div class="w-40 aspect-video">
+        <img
+            src={ src }
+            alt={ alt }
+            class="w-full h-full object-contain"
+        />
+    </div>
+    <p class="text-lg text-center font-playfair font-medium">{ title }</p>
+    <p class="text-lg text-center font-playfair font-medium">Cloudflare</p>
+    <p class="text-lg text-center font-playfair font-medium">Notion</p>
+    <p class="text-center">{ description }</p>
+</div>
