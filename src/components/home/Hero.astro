@@ -16,7 +16,7 @@ import AnnotateCircle from "../atom/jsx/annotation/Circle"
 import Globe from "@/components/home/globe/index.astro"
 // import GlobeJSX from "@/components/home/globe/globe.jsx"
 ---
-<section class="w-full h-full flex items-center justify-center py-10 pt-40 md:pt-0">
+<section class="w-full h-full flex items-center justify-center pt-40 md:pt-10">
     <Container>
         <section class="w-full h-full space-y-6">
             <section class="md:w-[70%] mx-auto space-y-6">
@@ -41,7 +41,7 @@ import Globe from "@/components/home/globe/index.astro"
                     </Link>
                 </div>
             </section>
-            <section class="flex justify-center">
+            <section class="flex justify-center overflow-hidden">
                 <Globe />
                 <!-- <GlobeJSX client:load /> -->
             </section>
