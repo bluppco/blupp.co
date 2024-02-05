@@ -10,6 +10,11 @@ import ContainerBlog from "@/layouts/ContainerBlog.astro"
 import HomeHeader from "@/components/header/HomeHeader.astro"
 import Footer from "@/components/common/footer/index.astro"
 
+
+// HIGHLIGHT JS - THEME - WE CAN CHOOSE A BETTER THESE AS WELL.
+// LETS KEEP LOOKING
+import "highlight.js/styles/dark.min.css"
+
 // IMPORTS CONSTANTS
 import {
 
@@ -62,8 +67,23 @@ const body_md = marked.parse( blog.md )
 					</div>
 				</div>
 			</div>
-			<div class="py-2 markdown" set:html={ body_md }/>
+			<article class="py-2 markdown" set:html={ body_md }/>
 		</section>
 	</ContainerBlog>
 	<Footer />
 </Layout>
+<script>
+
+	import hljs from "highlight.js"
+
+	document.addEventListener('DOMContentLoaded', (event) => {
+
+  		document.querySelectorAll('pre code').forEach((block) => {
+
+    		hljs.highlightAll();
+
+  		})
+
+	})
+
+</script>
