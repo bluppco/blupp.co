@@ -7,59 +7,28 @@ import HomeProjectItem from "./item/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
+
+const { data } = Astro.props
 ---
 <Container>
     <section class="space-y-6 py-10">
         <HeadingTwo>Projects</HeadingTwo>
         <section class="grid md:grid-cols-3 gap-10">
-            <HomeProjectItem
-                name="OseNorth"
-                description=""
-                src="/osenorth-cover.png"
-                alt="OseNorth"
-                github_link="https://github.com/bluppco/osenorth"
-                website_link="https://osenorth.blupp.co"
-            />
-            <HomeProjectItem
-                name="OseNorth"
-                description=""
-                src="/osenorth-cover.png"
-                alt="OseNorth"
-                github_link="https://github.com/bluppco/osenorth"
-                website_link="https://osenorth.blupp.co"
-            />
-            <HomeProjectItem
-                name="OseNorth"
-                description=""
-                src="/osenorth-cover.png"
-                alt="OseNorth"
-                github_link="https://github.com/bluppco/osenorth"
-                website_link="https://osenorth.blupp.co"
-            />
-            <HomeProjectItem
-                name="OseNorth"
-                description=""
-                src="/osenorth-cover.png"
-                alt="OseNorth"
-                github_link="https://github.com/bluppco/osenorth"
-                website_link="https://osenorth.blupp.co"
-            />
-            <HomeProjectItem
-                name="OseNorth"
-                description=""
-                src="/osenorth-cover.png"
-                alt="OseNorth"
-                github_link="https://github.com/bluppco/osenorth"
-                website_link="https://osenorth.blupp.co"
-            />
-            <HomeProjectItem
-                name="OseNorth"
-                description=""
-                src="/osenorth-cover.png"
-                alt="OseNorth"
-                github_link="https://github.com/bluppco/osenorth"
-                website_link="https://osenorth.blupp.co"
-            />
+            {
+
+                data.map( ( value ) => {
+
+                    return(
+                        <HomeProjectItem
+                            name={ value.name }
+                            src={ value.cover }
+                            alt={ value.name }
+                        />
+                    )
+
+                })
+
+            }
         </section>
     </section>
 </Container>

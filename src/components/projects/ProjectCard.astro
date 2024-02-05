@@ -13,7 +13,11 @@ const {
     src,
     alt,
     github_link,
-    website_link
+    project_link,
+    is_client,
+    notion_setup,
+    is_private,
+    in_progress
 
 } = Astro.props
 ---
@@ -27,36 +31,60 @@ const {
     </div>
     <div class="px-4">
         <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <a href={ website_link }>
+            <a href={ project_link }>
                 <HeadingThree>{ name }</HeadingThree>
             </a>
             <div class="flex gap-2 items-center md:justify-end">
                 <div class="flex items-center gap-1">
                     <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded flex items-center gap-2">Is Client ?
-                        <div class="w-4 aspect-square">
-                            <img
-                                src="/icons/cross.svg"
-                                alt=""
-                                class="w-4 aspect-square"
-                            />
-                        </div>
-                        <!-- <div class="w-4 aspect-square">
-                            <img
-                                src="/icons/tick.svg"
-                                alt=""
-                                class="w-4 aspect-square"
-                            />
-                        </div> -->
+                        {
+
+                            is_client === true &&
+
+                            <div class="w-4 aspect-square">
+                                <img
+                                    src="/icons/tick.svg"
+                                    alt=""
+                                    class="w-4 aspect-square"
+                                />
+                            </div>
+
+                        }
+                        {
+
+                            is_client === false &&
+
+                            <div class="w-4 aspect-square">
+                                <img
+                                    src="/icons/cross.svg"
+                                    alt=""
+                                    class="w-4 aspect-square"
+                                />
+                            </div>
+
+                        }
                     </button>
                 </div>
-                <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded">Open Source</button>
-                <TooltipJSX
-                    client:load
-                    text="Project in progress"
-                    src="/icons/in_progress.svg"
-                    size="w-5 aspect-square"
-                    image_size="w-5 aspect-square"
-                />
+                {
+
+                    is_private === false &&
+
+                    <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded">Open Source</button>
+
+                }
+                {
+
+                    in_progress === true &&
+
+                    <TooltipJSX
+                        client:load
+                        text="Project in progress"
+                        src="/icons/in_progress.svg"
+                        size="w-5 aspect-square"
+                        image_size="w-5 aspect-square"
+                    />
+
+                }
             </div>
         </div>
         <div class="flex flex-col md:flex-row md:items-center md:justify-between pb-10">
@@ -95,7 +123,7 @@ const {
             </div>
             <div class="space-y-4">
                 <div class="flex gap-6 items-center">
-                    <a href={ website_link } target="_blank">
+                    <a href={ project_link } target="_blank">
                         <TooltipJSX
                             client:load
                             text="Visit website"
@@ -113,7 +141,7 @@ const {
                             image_size="w-6 aspect-squar"
                         />
                     </a>
-                    <a href={ website_link + "/benchmarking" } target="_blank">
+                    <a href={ project_link + "/benchmarking" } target="_blank">
                         <TooltipJSX
                             client:load
                             text="View benchmarking results"

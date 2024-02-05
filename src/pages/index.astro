@@ -1,4 +1,20 @@
 ---
+// NETWORK CALL
+const data = await fetch( "https://staging.api.blupp.co/projects" )
+const data_json = await data.json()
+const projects = data_json.data.projects
+
+// NETWORK CALL
+// const data = await fetch( "https://staging.api.blupp.co/projects" )
+// const data_json = await data.json()
+// const projects = data_json.data.projects
+
+// if( data.status !== 200 ){
+
+//     return Astro.redirect("/")
+
+// }
+
 // IMPORTING LAYOUTS
 import Layout from "../layouts/Layout.astro"
 
@@ -23,6 +39,6 @@ import Footer from "@/components/common/footer/index.astro"
 	<HowWeWork />
 	<TechStack />
 	<Clients />
-	<Projects />
+	<Projects data={ projects } />
 	<Footer />
 </Layout>
