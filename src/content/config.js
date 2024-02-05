@@ -32,28 +32,10 @@ const teamCollection = defineCollection({
 	twitter: z.string(),
 
 })
-const full_stack_indiaCollection = defineCollection({
-
-	schema: z.object({
-
-		title: z.string(),
-		live: z.boolean(),
-		url: z.string(),
-		date: z.string(),
-		image: z.string(),
-		order: z.number(),
-		category: z.string(),
-		link: z.string(),
-		seo_title: z.string(),
-		seo_description: z.string(),
-	})
-
-})
 
 export const collections = {
 
 	"benchmarking": benchmarkingCollection,
 	"team": teamCollection,
-	"full-stack-india": full_stack_indiaCollection,
 
 }
