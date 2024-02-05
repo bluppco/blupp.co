@@ -5,11 +5,6 @@ module.exports = {
 	prefix: "",
 	theme: {
 
-		screens: {
-
-			'mac': '1440px',
-
-		},
 		container: {
 			center: true,
 			padding: "2rem",
@@ -18,6 +13,13 @@ module.exports = {
 			},
 		},
 		extend: {
+
+			screens: {
+
+				'mac': '1440px',
+
+			},
+
 			keyframes: {
 				"accordion-down": {
 					from: { height: "0" },
