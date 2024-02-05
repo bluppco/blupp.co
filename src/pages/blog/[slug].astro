@@ -39,7 +39,7 @@ const body_md = marked.parse( blog.md )
 >
 	<HomeHeader />
 	<ContainerBlog>
-		<section class="pt-32 md:pt-10 md:pb-10">
+		<section class="pt-32 md:pt-10 md:pb-10 overflow-hidden">
 			<div class="h-96">
 				<img src={ CDN_LINK + blog.cover  + "?quality=" + IMAGE_QUALITY } alt="" class="w-full h-full object-cover"/>
 			</div>
