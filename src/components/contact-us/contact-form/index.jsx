@@ -108,10 +108,10 @@ const ContactFormJSX = ( props ) => {
     return (
         <Container>
             <div className="space-y-2 pt-4 md:pt-10">
-                <p className="text-2xl md:text-3xl font-the_seasons pb-4">Get in Touch</p>
+                <p className="text-2xl md:text-3xl font-inter_tight pb-4">Get in Touch</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
-                        <p className="font-the_seasons">Name<sup>*</sup></p>
+                        <p className="font-inter_tight">Name<sup>*</sup></p>
                         <input
                             type="text"
                             placeholder="Name"
@@ -122,7 +122,7 @@ const ContactFormJSX = ( props ) => {
                         />
                     </div>
                     <div>
-                        <p className="font-the_seasons font-medium">Email<sup>*</sup></p>
+                        <p className="font-inter_tight font-medium">Email<sup>*</sup></p>
                         <input
                             type="text"
                             placeholder="Email"
@@ -133,7 +133,7 @@ const ContactFormJSX = ( props ) => {
                         />
                     </div>
                     <div>
-                        <p className="font-the_seasons">Phone Number<sup>*</sup></p>
+                        <p className="font-inter_tight">Phone Number<sup>*</sup></p>
                         <input
                             type="text"
                             placeholder="Phone Number"
@@ -144,7 +144,7 @@ const ContactFormJSX = ( props ) => {
                         />
                     </div>
                     <div>
-                        <p className="font-the_seasons">Subject<sup>*</sup></p>
+                        <p className="font-inter_tight">Subject<sup>*</sup></p>
                         <input
                             type="text"
                             placeholder="Subject"
@@ -155,7 +155,7 @@ const ContactFormJSX = ( props ) => {
                         />
                     </div>
                 </div>
-                <p className="font-the_seasons">Message<sup>*</sup></p>
+                <p className="font-inter_tight">Message<sup>*</sup></p>
                 <textarea
                     type="text-box"
                     placeholder="Message"
@@ -185,7 +185,7 @@ const ContactFormJSX = ( props ) => {
                     {
 
                         !state.processing &&
-                        <button className="h-10 w-fit px-6 rounded-lg text-white font-the_seasons tracking-widest bg-black hover:bg-white hover:text-black border border-zinc-300 flex items-center" data-cy={ cy } id={ cy } onClick={ () => triggerFormPOST( state ) }>Submit</button>
+                        <button className="h-10 w-fit px-6 rounded-lg text-white font-inter_tight tracking-widest bg-black hover:bg-white hover:text-black border border-zinc-300 flex items-center" data-cy={ cy } id={ cy } onClick={ () => triggerFormPOST( state ) }>Submit</button>
 
                     }
                     {
