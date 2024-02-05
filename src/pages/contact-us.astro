@@ -5,7 +5,7 @@ import Container from "@/layouts/Container.astro"
 
 // IMPORTS ASTRO COMPONENTS
 import HomeHeader from "../components/header/HomeHeader.astro"
-import Footer from "../components/Footer.astro"
+import Footer from "@/components/common/footer/index.astro"
 
 // IMPORTS JSX COMPONENTS
 import ContactForm from "@/components/contact-us/contact-form/index.jsx"
@@ -20,9 +20,12 @@ import HeadingOne from "@/atoms/headings/one/index.astro"
 >
 	<HomeHeader />
 	<Container>
-		<section class="py-20 space-y-10">
-			<HeadingOne>Contact Us</HeadingOne>
-			<ContactForm client:load />
+		<section class="pt-28 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-6">
+			<section>
+				<HeadingOne>Contact Us</HeadingOne>
+				<ContactForm client:load />
+			</section>
+			<section></section>
 		</section>
 	</Container>
 	<Footer />

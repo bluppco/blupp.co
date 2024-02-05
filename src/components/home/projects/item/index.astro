@@ -1,14 +1,15 @@
 ---
-// IMPORTING ATOMS
+// IMPORTS ASTRO ATOMS
 import HeadingFour from "@/atoms/headings/four/index.astro"
+
+// IMPORTS CONTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
 
 const {
 
     name,
     src,
-    alt,
-    github_link,
-    website_link
+    alt
 
 } = Astro.props
 ---
@@ -16,7 +17,7 @@ const {
     <a href="/projects">
         <div class="w-full aspect-video bg-zinc-200 overflow-hidden">
             <img
-                src={ src }
+                src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
                 alt={ alt }
                 class="w-full h-full object-cover"
             />
@@ -24,70 +25,9 @@ const {
     </a>
     <div class="p-4">
         <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <a href={ website_link }>
+            <a href="/projects">
                 <HeadingFour>{ name }</HeadingFour>
             </a>
         </div>
-        <!-- <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-            <div class="flex gap-6 items-center">
-                <div class="w-6 aspect-square">
-                    <img
-                        src="/images/astro-logo.svg"
-                        alt=""
-                        class="w-6 aspect-square"
-                    />
-                </div>
-                <div class="w-6 aspect-square">
-                    <img
-                        src="/images/tailwindcss-logo.svg"
-                        alt=""
-                        class="w-6 aspect-square"
-                    />
-                </div>
-                <div class="w-12 aspect-video">
-                    <img
-                        src="/images/cloudflare-logo.png"
-                        alt=""
-                        class="w-full h-full"
-                    />
-                </div>
-                <div class="w-16 aspect-square">
-                    <img
-                        src="/icons/notion.svg"
-                        alt=""
-                        class="w-16 aspect-square"
-                    />
-                </div>
-            </div>
-            <div class="flex gap-6 items-center">
-                <a href={ website_link }>
-                    <div class="w-5 aspect-square">
-                        <img
-                            src="/icons/website.svg"
-                            alt=""
-                            class="w-5 aspect-square"
-                        />
-                    </div>
-                </a>
-                <a href={ github_link } target="_blank">
-                    <div class="w-6 aspect-square">
-                        <img
-                            src="/github.svg"
-                            alt=""
-                            class="w-6 aspect-square"
-                        />
-                    </div>
-                </a>
-                <a href={ website_link + "/benchmarking" } target="_blank">
-                    <div class="w-5 aspect-square">
-                        <img
-                            src="/icons/benchmarking.svg"
-                            alt=""
-                            class="w-5 aspect-square"
-                        />
-                    </div>
-                </a>
-            </div>
-        </div> -->
     </div>
 </div>

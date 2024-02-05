@@ -53,9 +53,10 @@ const HeaderMobile = () => {
                         className="grow"
                     >
                         <div className="flex flex-col gap-1 items-center justify-center h-full z-10">
-                            <ul className="flex flex-col gap-8">
+                            <ul className="flex flex-col gap-8 justify-center items-center">
                                 <HeaderMobileItem href="/projects">Projects</HeaderMobileItem>
                                 <HeaderMobileItem href="/about">Company</HeaderMobileItem>
+                                <HeaderMobileItem href="/blog">Blogs</HeaderMobileItem>
                             </ul>
                         </div>
                     </motion.div>
