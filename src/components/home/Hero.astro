@@ -16,10 +16,10 @@ import AnnotateCircle from "../atom/jsx/annotation/Circle"
 import Globe from "@/components/home/globe/index.astro"
 // import GlobeJSX from "@/components/home/globe/globe.jsx"
 ---
-<section class="w-full h-full flex items-center justify-center py-10">
+<section class="w-full h-full flex items-center justify-center py-10 pt-40 md:pt-0">
     <Container>
         <section class="w-full h-full space-y-6">
-            <section class="w-[70%] mx-auto space-y-6">
+            <section class="md:w-[70%] mx-auto space-y-6">
                 <!-- <div>
                     <span class="text-7xl md:text-7xl font-medium font-abril">Making </span>
                     <AnnotateUnderline client:load>
@@ -30,9 +30,9 @@ import Globe from "@/components/home/globe/index.astro"
                         <span class="text-7xl md:text-7xl font-medium font-abril">fast.</span>
                     </AnnotateCircle>
                 </div> -->
-                <p class="text-7xl md:text-7xl font-medium font-abril text-center !leading-tight">Making web 2.0 ultra fast.</p>
+                <p class="text-7xl font-medium font-abril text-center !leading-tight">Making web 2.0 ultra fast.</p>
                 <p class="text-xl font-the_seasons text-center tracking-wider">Swiftly Elevate Your Web 2.0 Adventure with Blazing Speeds!</p>
-                <div class="flex justify-center gap-4">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
                     <Link href="" aria-label="">
                         <PrimaryButton>Get Started</PrimaryButton>
                     </Link>
