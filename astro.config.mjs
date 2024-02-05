@@ -16,6 +16,9 @@ export default defineConfig({
 		runtime: {
 			mode: 'local',
 			type: 'pages'
+		},
+		routes: {
+			exclude: ["/icons/*", "/images/*"]
 		}
 	})
 });
