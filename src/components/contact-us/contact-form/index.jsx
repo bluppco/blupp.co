@@ -107,7 +107,7 @@ const ContactFormJSX = ( props ) => {
 
     return (
         <Container>
-            <div className="space-y-2">
+            <div className="space-y-2 pt-4 md:pt-10">
                 <p className="text-2xl md:text-3xl font-the_seasons pb-4">Get in Touch</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
