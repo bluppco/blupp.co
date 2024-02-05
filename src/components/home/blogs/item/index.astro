@@ -15,11 +15,13 @@ const {
 } = Astro.props
 ---
 <div class="flex flex-col gap-2 bg-slate-50 h-full rounded overflow-hidden border border-zinc-300 shadow">
-    <img
-        src={ CDN_LINK + image + "?quality=" + IMAGE_QUALITY }
-        alt=""
-        class="w-full aspect-square object-cover bg-zinc-300"
-    />
+    <div class="w-full aspect-video bg-zinc-200">
+        <img
+            src={ CDN_LINK + image + "?quality=" + IMAGE_QUALITY }
+            alt=""
+            class="w-full h-full object-cover"
+        />
+    </div>
     <div class="p-4 flex flex-col justify-between grow">
         <div class="font-semibold text-lg text-slate-800">{ title }</div>
         <div class="italic text-sm text-slate-900 tracking-widest">{ date }</div>

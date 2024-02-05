@@ -3,7 +3,7 @@
 import Container from "@/layouts/Container.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import HomeProjectItem from "./item/index.astro"
+import HomeBlogItem from "./item/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
@@ -12,7 +12,7 @@ const { data } = Astro.props
 ---
 <Container>
     <section class="space-y-6 py-10">
-        <HeadingTwo>Projects</HeadingTwo>
+        <HeadingTwo>Blogs</HeadingTwo>
         <section class="grid md:grid-cols-3 gap-4 md:gap-6">
             {
 
@@ -22,10 +22,10 @@ const { data } = Astro.props
 
                         value.display_on_home &&
 
-                        <HomeProjectItem
-                            name={ value.name }
-                            src={ value.cover }
-                            alt={ value.name }
+                        <HomeBlogItem
+                            date={ value.date }
+                            image={ value.cover }
+                            title={ value.title }
                         />
                     )
 
