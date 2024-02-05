@@ -1,7 +1,7 @@
 ---
 // IMPORTING COMPONENTS
-import Header from "../../components/header/Header.astro"
-import Footer from "../../components/Footer.astro"
+import HomeHeader from "@/components/header/HomeHeader.astro"
+import Footer from "@/components/common/footer/index.astro"
 import MetaTags from "../../components/MetaTags.astro"
 import BluppBar from "../../components/benchmarking/BluppBar.astro"
 import OthersBar from "../../components/benchmarking/OthersBar.astro"
@@ -66,7 +66,7 @@ entry.data.pages?.map( ( pages ) => {
 	<body>
 		<section class="min-h-screen flex flex-col">
 			<!-- COMPONENT FOR HEADER -->
-			<Header />
+			<HomeHeader />
 			<section class="container max-w-4xl lg:max-w-6xl mx-auto py-6 flex grow px-4 xl:px-0 flex-col gap-12">
 				<div class="font-bold text-4xl text-zinc-900">{ entry.data.page }</div>
 				<section>

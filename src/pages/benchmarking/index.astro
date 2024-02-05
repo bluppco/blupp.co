@@ -1,7 +1,7 @@
 ---
 // IMPORTING COMPONENTS
-import Header from "../../components/header/Header.astro"
-import Footer from "../../components/Footer.astro"
+import HomeHeader from "@/components/header/HomeHeader.astro"
+import Footer from "@/components/common/footer/index.astro"
 import MetaTags from "../../components/MetaTags.astro"
 import H1 from "../../components/atom/H1.astro"
 import P from "../../components/atom/P.astro"
@@ -29,7 +29,7 @@ const benchmarking = await getCollection('benchmarking');
 	<body>
 		<section class="min-h-screen flex flex-col">
 		<!-- COMPONENT FOR HEADER -->
-			<Header />
+			<HomeHeader />
 			<section class="container max-w-4xl lg:max-w-6xl mx-auto py-6 flex grow px-4 xl:px-0 flex-col">
 				<H1
 					text="Benchmarking Results"

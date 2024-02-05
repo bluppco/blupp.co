@@ -1,4 +1,14 @@
 ---
+// NETWORK CALL FOR PROJECTS
+const data = await fetch( "https://staging.api.blupp.co/projects" )
+const data_json = await data.json()
+const projects = data_json.data.projects
+
+// NETWORK CALL FOR BLOGS
+const blogs_data = await fetch( "https://staging.api.blupp.co/blogs" )
+const blogs_data_json = await blogs_data.json()
+const blogs = blogs_data_json.data.blogs
+
 // IMPORTING LAYOUTS
 import Layout from "../layouts/Layout.astro"
 
@@ -9,6 +19,7 @@ import HowWeWork from "@/components/home/how-we-work/index.astro"
 import Clients from "@/components/home/clients/index.astro"
 import Projects from "@/components/home/projects/index.astro"
 import TechStack from "@/components/home/tech-stack/index.astro"
+import Blogs from "@/components/home/blogs/index.astro"
 import Footer from "@/components/common/footer/index.astro"
 ---
 <Layout
@@ -16,14 +27,14 @@ import Footer from "@/components/common/footer/index.astro"
 	description="Blupp Company"
 	image=""
 >
-	<section class="h-screen max-h-screen">
+	<section class="md:h-screen md:max-h-screen">
 		<HomeHeader />
 		<Hero />
 	</section>
-	<section class="pb-10" />
 	<HowWeWork />
 	<TechStack />
 	<Clients />
-	<Projects />
+	<Projects data={ projects } />
+	<Blogs data={ blogs } />
 	<Footer />
 </Layout>
