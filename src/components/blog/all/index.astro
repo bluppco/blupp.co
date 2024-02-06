@@ -3,11 +3,10 @@
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO ATOMS
-import Link from "@/atoms/links/index.astro"
 import HeadingOne from "@/atoms/headings/one/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import BlogCard from '../blog-card/index.astro'
+import BlogCard from '../card/index.astro'
 
 const { blog } = Astro.props
 ---
@@ -23,15 +22,14 @@ const { blog } = Astro.props
                 blog.map( ( blog ) => {
 
                     return(
-                            <Link href={ "/blog/" + blog.slug }>
-                                <div class="h-full">
-                                    <BlogCard
-                                        image={ blog.cover }
-                                        title={ blog.title }
-                                        date={ blog.date }
-                                    />
-                                </div>
-                            </Link>
+                        <div class="h-full">
+                            <BlogCard
+                                image={ blog.cover }
+                                title={ blog.title }
+                                date={ blog.date }
+                                slug={ blog.slug }
+                            />
+                        </div>
                         )
 
                 })

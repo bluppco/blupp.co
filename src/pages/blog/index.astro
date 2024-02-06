@@ -5,7 +5,7 @@ import Layout from "@/layouts/layout/index.astro"
 // COMPONENTS
 import Header from "@/components/common/header/index.astro"
 import Footer from "@/components/common/footer/index.astro"
-import Blogs from "@/components/blog/item/index.astro"
+import Blogs from "@/components/blog/all/index.astro"
 
 // CONSTANTS
 import { CDN_LINK } from "../../constants/images"
@@ -28,7 +28,6 @@ const meta = data_json.data.meta_tags
     description={ meta.description }
     image={ CDN_LINK + meta.cover }
 >
-<Layout>
 	<Header />
 	<Blogs blog= { blog } />
 	<Footer />
