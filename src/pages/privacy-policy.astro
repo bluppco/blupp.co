@@ -35,8 +35,10 @@ const html = marked.parse( content )
 >
     <Header />
     <Container>
-        <HeadingOne>{ privacy_policy.title }</HeadingOne>
-        <section set:html={ html } class="markdown" />
+        <section class="pt-20 md:pt-0">
+            <HeadingOne>{ privacy_policy.title }</HeadingOne>
+            <section set:html={ html } class="markdown py-4 md:py-10" />
+        </section>
 	</Container>
 	<Footer />
 </Layout>
