@@ -14,28 +14,28 @@ import Footer from "@/components/common/footer/index.astro"
 import HeadingOne from "@/atoms/headings/one/index.astro"
 
 // NETWORK CALL
-const data = await fetch( "https://staging.api.blupp.co/pages/terms-and-conditions" )
+const data = await fetch( "https://staging.api.blupp.co/page/terms-and-conditions" )
 const data_json = await data.json()
 
-if( data.status !== 200 ){
+    if( data.status !== 200 ){
 
-    return Astro.redirect("/")
+        return Astro.redirect("/")
 
-}
+    }
 
-let content = data_json.data.static.md
+let terms_and_conditions = data_json.data
+let content = data_json.data.md
 
 const html = marked.parse( content )
-const meta = data_json.data.meta
 ---
 <Layout
-	title={ meta.title }
-	description={ meta.description}
-	image={ meta.cover }
+	title={ terms_and_conditions.meta_title }
+	description={ terms_and_conditions.meta_description }
+	image={ terms_and_conditions.cover }
 >
     <Header />
     <Container>
-        <HeadingOne>Terms and conditions</HeadingOne>
+        <HeadingOne>{ terms_and_conditions.title }</HeadingOne>
         <section set:html={ html } class="markdown" />
 	</Container>
 	<Footer />
