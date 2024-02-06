@@ -12,20 +12,49 @@ import ContactForm from "@/components/contact-us/contact-form/index.jsx"
 
 // IMPORTS ASTRO ATOMS
 import HeadingOne from "@/atoms/headings/one/index.astro"
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
+
+// NETWORK CALL
+const data = await fetch( "https://staging.api.blupp.co/page/contact-us" )
+const data_json = await data.json()
+
+	if( data.status !== 200 ){
+
+		return Astro.redirect("/")
+
+	}
+
+let contact = data_json.data
 ---
 <Layout
-	title="Contact Us | Blupp Company"
-	description="Blupp Company"
-	image=""
+	title={ contact.meta_title }
+	description={ contact.meta_description }
+	image={ contact.cover }
 >
 	<Header />
 	<Container>
-		<section class="pt-28 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-6">
-			<section>
-				<HeadingOne>Contact Us</HeadingOne>
+		<section class="pt-28 pb-4 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-6">
+			<section class="flex flex-col justify-center">
+				<HeadingOne>{ contact.name }</HeadingOne>
 				<ContactForm client:load />
 			</section>
-			<section></section>
+			<!-- {
+
+				contact.cover &&
+
+				<section>
+					<div class="w-full aspect-square bg-zinc-200">
+						<img
+							src={ CDN_LINK + contact.cover + "?quality=" + IMAGE_QUALITY }
+							alt=""
+							class="w-full h-full object-cover"
+						/>
+					</div>
+				</section>
+
+			} -->
 		</section>
 	</Container>
 	<Footer />
