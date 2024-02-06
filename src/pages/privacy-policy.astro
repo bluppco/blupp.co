@@ -14,28 +14,28 @@ import Footer from "@/components/common/footer/index.astro"
 import HeadingOne from "@/atoms/headings/one/index.astro"
 
 // NETWORK CALL
-const data = await fetch( "https://staging.api.blupp.co/pages/privacy-policy" )
+const data = await fetch( "https://staging.api.blupp.co/page/privacy-policy" )
 const data_json = await data.json()
 
-if( data.status !== 200 ){
+    if( data.status !== 200 ){
 
-    return Astro.redirect("/")
+        return Astro.redirect("/")
 
-}
+    }
 
-let content = data_json.data.static.md
+let privacy_policy = data_json.data
+let content = data_json.data.md
 
 const html = marked.parse( content )
-const meta = data_json.data.meta
 ---
 <Layout
-	title={ meta.title }
-	description={ meta.description}
-	image={ meta.cover }
+	title={ privacy_policy.meta_title }
+	description={ privacy_policy.meta_description}
+	image={ privacy_policy.cover }
 >
     <Header />
     <Container>
-        <HeadingOne>Privacy Policy</HeadingOne>
+        <HeadingOne>{ privacy_policy.title }</HeadingOne>
         <section set:html={ html } class="markdown" />
 	</Container>
 	<Footer />
