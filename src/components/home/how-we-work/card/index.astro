@@ -10,12 +10,12 @@ const {
     sub_title,
     description,
     index,
-    color
+    bg_color
 
 } = Astro.props
 ---
-<div class={ color + " space-y-6 p-10" }>
-    <div class="w-16 h-16 bg-stone-700 rounded-full flex justify-center items-center">
+<div class={ bg_color + " space-y-6 p-10" }>
+    <div class="w-16 h-16 bg-black/40 rounded-full flex justify-center items-center">
         <p class="text-white text-lg">{ index }</p>
     </div>
     <div class="h-20">

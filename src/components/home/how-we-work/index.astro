@@ -3,39 +3,39 @@
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import HowWeWorkItem from "./item/index.astro"
+import HowWeWorkCard from "./card/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 ---
-<section class="space-y-6 py-10">
+<section class="space-y-6 pt-20 pb-10">
     <Container>
         <HeadingTwo>How we work</HeadingTwo>
     </Container>
     <section class="grid md:grid-cols-4">
-        <HowWeWorkItem
-            color="bg-zinc-300"
+        <HowWeWorkCard
+            bg_color="bg-gray-500"
             index={ 1 }
             title="Discovery call"
             sub_title="30 min"
             description="This initial 1-on-1 chat allows us to understand your company's goals, target audience, and current digital presence and challenges."
         />
-        <HowWeWorkItem
-            color="bg-zinc-400"
+        <HowWeWorkCard
+            bg_color="bg-gray-600"
             index={ 2 }
             title="Strategic audit"
             sub_title="2 weeks"
             description="Our team will conduct a comprehensive audit of your existing website and craft a customized plan for your company."
         />
-        <HowWeWorkItem
-            color="bg-zinc-500"
+        <HowWeWorkCard
+            bg_color="bg-gray-700"
             index={ 3 }
             title="Trial subscription"
             sub_title="3 months"
             description="Implementation of the transformed website with monthly analytics reports. This phase ensures our tactics align with your goals."
         />
-        <HowWeWorkItem
-            color="bg-zinc-600"
+        <HowWeWorkCard
+            bg_color="bg-gray-800"
             index={ 4 }
             title="Long-term partnership"
             sub_title="12+ months"
