@@ -1,13 +1,13 @@
 ---
 // IMPORTING ASTRO LAYOUTS
-import Container from "../../layouts/Container.astro"
+import Container from "@/layouts/Container.astro"
 
 // IMPORTING ASTRO ATOMS
-import HeadingOne from "../atom/heading/One.astro"
-import Paragraph from "../atom/paragraph/Vanilla.astro"
+import HeadingOne from "@/atoms/headings/one/index.astro"
+import Paragraph from "@/atoms/paragraphs/large/index.astro"
 ---
 <Container>
-    <section class="py-10 pt-28 md:pt-10">
+    <section class="py-10 pt-28 md:pt-10 space-y-4">
         <HeadingOne>About Blupp Company</HeadingOne>
         <Paragraph>I will write about our company and our vision on this page as I get time.</Paragraph>
     </section>
