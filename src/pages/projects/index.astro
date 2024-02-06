@@ -16,7 +16,7 @@ import Layout from "../../layouts/Layout.astro"
 // IMPORTING COMPONENTS
 import Header from "@/components/common/header/index.astro"
 import Footer from "@/components/common/footer/index.astro"
-import OurProjects from "../../components/projects/OurProjects.astro"
+import AllProjects from "@/components/projects/all/index.astro"
 ---
 <Layout
     title="Projects | Blupp Company"
@@ -24,6 +24,6 @@ import OurProjects from "../../components/projects/OurProjects.astro"
     image=""
 >
     <Header />
-    <OurProjects data={ projects } />
+    <AllProjects data={ projects } />
     <Footer />
 </Layout>
