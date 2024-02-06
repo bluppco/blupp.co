@@ -4,12 +4,11 @@ import Container from "@/layouts/container/index.astro"
 
 // IMPORTING ASTRO ATOMS
 import PrimaryButton from "@/atoms/buttons/primary/index.astro"
-import SecondaryButton from "@/atoms/buttons/secondary/index.astro"
-import Link from "@/atoms/links/index.astro"
+import TargetblankLink from "@/atoms/links/target-blank/index.astro"
 
 // IMPORTING COMPONENTS
 import Globe from "@/components/home/globe/index.astro"
-// import GlobeJSX from "@/components/home/globe/globe.jsx"
+// import GlobeJSX from "@/components/home/globe/draggable/index.jsx"
 ---
 <section class="w-full h-full flex items-center justify-center pt-40 md:pt-4 grow">
     <Container>
@@ -17,13 +16,10 @@ import Globe from "@/components/home/globe/index.astro"
             <section class="md:w-[70%] mx-auto space-y-6">
                 <p class="text-7xl font-medium font-inter_tight text-center !leading-tight">Making web 2.0 ultra fast.</p>
                 <p class="text-xl font-inter_tight text-center tracking-wider">Swiftly Elevate Your Web 2.0 Adventure with Blazing Speeds!</p>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                    <Link href="" aria-label="">
-                        <PrimaryButton>Get Started</PrimaryButton>
-                    </Link>
-                    <Link href="" aria-label="">
-                        <SecondaryButton>Request a demo</SecondaryButton>
-                    </Link>
+                <div class="flex justify-center">
+                    <TargetblankLink href="https://cal.com/mohitdotdev" aria-label="">
+                        <PrimaryButton>Book a Meeting</PrimaryButton>
+                    </TargetblankLink>
                 </div>
             </section>
             <section class="flex justify-center overflow-hidden">
