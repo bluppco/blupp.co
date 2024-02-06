@@ -4,6 +4,7 @@ import TooltipJSX from "@/components/common/tooltip/index"
 
 // IMPORTS ASTRO ATOMS
 import HeadingThree from "@/atoms/headings/three/index.astro"
+import Link from "@/atoms/links/index.astro"
 
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
@@ -18,23 +19,26 @@ const {
     is_client,
     notion_setup,
     is_private,
-    in_progress
+    in_progress,
+    slug
 
 } = Astro.props
 ---
-<div class="space-y-4 md:space-y-6 rounded border border-zinc-200 bg-gray-50 shadow">
-    <div class="w-full aspect-video bg-zinc-200">
-        <img
-            src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
-            alt={ alt }
-            class="w-full h-full object-cover"
-        />
-    </div>
+<div class="space-y-4 md:space-y-6 border border-zinc-200 bg-gray-50 shadow">
+    <!-- <Link href={ "/project/" +  slug }> -->
+        <div class="w-full aspect-video bg-zinc-200">
+            <img
+                src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
+                alt={ alt }
+                class="w-full h-full object-cover"
+            />
+        </div>
+    <!-- </Link> -->
     <div class="px-4">
         <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <a href={ project_link }>
+            <!-- <Link href={ "/project/" +  slug }> -->
                 <HeadingThree>{ name }</HeadingThree>
-            </a>
+            <!-- </Link> -->
             <div class="flex gap-2 items-center md:justify-end">
                 <div class="flex items-center gap-1">
                     <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded flex items-center gap-2">Is Client ?

@@ -2,7 +2,9 @@
 // NETWORK CALL
 const data = await fetch( "https://staging.api.blupp.co/projects" )
 const data_json = await data.json()
+
 const projects = data_json.data.projects
+const meta = data_json.data.meta_tags
 
 if( data.status !== 200 ){
 
@@ -19,9 +21,9 @@ import Footer from "@/components/common/footer/index.astro"
 import AllProjects from "@/components/projects/all/index.astro"
 ---
 <Layout
-    title="Projects | Blupp Company"
-    description="Projects | Blupp Company"
-    image=""
+    title={ meta.title }
+    description={ meta.description }
+    image={ meta.cover }
 >
     <Header />
     <AllProjects data={ projects } />
