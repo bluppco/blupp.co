@@ -1,12 +1,12 @@
 ---
 // IMPORTING ASTRO COMPONENTS
-import HomeHeaderitem from "./HomeHeaderitem.astro"
+import Li from "./li/index.astro"
 
 // IMPORTING JSX COMPONENTS
-import HeaderMobile from "./HeaderMobile"
+import HeaderMobile from "./mobile-header/index.jsx"
 
 // IMPORTING ASTRO LAYOUTS
-import Container from "../../layouts/Container.astro"
+import Container from "@/layouts/Container.astro"
 
 // IMPORTING ASTRO ATOMS
 import PrimaryButton from "@/atoms/buttons/primary/index.astro"
@@ -23,9 +23,9 @@ import Link from "@/atoms/links/index.astro"
             </div>
             <nav class="flex items-center h-full justify-end">
                 <ul class="flex items-center gap-8">
-                    <HomeHeaderitem href="/about">Company</HomeHeaderitem>
-                    <HomeHeaderitem href="/projects">Projects</HomeHeaderitem>
-                    <HomeHeaderitem href="/blog">Blogs</HomeHeaderitem>
+                    <Li href="/about">Company</Li>
+                    <Li href="/projects">Projects</Li>
+                    <Li href="/blog">Blogs</Li>
                     <Link href="mailto:mohit@blupp.co" aria_label="">
                         <PrimaryButton>Contact</PrimaryButton>
                     <Link>

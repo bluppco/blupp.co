@@ -14,7 +14,7 @@ if( data.status !== 200 ){
 import Layout from "../../layouts/Layout.astro"
 
 // IMPORTING COMPONENTS
-import HomeHeader from "@/components/header/HomeHeader.astro"
+import Header from "@/components/common/header/index.astro"
 import Footer from "@/components/common/footer/index.astro"
 import OurProjects from "../../components/projects/OurProjects.astro"
 ---
@@ -23,7 +23,7 @@ import OurProjects from "../../components/projects/OurProjects.astro"
     description="Projects | Blupp Company"
     image=""
 >
-    <HomeHeader />
+    <Header />
     <OurProjects data={ projects } />
     <Footer />
 </Layout>

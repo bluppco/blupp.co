@@ -13,7 +13,7 @@ const blogs = blogs_data_json.data.blogs
 import Layout from "../layouts/Layout.astro"
 
 // IMPORTING COMPONENTS
-import HomeHeader from "../components/header/HomeHeader.astro"
+import Header from "@/components/common/header/index.astro"
 import Hero from "../components/home/Hero.astro"
 import HowWeWork from "@/components/home/how-we-work/index.astro"
 import Clients from "@/components/home/clients/index.astro"
@@ -28,7 +28,7 @@ import Footer from "@/components/common/footer/index.astro"
 	image=""
 >
 	<section class="md:h-screen md:max-h-screen">
-		<HomeHeader />
+		<Header />
 		<Hero />
 	</section>
 	<HowWeWork />
