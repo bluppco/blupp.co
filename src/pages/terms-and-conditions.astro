@@ -35,8 +35,7 @@ const html = marked.parse( content )
 >
     <Header client:load />
     <Container>
-        <section class="pt-20 md:pt-0">
-            <HeadingOne>{ terms_and_conditions.title }</HeadingOne>
+        <section class="pt-20 md:pt-16">
             <section set:html={ html } class="markdown py-4 md:py-10" />
         </section>
     </Container>
