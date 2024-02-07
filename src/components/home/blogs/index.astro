@@ -1,28 +1,28 @@
 ---
 // IMPORTS ASTRO LAYOUTS
-import Container from "@/layouts/Container.astro"
+import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import HomeBlogItem from "./item/index.astro"
+import HomeBlogCard from "./card/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 
-const { data } = Astro.props
+const { data, blogs } = Astro.props
 ---
 <Container>
-    <section class="space-y-6 py-10">
-        <HeadingTwo>Blogs</HeadingTwo>
+    <section class="space-y-4 md:space-y-6 pb-4 md:py-10">
+        <HeadingTwo>{ data.title }</HeadingTwo>
         <section class="grid md:grid-cols-3 gap-4 md:gap-6">
             {
 
-                data.map( ( value ) => {
+                blogs.map( ( value ) => {
 
                     return(
 
                         value.display_on_home &&
 
-                        <HomeBlogItem
+                        <HomeBlogCard
                             date={ value.date }
                             image={ value.cover }
                             title={ value.title }

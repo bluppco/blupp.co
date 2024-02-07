@@ -1,20 +1,39 @@
 ---
+const runtime = Astro.locals.runtime
+const ENDPOINT = runtime.env.ENDPOINT
+
+import { homeAPI } from "../api/home/index"
+
+const data = await homeAPI()
+
+const { home_data } = data
+
+// NETWORK CALL FOR TECH STACK
+const stack_data = await fetch( ENDPOINT + "stack" )
+const stack_data_json = await stack_data.json()
+const tech_stack = stack_data_json.data.stack
+
 // NETWORK CALL FOR PROJECTS
-const data = await fetch( "https://staging.api.blupp.co/projects" )
-const data_json = await data.json()
-const projects = data_json.data.projects
+const projects_data = await fetch( ENDPOINT + "projects" )
+const projects_data_json = await projects_data.json()
+const projects = projects_data_json.data.projects
+
+// NETWORK CALL FOR HOW WE WORK
+const work_data = await fetch( ENDPOINT + "work" )
+const work_data_json = await work_data.json()
+const how_we_work = work_data_json.data.work
 
 // NETWORK CALL FOR BLOGS
-const blogs_data = await fetch( "https://staging.api.blupp.co/blogs" )
+const blogs_data = await fetch( ENDPOINT + "blogs" )
 const blogs_data_json = await blogs_data.json()
 const blogs = blogs_data_json.data.blogs
 
 // IMPORTING LAYOUTS
-import Layout from "../layouts/Layout.astro"
+import Layout from "@/layouts/layout/index.astro"
 
 // IMPORTING COMPONENTS
-import HomeHeader from "../components/header/HomeHeader.astro"
-import Hero from "../components/home/Hero.astro"
+import Header from "@/components/common/header/index.jsx"
+import Hero from "@/components/home/hero/index.astro"
 import HowWeWork from "@/components/home/how-we-work/index.astro"
 import Clients from "@/components/home/clients/index.astro"
 import Projects from "@/components/home/projects/index.astro"
@@ -28,13 +47,25 @@ import Footer from "@/components/common/footer/index.astro"
 	image=""
 >
 	<section class="md:h-screen md:max-h-screen">
-		<HomeHeader />
-		<Hero />
+		<Header client:load />
+		<Hero data={ home_data.hero } />
 	</section>
-	<HowWeWork />
-	<TechStack />
-	<Clients />
-	<Projects data={ projects } />
-	<Blogs data={ blogs } />
+	<HowWeWork
+		data={ home_data.how_we_work }
+		work={ how_we_work }
+	/>
+	<TechStack
+		data={ home_data.tech_stack }
+		tech_stack={ tech_stack }
+	/>
+	<Clients data={ home_data.clients } />
+	<Projects
+		data={ home_data.projects }
+		projects={ projects }
+	/>
+	<Blogs
+		data={ home_data.blogs }
+		blogs={ blogs }
+	/>
 	<Footer />
 </Layout>

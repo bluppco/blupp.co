@@ -3,7 +3,7 @@ import { Toaster, toast } from "sonner"
 import { Turnstile } from '@marsidev/react-turnstile'
 
 // IMPORTS JSX LAYOUTS
-import Container from "@/layouts/Container"
+import Container from "@/layouts/container/jsx/index"
 
 const ContactFormJSX = ( props ) => {
 

@@ -1,32 +1,36 @@
 ---
 // IMPORTS ASTRO LAYOUTS
-import Container from "@/layouts/Container.astro"
+import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
 import ClientLogo from "./client-logo/index.astro"
+
+const { data } = Astro.props
+
+const images = data.images.sort( (a,b) => a.order - b.order )
 ---
 <Container>
-    <section class="space-y-6 py-10">
-        <HeadingTwo>Clients</HeadingTwo>
-        <section class="flex flex-col md:flex-row gap-10 md:gap-20">
-            <ClientLogo
-                href="https://www.eroshotels.co.in/"
-                src="/logo/eros-logo.png"
-                alt=""
-            />
-            <ClientLogo
-                href="https://www.gomaldives.co/"
-                src="/logo/gomo-logo.png"
-                alt=""
-            />
-            <ClientLogo
-                href="https://www.reethifaru.com/"
-                src="/logo/reethifaru-logo.png"
-                alt=""
-            />
+    <section class="space-y-4 md:space-y-6 pb-4 md:py-10">
+        <HeadingTwo>{ data.title }</HeadingTwo>
+        <section class="flex flex-col md:flex-row md:justify-center gap-4 md:gap-20">
+            {
+
+                images.map( ( value ) => {
+
+                    return(
+                        <ClientLogo
+                            href=""
+                            src={ value.file }
+                            alt=""
+                        />
+                    )
+
+                })
+
+            }
         </section>
     </section>
 </Container>

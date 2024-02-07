@@ -1,0 +1,26 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import HeadingFive from "@/atoms/headings/five/index.astro"
+import Paragraph from "@/atoms/paragraphs/large/index.astro"
+
+const {
+
+    title,
+    sub_title,
+    description,
+    index,
+    bg_color
+
+} = Astro.props
+---
+<div class="space-y-4 md:space-y-6 p-4 md:p-10" style={{ "background-color": bg_color }}>
+    <div class="w-10 md:w-16 h-10 md:h-16 bg-black/40 rounded-full flex justify-center items-center">
+        <p class="text-white md:text-lg">{ index }</p>
+    </div>
+    <div class="md:h-20">
+        <HeadingThree>{ title }</HeadingThree>
+    </div>
+    <HeadingFive>{ sub_title }</HeadingFive>
+    <Paragraph>{ description }</Paragraph>
+</div>

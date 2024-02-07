@@ -2,7 +2,9 @@
 // NETWORK CALL
 const data = await fetch( "https://staging.api.blupp.co/projects" )
 const data_json = await data.json()
+
 const projects = data_json.data.projects
+const meta = data_json.data.meta_tags
 
 if( data.status !== 200 ){
 
@@ -11,19 +13,19 @@ if( data.status !== 200 ){
 }
 
 // IMPORTING LAYOUTS
-import Layout from "../../layouts/Layout.astro"
+import Layout from "@/layouts/layout/index.astro"
 
 // IMPORTING COMPONENTS
-import HomeHeader from "@/components/header/HomeHeader.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
-import OurProjects from "../../components/projects/OurProjects.astro"
+import AllProjects from "@/components/projects/all/index.astro"
 ---
 <Layout
-    title="Projects | Blupp Company"
-    description="Projects | Blupp Company"
-    image=""
+    title={ meta.title }
+    description={ meta.description }
+    image={ meta.cover }
 >
-    <HomeHeader />
-    <OurProjects data={ projects } />
+    <Header client:load />
+    <AllProjects data={ projects } />
     <Footer />
 </Layout>
