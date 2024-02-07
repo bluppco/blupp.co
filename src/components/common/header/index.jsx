@@ -55,7 +55,7 @@ const Header = ( props ) => {
                     <Container>
                         <section className="flex justify-between items-center h-full">
                             <Link href="/" aria_label="">
-                                <div class="flex items-center gap-2">
+                                <div className="flex items-center gap-2">
                                     <p className="text-2xl text-white bg-black rounded-full w-12 aspect-square text-center flex justify-center items-center">&#120121;</p>
                                     <p className="text-xl font-inter_tight tracking-wide">Blupp Company</p>
                                 </div>
