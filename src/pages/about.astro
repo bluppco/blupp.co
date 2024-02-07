@@ -3,36 +3,43 @@
 import { marked } from "marked"
 
 // IMPORTING LAYOUTS
-import Layout from "../layouts/Layout.astro"
+import Layout from "@/layouts/layout/index.astro"
 
 // IMPORTING COMPONENTS
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
-import Team from "../components/about/Team.astro"
-import AboutOurCompany from "../components/about/AboutOurCompany.astro"
-import HomeHeader from "@/components/header/HomeHeader.astro"
+import Team from "@/components/about/team/index.astro"
+import AboutOurCompany from "@/components/about/our-company/index.astro"
+
+// NETWORK CALL FOR TEAM
+const team_data = await fetch( "https://staging.api.blupp.co/team" )
+const team_data_json = await team_data.json()
+const team = team_data_json.data.team
 
 // NETWORK CALL
-const data = await fetch( "https://staging.api.blupp.co/pages/about" )
+const data = await fetch( "https://staging.api.blupp.co/page/about" )
 const data_json = await data.json()
 
-// if( data.status !== 200 ){
+	if( data.status !== 200 ){
 
-//     return Astro.redirect("/")
+		return Astro.redirect("/")
 
-// }
+	}
 
-// let content = data_json.data.static.md
+let about = data_json.data
+let content = data_json.data.md
 
-// const html = marked.parse( content )
-// const meta = data_json.data.meta
+const html = marked.parse( content )
 ---
-<Layout>
+<Layout
+	title={ about.meta_title }
+	description={ about.meta_description }
+	image={ about.cover }
+>
 	<section class="min-h-screen flex flex-col">
-		<!-- HEADER -->
-		<HomeHeader />
-		<AboutOurCompany />
-		<Team />
+		<Header client:load />
+		<AboutOurCompany data={ html } />
+		<Team data={ team } />
 	</section>
-	<!-- FOOTER -->
 	<Footer />
 </Layout>

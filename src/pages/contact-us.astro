@@ -1,10 +1,10 @@
 ---
 // IMPORTING ASTRO LAYOUTS
-import Layout from "../layouts/Layout.astro"
-import Container from "@/layouts/Container.astro"
+import Layout from "@/layouts/layout/index.astro"
+import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import HomeHeader from "../components/header/HomeHeader.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
 
 // IMPORTS JSX COMPONENTS
@@ -12,20 +12,48 @@ import ContactForm from "@/components/contact-us/contact-form/index.jsx"
 
 // IMPORTS ASTRO ATOMS
 import HeadingOne from "@/atoms/headings/one/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
+
+// NETWORK CALL
+const data = await fetch( "https://staging.api.blupp.co/page/contact-us" )
+const data_json = await data.json()
+
+	if( data.status !== 200 ){
+
+		return Astro.redirect("/")
+
+	}
+
+let contact = data_json.data
 ---
 <Layout
-	title="Contact Us | Blupp Company"
-	description="Blupp Company"
-	image=""
+	title={ contact.meta_title }
+	description={ contact.meta_description }
+	image={ contact.cover }
 >
-	<HomeHeader />
+	<Header client:load />
 	<Container>
-		<section class="pt-28 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-6">
-			<section>
-				<HeadingOne>Contact Us</HeadingOne>
+		<section class="pt-28 md:pt-28 pb-4 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-20">
+			<section class="flex flex-col justify-center">
+				<HeadingOne>{ contact.name }</HeadingOne>
 				<ContactForm client:load />
 			</section>
-			<section></section>
+			{
+
+				contact.cover &&
+
+				<section>
+					<div class="w-full aspect-square bg-zinc-200">
+						<Picture
+							src={ contact.cover }
+						/>
+					</div>
+				</section>
+
+			}
 		</section>
 	</Container>
 	<Footer />

@@ -47,10 +47,6 @@ module.exports = {
 
 			fontFamily: {
 
-				"abril": ["Abril Fatface", "display"],
-				"almarai": ["Almarai", "sans-serif"],
-				"playfair": ["Playfair Display", "sans-serif"],
-				"the_seasons": ["the-seasons", "sans-serif"],
 				"inter_tight": ["Inter Tight", "sans-serif"],
 
 			},

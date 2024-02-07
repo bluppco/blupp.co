@@ -1,0 +1,75 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
+
+const { data } = Astro.props
+---
+<Container>
+    <HeadingTwo>Team</HeadingTwo>
+    <div class="grid md:grid-cols-4 gap-4 py-4">
+        {
+
+            data.map( ( member ) => {
+
+                return (
+                    <div class="w-full flex flex-col items-center">
+                        <div class="bg-zinc-300 w-full aspect-square rounded-full relative overflow-hidden border border-zinc-200">
+                            <img
+                                src={ CDN_LINK + member.cover + "?quality=" + IMAGE_QUALITY }
+                                alt={ member.name + "'s picture"}
+                                class="w-full h-full"
+                            />
+                        </div>
+                        <div class="mt-2.5 items-center flex flex-col">
+                            <div class="font-semibold text-sm md:text-lg text-zinc-800">{ member.name }</div>
+                            <div class="font-normal text-xs md:text-sm text-zinc-800">{ member.designation }</div>
+                            <div class="flex gap-2 items-center">
+                                {
+
+                                    member.email &&
+
+                                    <a href={ member.email } target="_blank" class="mt-2.5">
+                                        <img
+                                            src="/icons/email.svg"
+                                            class="w-4 h-4"
+                                        />
+                                    </a>
+
+                                }
+                                {
+
+                                    member.linkedin_link &&
+
+                                    <a href={ member.linkedin_link } target="_blank" class="mt-2.5">
+                                        <img
+                                            src="/icons/linkedin.svg"
+                                            class="w-4 h-4"
+                                        />
+                                    </a>
+
+                                }
+                                {
+
+                                    member.x_link &&
+
+                                    <a href={ member.x_link } target="_blank" class="mt-2.5">
+                                        <div class="relative w-6 h-6 font-bold">&#120143;</div>
+                                    </a>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                )
+
+            })
+
+        }
+    </div>
+</Container>

@@ -1,12 +1,11 @@
 ---
 // LAYOUTS
-import Layout from "@/layouts/Layout.astro"
-import Container from "@/layouts/Container.astro"
+import Layout from "@/layouts/layout/index.astro"
 
 // COMPONENTS
-import HomeHeader from "@/components/header/HomeHeader.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
-import Blogs from "@/components/blog/item/index.astro"
+import Blogs from "@/components/blog/all/index.astro"
 
 // CONSTANTS
 import { CDN_LINK } from "../../constants/images"
@@ -29,8 +28,7 @@ const meta = data_json.data.meta_tags
     description={ meta.description }
     image={ CDN_LINK + meta.cover }
 >
-<Layout>
-	<HomeHeader />
+	<Header client:load />
 	<Blogs blog= { blog } />
 	<Footer />
 </Layout>

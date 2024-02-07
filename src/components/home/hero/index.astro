@@ -1,0 +1,33 @@
+---
+// IMPORTING ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTING ASTRO ATOMS
+import PrimaryButton from "@/atoms/buttons/primary/index.astro"
+import TargetblankLink from "@/atoms/links/target-blank/index.astro"
+
+// IMPORTING COMPONENTS
+import Globe from "@/components/home/globe/index.astro"
+// import GlobeJSX from "@/components/home/globe/draggable/index.jsx"
+
+const { data } = Astro.props
+---
+<section class="w-full h-full flex items-center justify-center pt-40 md:pt-24 grow overflow-hidden">
+    <Container>
+        <section class="w-full h-full space-y-6 flex flex-col items-center justify-center">
+            <section class="md:w-[70%] mx-auto space-y-6">
+                <p class="text-7xl font-medium font-inter_tight text-center !leading-tight">{ data.title }</p>
+                <p class="text-xl font-inter_tight text-center tracking-wider">{ data.description }</p>
+                <div class="flex justify-center">
+                    <TargetblankLink href={ data.button_link } aria-label="">
+                        <PrimaryButton>{ data.button_text }</PrimaryButton>
+                    </TargetblankLink>
+                </div>
+            </section>
+            <section class="flex justify-center overflow-hidden">
+                <Globe />
+                <!-- <GlobeJSX client:load /> -->
+            </section>
+        </section>
+    </Container>
+</section>

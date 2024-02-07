@@ -3,40 +3,41 @@
 import { marked } from "marked"
 
 // IMPORTING ASTRO LAYOUTS
-import Layout from "../layouts/Layout.astro"
-import Container from "@/layouts/Container.astro"
+import Layout from "@/layouts/layout/index.astro"
+import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import HomeHeader from "@/components/header/HomeHeader.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingOne from "@/atoms/headings/one/index.astro"
 
 // NETWORK CALL
-const data = await fetch( "https://staging.api.blupp.co/pages/terms-and-conditions" )
+const data = await fetch( "https://staging.api.blupp.co/page/terms-and-conditions" )
 const data_json = await data.json()
 
-if( data.status !== 200 ){
+    if( data.status !== 200 ){
 
-    return Astro.redirect("/")
+        return Astro.redirect("/")
 
-}
+    }
 
-let content = data_json.data.static.md
+let terms_and_conditions = data_json.data
+let content = data_json.data.md
 
 const html = marked.parse( content )
-const meta = data_json.data.meta
 ---
 <Layout
-	title={ meta.title }
-	description={ meta.description}
-	image={ meta.cover }
+	title={ terms_and_conditions.meta_title }
+	description={ terms_and_conditions.meta_description }
+	image={ terms_and_conditions.cover }
 >
-    <HomeHeader />
+    <Header client:load />
     <Container>
-        <HeadingOne>Terms and conditions</HeadingOne>
-        <section set:html={ html } class="markdown" />
-	</Container>
+        <section class="pt-20 md:pt-16">
+            <section set:html={ html } class="markdown py-4 md:py-10" />
+        </section>
+    </Container>
 	<Footer />
 </Layout>
