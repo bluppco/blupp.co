@@ -1,8 +1,8 @@
 ---
 // IMPORTS ASTRO ATOMS
-import HeadingThree from "@/atoms/headings/three/white/index.astro"
-import HeadingFive from "@/atoms/headings/five/white/index.astro"
-import Paragraph from "@/atoms/paragraphs/large/white/index.astro"
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import HeadingFive from "@/atoms/headings/five/index.astro"
+import Paragraph from "@/atoms/paragraphs/large/index.astro"
 
 const {
 
@@ -14,7 +14,7 @@ const {
 
 } = Astro.props
 ---
-<div class={ bg_color + " space-y-6 p-10" }>
+<div class="space-y-6 p-10" style={{ "background-color": bg_color }}>
     <div class="w-16 h-16 bg-black/40 rounded-full flex justify-center items-center">
         <p class="text-white text-lg">{ index }</p>
     </div>
