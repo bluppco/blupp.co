@@ -1,6 +1,7 @@
 // IMPORTS FRAMER MOTION
 import { motion, useScroll, useAnimation, useMotionValueEvent } from "framer-motion"
 
+// IMPORTS REACT
 import { useState } from "react"
 
 // IMPORTS COMPONENTS
