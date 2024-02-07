@@ -11,6 +11,11 @@ import Footer from "@/components/common/footer/index.astro"
 import Team from "@/components/about/team/index.astro"
 import AboutOurCompany from "@/components/about/our-company/index.astro"
 
+// NETWORK CALL FOR TEAM
+const team_data = await fetch( "https://staging.api.blupp.co/team" )
+const team_data_json = await team_data.json()
+const team = team_data_json.data.team
+
 // NETWORK CALL
 const data = await fetch( "https://staging.api.blupp.co/page/about" )
 const data_json = await data.json()
@@ -34,7 +39,7 @@ const html = marked.parse( content )
 	<section class="min-h-screen flex flex-col">
 		<Header />
 		<AboutOurCompany data={ html } />
-		<Team />
+		<Team data={ team } />
 	</section>
 	<Footer />
 </Layout>
