@@ -3,7 +3,7 @@
 import Layout from "@/layouts/layout/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import Header from "@/components/common/header/index.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
 import NotFound from "@/components/common/404/index.astro"
 ---
@@ -13,7 +13,7 @@ import NotFound from "@/components/common/404/index.astro"
 	image=""
 >
     <section class="h-screen max-h-screen">
-        <Header />
+        <Header client:load />
         <NotFound />
     </section>
 	<Footer />

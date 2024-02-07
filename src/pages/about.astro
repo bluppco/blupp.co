@@ -6,7 +6,7 @@ import { marked } from "marked"
 import Layout from "@/layouts/layout/index.astro"
 
 // IMPORTING COMPONENTS
-import Header from "@/components/common/header/index.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
 import Team from "@/components/about/team/index.astro"
 import AboutOurCompany from "@/components/about/our-company/index.astro"
@@ -37,7 +37,7 @@ const html = marked.parse( content )
 	image={ about.cover }
 >
 	<section class="min-h-screen flex flex-col">
-		<Header />
+		<Header client:load />
 		<AboutOurCompany data={ html } />
 		<Team data={ team } />
 	</section>

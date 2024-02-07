@@ -4,7 +4,7 @@ import Layout from "@/layouts/layout/index.astro"
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import Header from "@/components/common/header/index.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
 
 // IMPORTS JSX COMPONENTS
@@ -34,7 +34,7 @@ let contact = data_json.data
 	description={ contact.meta_description }
 	image={ contact.cover }
 >
-	<Header />
+	<Header client:load />
 	<Container>
 		<section class="pt-28 pb-4 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-20">
 			<section class="flex flex-col justify-center">

@@ -7,7 +7,7 @@ import Layout from "@/layouts/layout/index.astro"
 import ContainerBlog from "@/layouts/container/blog/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import Header from "@/components/common/header/index.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
 
 // IMPORTS ASTRO ATOMS
@@ -44,7 +44,7 @@ const body_md = marked.parse( blog.md )
 	description={ blog.seo_description }
 	image={ CDN_LINK + blog.cover }
 >
-	<Header />
+	<Header client:load />
 	<ContainerBlog>
 		<section class="pt-32 md:pt-10 md:pb-10 overflow-hidden">
 			<div class="h-96 bg-zinc-200">

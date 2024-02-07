@@ -7,7 +7,7 @@ import Layout from "@/layouts/layout/index.astro"
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import Header from "@/components/common/header/index.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
 
 // IMPORTS ASTRO ATOMS
@@ -33,7 +33,7 @@ const html = marked.parse( content )
 	description={ terms_and_conditions.meta_description }
 	image={ terms_and_conditions.cover }
 >
-    <Header />
+    <Header client:load />
     <Container>
         <section class="pt-20 md:pt-0">
             <HeadingOne>{ terms_and_conditions.title }</HeadingOne>

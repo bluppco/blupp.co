@@ -16,7 +16,7 @@ if( data.status !== 200 ){
 import Layout from "@/layouts/layout/index.astro"
 
 // IMPORTING COMPONENTS
-import Header from "@/components/common/header/index.astro"
+import Header from "@/components/common/header/index.jsx"
 import Footer from "@/components/common/footer/index.astro"
 import AllProjects from "@/components/projects/all/index.astro"
 ---
@@ -25,7 +25,7 @@ import AllProjects from "@/components/projects/all/index.astro"
     description={ meta.description }
     image={ meta.cover }
 >
-    <Header />
+    <Header client:load />
     <AllProjects data={ projects } />
     <Footer />
 </Layout>
