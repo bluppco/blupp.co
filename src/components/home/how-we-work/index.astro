@@ -7,39 +7,33 @@ import HowWeWorkCard from "./card/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
+
+const { data, work } = Astro.props
 ---
 <section class="space-y-6 md:pt-20 pt-2 pb-4">
     <Container>
-        <HeadingTwo>How we work</HeadingTwo>
+        <HeadingTwo>{ data.title }</HeadingTwo>
     </Container>
     <section class="grid md:grid-cols-4">
-        <HowWeWorkCard
-            bg_color="bg-gray-500"
-            index={ 1 }
-            title="Discovery call"
-            sub_title="30 min"
-            description="This initial 1-on-1 chat allows us to understand your company's goals, target audience, and current digital presence and challenges."
-        />
-        <HowWeWorkCard
-            bg_color="bg-gray-600"
-            index={ 2 }
-            title="Strategic audit"
-            sub_title="2 weeks"
-            description="Our team will conduct a comprehensive audit of your existing website and craft a customized plan for your company."
-        />
-        <HowWeWorkCard
-            bg_color="bg-gray-700"
-            index={ 3 }
-            title="Trial subscription"
-            sub_title="3 months"
-            description="Implementation of the transformed website with monthly analytics reports. This phase ensures our tactics align with your goals."
-        />
-        <HowWeWorkCard
-            bg_color="bg-gray-800"
-            index={ 4 }
-            title="Long-term partnership"
-            sub_title="12+ months"
-            description="Building on insights from the 3-month trial, we'll transition into a long-term partnership with your team, continually optimizing and innovating the website to foster speed."
-        />
+        {
+
+            work.map( ( value, index ) => {
+
+                return(
+
+                    value.display_on_home &&
+
+                    <HowWeWorkCard
+                        bg_color={ value.background_color }
+                        index={ index + 1 }
+                        title={ value.title }
+                        sub_title={ value.sub_title }
+                        description={ value.description }
+                    />
+                )
+
+            })
+
+        }
     </section>
 </section>

@@ -1,8 +1,24 @@
 ---
+import { homeAPI } from "../api/home/index"
+
+const data = await homeAPI()
+
+const { home_data } = data
+
+// NETWORK CALL FOR TECH STACK
+const stack_data = await fetch( "https://staging.api.blupp.co/stack" )
+const stack_data_json = await stack_data.json()
+const tech_stack = stack_data_json.data.stack
+
 // NETWORK CALL FOR PROJECTS
-const data = await fetch( "https://staging.api.blupp.co/projects" )
-const data_json = await data.json()
-const projects = data_json.data.projects
+const projects_data = await fetch( "https://staging.api.blupp.co/projects" )
+const projects_data_json = await projects_data.json()
+const projects = projects_data_json.data.projects
+
+// NETWORK CALL FOR HOW WE WORK
+const work_data = await fetch( "https://staging.api.blupp.co/work" )
+const work_data_json = await work_data.json()
+const how_we_work = work_data_json.data.work
 
 // NETWORK CALL FOR BLOGS
 const blogs_data = await fetch( "https://staging.api.blupp.co/blogs" )
@@ -29,12 +45,24 @@ import Footer from "@/components/common/footer/index.astro"
 >
 	<section class="md:h-screen md:max-h-screen">
 		<Header />
-		<Hero />
+		<Hero data={ home_data.hero } />
 	</section>
-	<HowWeWork />
-	<TechStack />
-	<Clients />
-	<Projects data={ projects } />
-	<Blogs data={ blogs } />
+	<HowWeWork
+		data={ home_data.how_we_work }
+		work={ how_we_work }
+	/>
+	<TechStack
+		data={ home_data.tech_stack }
+		tech_stack={ tech_stack }
+	/>
+	<Clients data={ home_data.clients } />
+	<Projects
+		data={ home_data.projects }
+		projects={ projects }
+	/>
+	<Blogs
+		data={ home_data.blogs }
+		blogs={ blogs }
+	/>
 	<Footer />
 </Layout>

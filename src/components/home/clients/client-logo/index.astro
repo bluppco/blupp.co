@@ -1,4 +1,7 @@
 ---
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
+
 const {
 
     href,
@@ -10,7 +13,7 @@ const {
 <a href={ href } target="_blank">
     <div class="w-60 h-20">
         <img
-            src={ src }
+            src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
             alt={ alt }
             class="w-full h-full object-contain"
         />

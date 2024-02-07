@@ -8,15 +8,15 @@ import HomeProjectCard from "./card/index.astro"
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 
-const { data } = Astro.props
+const { data, projects } = Astro.props
 ---
 <Container>
     <section class="space-y-4 md:space-y-6 pb-4 md:py-10">
-        <HeadingTwo>Projects</HeadingTwo>
+        <HeadingTwo>{ data.title }</HeadingTwo>
         <section class="grid md:grid-cols-3 gap-4 md:gap-6">
             {
 
-                data.map( ( value ) => {
+                projects.map( ( value ) => {
 
                     return(
 

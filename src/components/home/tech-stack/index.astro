@@ -7,41 +7,32 @@ import Technology from "./technology/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
+
+const { data, tech_stack } = Astro.props
 ---
 <Container>
     <section class="space-y-4 md:space-y-6 pb-4 md:py-10">
-        <HeadingTwo>Tech Stack</HeadingTwo>
+        <HeadingTwo>{ data.title }</HeadingTwo>
         <section class="grid md:grid-cols-3 gap-4 md:gap-6">
-            <Technology
-                src="/images/astro-logo.svg"
-                alt=""
-                title="Astro"
-                description="Astro transforms web development by enabling fast, statically-generated sites with dynamic features. Its intuitive framework which delivers instant-loading, high-performance websites."
-            />
-            <Technology
-                src="/images/tailwindcss-logo.svg"
-                alt=""
-                title="Tailwind CSS"
-                description="Tailwind CSS streamlines styling with a utility-first approach, promoting efficiency in web design. Its modular classes empower developers to create visually appealing and responsive user interfaces effortlessly."
-            />
-            <Technology
-                src="/icons/notion.svg"
-                alt=""
-                title="Notion"
-                description="Notion revolutionizes collaboration by providing a versatile workspace with integrated tools. Its all-in-one platform seamlessly combines notes, tasks, databases, and more, fostering efficient and organized teamwork."
-            />
-            <Technology
-                src="/images/cloudflare-logo.png"
-                alt=""
-                title="Cloudflare"
-                description="Cloudflare enhances web security and performance, offering a comprehensive suite of services like DDoS protection, CDN, and SSL/TLS encryption. It ensures a reliable and secure online experience for websites and applications."
-            />
-            <Technology
-                src="/images/react.svg"
-                alt=""
-                title="React"
-                description="React, developed by Facebook, enables the creation of dynamic and interactive user interfaces. Its component-based architecture and virtual DOM enhance efficiency and facilitate the development of scalable and maintainable web applications."
-            />
+            {
+
+                tech_stack.map( ( value ) => {
+
+                    return(
+
+                        value.display_on_home &&
+
+                        <Technology
+                            src={ value.cover }
+                            alt={ value.title }
+                            title={ value.title }
+                            description={ value.description }
+                        />
+                    )
+
+                })
+
+            }
         </section>
     </section>
 </Container>
