@@ -5,6 +5,7 @@ import TooltipJSX from "@/components/common/tooltip/index"
 // IMPORTS ASTRO ATOMS
 import HeadingThree from "@/atoms/headings/three/index.astro"
 import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/index.astro"
 
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
@@ -26,6 +27,9 @@ const {
 ---
 <div class="space-y-4 md:space-y-6 border border-zinc-200 bg-gray-50 shadow">
     <!-- <Link href={ "/project/" +  slug }> -->
+        <!-- <Picture
+            src={ src }
+        /> -->
         <div class="w-full aspect-video bg-zinc-200">
             <img
                 src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }

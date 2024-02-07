@@ -12,6 +12,7 @@ import ContactForm from "@/components/contact-us/contact-form/index.jsx"
 
 // IMPORTS ASTRO ATOMS
 import HeadingOne from "@/atoms/headings/one/index.astro"
+import Picture from "@/atoms/picture/index.astro"
 
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
@@ -46,10 +47,8 @@ let contact = data_json.data
 
 				<section>
 					<div class="w-full aspect-square bg-zinc-200">
-						<img
-							src={ CDN_LINK + contact.cover + "?quality=" + IMAGE_QUALITY }
-							alt=""
-							class="w-full h-full object-cover"
+						<Picture
+							src={ contact.cover }
 						/>
 					</div>
 				</section>

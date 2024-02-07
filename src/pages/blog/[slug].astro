@@ -10,6 +10,8 @@ import ContainerBlog from "@/layouts/container/blog/index.astro"
 import Header from "@/components/common/header/index.astro"
 import Footer from "@/components/common/footer/index.astro"
 
+// IMPORTS ASTRO ATOMS
+import Picture from "@/atoms/picture/index.astro"
 
 // HIGHLIGHT JS - THEME - WE CAN CHOOSE A BETTER THESE AS WELL.
 // LETS KEEP LOOKING
@@ -45,8 +47,10 @@ const body_md = marked.parse( blog.md )
 	<Header />
 	<ContainerBlog>
 		<section class="pt-32 md:pt-10 md:pb-10 overflow-hidden">
-			<div class="h-96">
-				<img src={ CDN_LINK + blog.cover  + "?quality=" + IMAGE_QUALITY } alt="" class="w-full h-full object-cover"/>
+			<div class="h-96 bg-zinc-200">
+				<Picture
+					src={ blog.cover }
+				/>
 			</div>
 			<div class="space-y-2 pt-6">
 				<h1 class="text-2xl font-bold">{ blog.title }</h1>

@@ -1,9 +1,7 @@
 ---
 // IMPORTS ASTRO ATOMS
 import HeadingFour from "@/atoms/headings/four/index.astro"
-
-// IMPORTS CONTANTS
-import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
+import Picture from "@/atoms/picture/index.astro"
 
 const {
 
@@ -16,10 +14,8 @@ const {
 <div class="border border-zinc-200 bg-gray-50 shadow overflow-hidden">
     <a href="/projects">
         <div class="w-full aspect-video bg-zinc-200 overflow-hidden">
-            <img
-                src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
-                alt={ alt }
-                class="w-full h-full object-cover"
+            <Picture
+                src={ src }
             />
         </div>
     </a>

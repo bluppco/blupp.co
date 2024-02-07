@@ -10,6 +10,7 @@ import {
 // IMPORTS ASTRO ATOMS
 import Link from "@/atoms/links/index.astro"
 import HeadingFour from "@/atoms/headings/four/index.astro"
+import Picture from "@/atoms/picture/index.astro"
 
 const {
 
@@ -24,6 +25,9 @@ const {
     <Link href={ "/blog/" + slug } aria_label="">
         <div class="flex flex-col gap-2 bg-slate-50 h-full overflow-hidden border border-zinc-300 shadow">
             <div class="w-full aspect-video bg-zinc-200">
+                <!-- <Picture
+                    src={ image }
+                /> -->
                 <img
                     src={ CDN_LINK + image + "?quality=" + IMAGE_QUALITY }
                     alt=""
