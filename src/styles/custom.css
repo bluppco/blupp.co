@@ -17,5 +17,5 @@
     @apply font-inter_tight py-4 !important;
 }
 .markdown p {
-    @apply text-lg font-inter_tight py-2 !important;
+    @apply md:text-lg font-inter_tight py-2 !important;
 }
