@@ -4,8 +4,7 @@ const {
 
 	CDN_LINK,
 	ENDPOINT,
-	PROJECT_NAME,
-	IMAGE_QUALITY
+	PROJECT_NAME
 
 } = runtime.env
 
@@ -53,7 +52,6 @@ const html = marked.parse( content )
 			data={ team }
 			CDN_LINK={ CDN_LINK }
 			PROJECT_NAME={ PROJECT_NAME }
-			IMAGE_QUALITY={ IMAGE_QUALITY }
 		/>
 	</section>
 	<Footer />

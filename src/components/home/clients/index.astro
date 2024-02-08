@@ -12,8 +12,7 @@ const {
 
     data,
     CDN_LINK,
-    PROJECT,
-    IMAGE_QUALITY
+    PROJECT
 
 } = Astro.props
 
@@ -34,7 +33,6 @@ const images = data.images.sort( (a,b) => a.order - b.order )
                             alt=""
                             CDN_LINK={ CDN_LINK }
                             PROJECT={ PROJECT }
-                            IMAGE_QUALITY={ IMAGE_QUALITY }
                         />
                     )
 
