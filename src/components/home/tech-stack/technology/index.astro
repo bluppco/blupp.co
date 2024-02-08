@@ -4,14 +4,16 @@ import HeadingThree from "@/atoms/headings/three/index.astro"
 import Paragraph from "@/atoms/paragraphs/regular/index.astro"
 
 // IMPORTS CONSTANTS
-import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
+import {  IMAGE_QUALITY } from "@/constants/images"
 
 const {
 
-    src,
     alt,
+    CDN_LINK,
+    description,
+    PROJECT,
+    src,
     title,
-    description
 
 } = Astro.props
 ---
@@ -19,7 +21,7 @@ const {
     <div class="flex items-center gap-6">
         <div class="h-12 w-16">
             <img
-                src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
+                src={ CDN_LINK + PROJECT + "/" + src + "?quality=" + IMAGE_QUALITY }
                 alt={ alt }
                 class="w-full h-full object-contain"
             />
