@@ -14,9 +14,6 @@ import ContactForm from "@/components/contact-us/contact-form/index.jsx"
 import HeadingOne from "@/atoms/headings/one/index.astro"
 import Picture from "@/atoms/picture/index.astro"
 
-// IMPORTS CONSTANTS
-import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
-
 // NETWORK CALL
 const data = await fetch( "https://staging.api.blupp.co/page/contact-us" )
 const data_json = await data.json()
