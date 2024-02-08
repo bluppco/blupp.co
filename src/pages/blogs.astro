@@ -8,16 +8,17 @@ import Footer from "@/components/common/footer/index.astro"
 import Blogs from "@/components/blog/all/index.astro"
 
 // CONSTANTS
-import { CDN_LINK } from "../../constants/images"
+import { CDN_LINK } from "@/constants/images"
 
 // FETCH URL FROM SERVER AND DISPLAY THE DATA
 const data = await fetch("https://staging.api.blupp.co/blogs")
 const data_json = await data.json()
-if( data.status !== 200 ){
 
-    return Astro.redirect("/")
+    if( data.status !== 200 ){
 
-}
+        return Astro.redirect("/")
+
+    }
 const blog = data_json.data.blogs
 
 // META

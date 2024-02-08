@@ -5,10 +5,14 @@ import Container from "@/layouts/container/index.astro"
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 
-// IMPORTS CONSTANTS
-import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images"
+const {
 
-const { data } = Astro.props
+    data,
+    CDN_LINK,
+	PROJECT_NAME,
+	IMAGE_QUALITY
+
+} = Astro.props
 ---
 <Container>
     <HeadingTwo>Team</HeadingTwo>
@@ -21,7 +25,7 @@ const { data } = Astro.props
                     <div class="w-full flex flex-col items-center">
                         <div class="bg-zinc-300 w-full aspect-square rounded-full relative overflow-hidden border border-zinc-200">
                             <img
-                                src={ CDN_LINK + member.cover + "?quality=" + IMAGE_QUALITY }
+                                src={ CDN_LINK + PROJECT_NAME + "/" + member.cover + "?quality=" + IMAGE_QUALITY }
                                 alt={ member.name + "'s picture"}
                                 class="w-full h-full"
                             />
@@ -34,7 +38,7 @@ const { data } = Astro.props
 
                                     member.email &&
 
-                                    <a href={ member.email } target="_blank" class="mt-2.5">
+                                    <a href={ "mailto:" + member.email } target="_blank" class="mt-2.5">
                                         <img
                                             src="/icons/email.svg"
                                             class="w-4 h-4"

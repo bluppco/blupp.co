@@ -8,7 +8,15 @@ import HomeBlogCard from "./card/index.astro"
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 
-const { data, blogs } = Astro.props
+const {
+
+    data,
+    blogs,
+    CDN_LINK,
+	PROJECT_NAME,
+	IMAGE_QUALITY
+
+} = Astro.props
 ---
 <Container>
     <section class="space-y-4 md:space-y-6 pb-4 md:py-10">
@@ -27,6 +35,9 @@ const { data, blogs } = Astro.props
                             image={ value.cover }
                             title={ value.title }
                             slug={ value.slug }
+                            CDN_LINK={ CDN_LINK }
+                            PROJECT_NAME={ PROJECT_NAME }
+                            IMAGE_QUALITY={ IMAGE_QUALITY }
                         />
                     )
 

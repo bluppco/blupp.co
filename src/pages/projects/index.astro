@@ -4,7 +4,7 @@ const data = await fetch( "https://staging.api.blupp.co/projects" )
 const data_json = await data.json()
 
 const projects = data_json.data.projects
-const meta = data_json.data.meta_tags
+const meta = data_json.data.meta
 
 if( data.status !== 200 ){
 
