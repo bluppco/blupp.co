@@ -38,7 +38,7 @@ const HeaderMobile = () => {
 
     return (
         <header className="md:hidden">
-            <motion.header className="bg-white px-4 border-b border-b-zinc-200 h-20 flex items-center fixed top-0 w-full z-50"
+            <motion.header className="bg-white px-4 border-b border-b-zinc-200 h-20 py-4 fixed top-0 w-full z-50"
                 variants={ squareVariants }
                 initial="display"
                 animate={ controls }
