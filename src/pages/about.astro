@@ -1,4 +1,14 @@
 ---
+const runtime = Astro.locals.runtime
+const {
+
+	CDN_LINK,
+	ENDPOINT,
+	PROJECT_NAME,
+	IMAGE_QUALITY
+
+} = runtime.env
+
 // IMPORTS MARKED
 import { marked } from "marked"
 
@@ -12,12 +22,12 @@ import Team from "@/components/about/team/index.astro"
 import AboutOurCompany from "@/components/about/our-company/index.astro"
 
 // NETWORK CALL FOR TEAM
-const team_data = await fetch( "https://staging.api.blupp.co/team" )
+const team_data = await fetch( ENDPOINT + "team" )
 const team_data_json = await team_data.json()
 const team = team_data_json.data.team
 
 // NETWORK CALL
-const data = await fetch( "https://staging.api.blupp.co/page/about" )
+const data = await fetch( ENDPOINT + "page/about" )
 const data_json = await data.json()
 
 	if( data.status !== 200 ){
@@ -39,7 +49,12 @@ const html = marked.parse( content )
 	<section class="min-h-screen flex flex-col">
 		<Header client:load />
 		<AboutOurCompany data={ html } />
-		<Team data={ team } />
+		<Team
+			data={ team }
+			CDN_LINK={ CDN_LINK }
+			PROJECT_NAME={ PROJECT_NAME }
+			IMAGE_QUALITY={ IMAGE_QUALITY }
+		/>
 	</section>
 	<Footer />
 </Layout>

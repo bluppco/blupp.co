@@ -8,7 +8,14 @@ import HeadingTwo from "@/atoms/headings/two/index.astro"
 // IMPORTS ASTRO COMPONENTS
 import ClientLogo from "./client-logo/index.astro"
 
-const { data } = Astro.props
+const {
+
+    data,
+    CDN_LINK,
+    PROJECT,
+    IMAGE_QUALITY
+
+} = Astro.props
 
 const images = data.images.sort( (a,b) => a.order - b.order )
 ---
@@ -25,6 +32,9 @@ const images = data.images.sort( (a,b) => a.order - b.order )
                             href=""
                             src={ value.file }
                             alt=""
+                            CDN_LINK={ CDN_LINK }
+                            PROJECT={ PROJECT }
+                            IMAGE_QUALITY={ IMAGE_QUALITY }
                         />
                     )
 

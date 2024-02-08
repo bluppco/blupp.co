@@ -1,12 +1,4 @@
 ---
-// IMPORTS CONSTANTS
-import {
-
-    CDN_LINK,
-    IMAGE_QUALITY
-
-} from "@/constants/images"
-
 // IMPORTS ASTRO ATOMS
 import Link from "@/atoms/links/index.astro"
 import HeadingFour from "@/atoms/headings/four/index.astro"
@@ -17,7 +9,10 @@ const {
     date,
     image,
     title,
-    slug
+    slug,
+    CDN_LINK,
+	PROJECT_NAME,
+	IMAGE_QUALITY
 
 } = Astro.props
 ---
@@ -29,7 +24,7 @@ const {
                     src={ image }
                 /> -->
                 <img
-                    src={ CDN_LINK + image + "?quality=" + IMAGE_QUALITY }
+                    src={ CDN_LINK + PROJECT_NAME + "/" + image + "?quality=" + IMAGE_QUALITY }
                     alt=""
                     class="w-full h-full object-cover"
                 />

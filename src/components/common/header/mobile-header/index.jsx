@@ -11,7 +11,7 @@ const HeaderMobile = () => {
 
     const [ isOpen, updateOpen ] = useState( false )
 
-    const { scrollY } = useScroll()
+    {/*const { scrollY } = useScroll()*/}
 
     const squareVariants = {
 
@@ -19,7 +19,7 @@ const HeaderMobile = () => {
         hide: { y: "-100%", transition: { duration: .4 } },
 
     }
-    const controls = useAnimation( scrollY )
+    {/*const controls = useAnimation( scrollY )
     useMotionValueEvent(scrollY, "change", (latest) => {
 
         let isScrollingDown = scrollY.getPrevious() - latest < 0;
@@ -34,14 +34,13 @@ const HeaderMobile = () => {
         }
 
 
-    })
+    })*/}
 
     return (
         <header className="md:hidden">
-            <motion.header className="bg-white px-4 border-b border-b-zinc-200 h-20 flex items-center fixed top-0 w-full z-50"
+            <motion.header className="bg-white px-4 border-b border-b-zinc-200 h-16 py-2 fixed top-0 w-full z-50"
                 variants={ squareVariants }
                 initial="display"
-                animate={ controls }
             >
                 <div className="flex justify-between items-center">
                     <p className="font-bold text-lg md:text-2xl text-black">
@@ -90,7 +89,7 @@ const HeaderMobile = () => {
                             <ul className="flex flex-col gap-8 justify-center items-center">
                                 <Li href="/projects">Projects</Li>
                                 <Li href="/about">Company</Li>
-                                <Li href="/blog">Blogs</Li>
+                                <Li href="/blogs">Blogs</Li>
                             </ul>
                         </div>
                     </motion.div>

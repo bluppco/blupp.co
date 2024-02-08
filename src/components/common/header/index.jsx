@@ -64,7 +64,7 @@ const Header = ( props ) => {
                                 <ul className="flex items-center gap-8">
                                     <Li href="/about">Company</Li>
                                     <Li href="/projects">Projects</Li>
-                                    <Li href="/blog">Blogs</Li>
+                                    <Li href="/blogs">Blogs</Li>
                                     <Link href="mailto:mohit@blupp.co" aria_label="">
                                         <PrimaryButton>Contact</PrimaryButton>
                                     </Link>
