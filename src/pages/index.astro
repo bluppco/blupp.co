@@ -4,7 +4,8 @@ const {
 
 	CDN_LINK,
 	ENDPOINT,
-	PROJECT,
+	PROJECT_NAME,
+	IMAGE_QUALITY
 
 } = runtime.env
 
@@ -64,9 +65,15 @@ import Footer from "@/components/common/footer/index.astro"
 		data={ home_data.tech_stack }
 		tech_stack={ tech_stack }
 		CDN_LINK={ CDN_LINK }
-		PROJECT={ PROJECT }
+		PROJECT_NAME={ PROJECT_NAME }
+		IMAGE_QUALITY={ IMAGE_QUALITY }
 	/>
-	<Clients data={ home_data.clients } />
+	<Clients
+		data={ home_data.clients }
+		CDN_LINK={ CDN_LINK }
+		PROJECT_NAME={ PROJECT_NAME }
+		IMAGE_QUALITY={ IMAGE_QUALITY }
+	/>
 	<Projects
 		data={ home_data.projects }
 		projects={ projects }
@@ -74,6 +81,9 @@ import Footer from "@/components/common/footer/index.astro"
 	<Blogs
 		data={ home_data.blogs }
 		blogs={ blogs }
+		CDN_LINK={ CDN_LINK }
+		PROJECT_NAME={ PROJECT_NAME }
+		IMAGE_QUALITY={ IMAGE_QUALITY }
 	/>
 	<Footer />
 </Layout>
