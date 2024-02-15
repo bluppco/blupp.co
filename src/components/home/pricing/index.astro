@@ -1,0 +1,27 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import PricingCard from "@/components/home/pricing/card/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+---
+<section>
+    <Container>
+        <HeadingTwo>Pricing</HeadingTwo>
+        <section class="grid grid-cols-2 gap-6 max-w-4xl mx-auto pt-10">
+            <PricingCard
+                type="Basic"
+                price="399"
+                description="For startups or small teams"
+            />
+            <PricingCard
+                type="Pro"
+                price="999"
+                description="For large organizations and enterprise with more security, support, and performance needs."
+            />
+        </section>
+    </Container>
+</section>
