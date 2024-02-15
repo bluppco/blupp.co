@@ -66,7 +66,7 @@ const Header = ( props ) => {
                                     <Li href="/projects">Projects</Li>
                                     <Li href="/blogs">Blogs</Li>
                                     <Link href="mailto:mohit@blupp.co" aria_label="">
-                                        <PrimaryButton>Contact</PrimaryButton>
+                                        <PrimaryButton>Get in Touch</PrimaryButton>
                                     </Link>
                                 </ul>
                             </nav>

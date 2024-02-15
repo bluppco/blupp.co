@@ -17,6 +17,7 @@ export const homeAPI = async () => {
         clients : "",
         projects : "",
         blogs : "",
+        about : ""
 
     }
     home.map( ( data ) => {
@@ -33,6 +34,8 @@ export const homeAPI = async () => {
             home_data.projects = data
         else if( data.slug === "blogs" )
             home_data.blogs = data
+        else if( data.slug === "about" )
+            home_data.about = data
 
     })
 
