@@ -40,6 +40,7 @@ import Layout from "@/layouts/layout/index.astro"
 // IMPORTING COMPONENTS
 import Header from "@/components/common/header/index.jsx"
 import Hero from "@/components/home/hero/index.astro"
+import About from "@/components/home/about/index.astro"
 import HowWeWork from "@/components/home/how-we-work/index.astro"
 import Clients from "@/components/home/clients/index.astro"
 import Projects from "@/components/home/projects/index.astro"
@@ -56,6 +57,11 @@ import Footer from "@/components/common/footer/index.astro"
 		<Header client:load />
 		<Hero data={ home_data.hero } />
 	</section>
+	<About
+		CDN_LINK={ CDN_LINK }
+		PROJECT_NAME={ PROJECT_NAME }
+		data={ home_data.about }
+	/>
 	<HowWeWork
 		data={ home_data.how_we_work }
 		work={ how_we_work }
