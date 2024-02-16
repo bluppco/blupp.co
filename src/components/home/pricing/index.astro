@@ -6,32 +6,34 @@ import Container from "@/layouts/container/index.astro"
 import PricingCard from "@/components/home/pricing/card/index.astro"
 
 // IMPORTS ASTRO ATOMS
-import HeadingTwo from "@/atoms/headings/two/index.astro"
+import HeadingTwo from "@/atoms/headings/two/center/index.astro"
 
 const { data, pricing } = Astro.props
 ---
-<section>
+<section class="py-10">
     <Container>
-        <HeadingTwo>{ data.title }</HeadingTwo>
-        <section class="grid grid-cols-2 gap-6 max-w-4xl mx-auto py-10">
-            {
+        <section class="space-y-14">
+            <HeadingTwo>{ data.title }</HeadingTwo>
+            <section class="grid grid-cols-3 gap-6">
+                {
 
-                pricing.map( ( value ) => {
+                    pricing.map( ( value ) => {
 
-                    return(
-                        <PricingCard
-                            type={ value.plan }
-                            price={ value.price }
-                            description={ value.description }
-                            perks={ value.perks }
-                            button_text={ value.button_text }
-                            button_link={ value.button_link }
-                        />
-                    )
+                        return(
+                            <PricingCard
+                                type={ value.plan }
+                                price={ value.price }
+                                description={ value.description }
+                                perks={ value.perks }
+                                button_text={ value.button_text }
+                                button_link={ value.button_link }
+                            />
+                        )
 
-                })
+                    })
 
-            }
+                }
+            </section>
         </section>
     </Container>
 </section>

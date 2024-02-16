@@ -21,7 +21,7 @@ const {
             <section class="p-20">
                 <Paragraph>{ data.description }</Paragraph>
             </section>
-            <section class="flex justify-end p-20 bg-zinc-200 w-full aspect-[3/2]" style=`background-image: url(${ CDN + PROJECT + "/" + data.cover + "?quality=80" })`>
+            <section class="flex justify-end p-20 bg-zinc-200 w-full aspect-[3/2] bg-contain" style=`background-image: url(${ CDN + PROJECT + "/" + data.cover + "?quality=80" })`>
                 <HeadingTwo>{ data.title }</HeadingTwo>
             </section>
         </section>

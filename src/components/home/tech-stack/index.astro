@@ -6,7 +6,7 @@ import Container from "@/layouts/container/index.astro"
 import Technology from "./technology/index.astro"
 
 // IMPORTS ASTRO ATOMS
-import HeadingTwo from "@/atoms/headings/two/index.astro"
+import HeadingTwo from "@/atoms/headings/two/center/index.astro"
 
 const {
 
@@ -22,7 +22,7 @@ const {
     <Container>
         <section class="space-y-4 md:space-y-10 pb-4 md:py-10">
             <HeadingTwo>{ data.title }</HeadingTwo>
-            <section class="grid md:grid-cols-4 gap-x-10 gap-y-10">
+            <section class="grid md:grid-cols-5 gap-x-10 gap-y-10 max-w-4xl mx-auto">
                 {
 
                     tech_stack.map( ( value ) => {
