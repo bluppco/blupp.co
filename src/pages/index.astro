@@ -13,7 +13,7 @@ const {
 
 // IMPORTS HOME API
 import { homeAPI } from "@/api/home/index"
-const data = await homeAPI()
+const data = await homeAPI( ENDPOINT )
 const { home_data, work, projects, blogs, pricing, meta, stack } = data
 
 // IMPORTS ASTRO LAYOUTS
