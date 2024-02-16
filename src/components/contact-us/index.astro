@@ -18,12 +18,12 @@ const {
 } = Astro.props
 ---
 <Container>
-    <section class="pt-28 md:pt-28 pb-4 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-20">
+    <section class="pt-28 md:pt-28 pb-4 md:py-20 md:h-screen md:max-h-[1000px] grid md:grid-cols-2 gap-4 md:gap-20">
         <section class="flex flex-col justify-center">
             <HeadingOne>{ contact.name }</HeadingOne>
             <ContactForm client:load />
         </section>
-        <section>
+        <section class="flex items-center">
             <div class="w-full aspect-square bg-zinc-200">
                 <Picture
                     alt=""
