@@ -18,31 +18,33 @@ const {
 } = Astro.props
 
 ---
-<Container>
-    <section class="space-y-4 md:space-y-6 pb-4 md:py-10">
-        <HeadingTwo>{ data.title }</HeadingTwo>
-        <section class="grid md:grid-cols-3 gap-4 md:gap-6">
-            {
+<section class="">
+    <Container>
+        <section class="space-y-4 md:space-y-10 pb-4 md:py-10">
+            <HeadingTwo>{ data.title }</HeadingTwo>
+            <section class="grid md:grid-cols-4 gap-x-10 gap-y-10">
+                {
 
-                tech_stack.map( ( value ) => {
+                    tech_stack.map( ( value ) => {
 
-                    return(
+                        return(
 
-                        value.display_on_home &&
+                            value.display_on_home &&
 
-                        <Technology
-                            alt={ value.title }
-                            CDN_LINK={ CDN_LINK }
-                            description={ value.description }
-                            PROJECT={ PROJECT }
-                            src={ value.cover }
-                            title={ value.title }
-                        />
-                    )
+                            <Technology
+                                alt={ value.title }
+                                CDN_LINK={ CDN_LINK }
+                                description={ value.description }
+                                PROJECT={ PROJECT }
+                                src={ value.cover }
+                                title={ value.title }
+                            />
+                        )
 
-                })
+                    })
 
-            }
+                }
+            </section>
         </section>
-    </section>
-</Container>
+    </Container>
+</section>
