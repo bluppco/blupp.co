@@ -17,8 +17,8 @@ const {
 ---
 <section class="bg-gray-50">
     <Container>
-        <section class="grid grid-cols-2 gap-4">
-            <section class="p-20">
+        <section class="grid md:grid-cols-2 gap-4">
+            <section class="pb-4 md:pb-0 md:p-20 order-last md:order-none">
                 <Paragraph>{ data.description }</Paragraph>
             </section>
             <section class="flex justify-end p-20 bg-zinc-200 w-full aspect-[3/2] bg-contain" style=`background-image: url(${ CDN + PROJECT + "/" + data.cover + "?quality=80" })`>
