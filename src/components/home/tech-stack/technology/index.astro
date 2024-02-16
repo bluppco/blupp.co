@@ -9,19 +9,20 @@ import { IMAGE_QUALITY } from "@/constants/images"
 const {
 
     alt,
-    CDN_LINK,
+    CDN,
     description,
     PROJECT,
     src,
     title,
 
 } = Astro.props
+
 ---
 <div class="flex justify-center gap-4 border px-4 py-4 rounded-full bg-gradient-to-r from-purple-50 to-blue-50">
     <div class="flex items-center gap-6">
         <div class="h-8 w-16">
             <img
-                src={ CDN_LINK + PROJECT + "/" + src + "?quality=" + IMAGE_QUALITY }
+                src={ CDN + PROJECT + "/" + src + "?quality=" + IMAGE_QUALITY }
                 alt={ alt }
                 class="w-full h-full object-contain"
             />

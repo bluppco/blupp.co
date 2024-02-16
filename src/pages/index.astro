@@ -2,9 +2,9 @@
 const runtime = Astro.locals.runtime
 const {
 
-	CDN_LINK,
+	CDN,
 	ENDPOINT,
-	PROJECT_NAME
+	PROJECT
 
 } = runtime.env
 
@@ -12,27 +12,12 @@ import { homeAPI } from "../api/home/index"
 
 const data = await homeAPI()
 
-const { home_data } = data
+const { home_data, work, projects, blogs, pricing } = data
 
 // NETWORK CALL FOR TECH STACK
 const stack_data = await fetch( ENDPOINT + "stack" )
 const stack_data_json = await stack_data.json()
 const tech_stack = stack_data_json.data.stack
-
-// NETWORK CALL FOR PROJECTS
-const projects_data = await fetch( ENDPOINT + "projects" )
-const projects_data_json = await projects_data.json()
-const projects = projects_data_json.data.projects
-
-// NETWORK CALL FOR HOW WE WORK
-const work_data = await fetch( ENDPOINT + "work" )
-const work_data_json = await work_data.json()
-const how_we_work = work_data_json.data.work
-
-// NETWORK CALL FOR BLOGS
-const blogs_data = await fetch( ENDPOINT + "blogs" )
-const blogs_data_json = await blogs_data.json()
-const blogs = blogs_data_json.data.blogs
 
 // IMPORTING LAYOUTS
 import Layout from "@/layouts/layout/index.astro"
@@ -59,35 +44,38 @@ import Footer from "@/components/common/footer/index.astro"
 		<Hero data={ home_data.hero } />
 	</section>
 	<About
-		CDN_LINK={ CDN_LINK }
-		PROJECT_NAME={ PROJECT_NAME }
+		CDN={ CDN }
+		PROJECT={ PROJECT }
 		data={ home_data.about }
 	/>
 	<HowWeWork
 		data={ home_data.how_we_work }
-		work={ how_we_work }
+		work={ work }
 	/>
 	<TechStack
 		data={ home_data.tech_stack }
 		tech_stack={ tech_stack }
-		CDN_LINK={ CDN_LINK }
-		PROJECT_NAME={ PROJECT_NAME }
+		CDN={ CDN }
+		PROJECT={ PROJECT }
 	/>
 	<Clients
 		data={ home_data.clients }
-		CDN_LINK={ CDN_LINK }
-		PROJECT_NAME={ PROJECT_NAME }
+		CDN={ CDN }
+		PROJECT={ PROJECT }
 	/>
-	<Pricing />
-	<Projects
+	<Pricing
+		data={ home_data.pricing }
+		pricing={ pricing }
+	/>
+	<!-- <Projects
 		data={ home_data.projects }
 		projects={ projects }
 	/>
 	<Blogs
 		data={ home_data.blogs }
 		blogs={ blogs }
-		CDN_LINK={ CDN_LINK }
-		PROJECT_NAME={ PROJECT_NAME }
-	/>
+		CDN={ CDN }
+		PROJECT={ PROJECT }
+	/> -->
 	<Footer />
 </Layout>

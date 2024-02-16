@@ -7,7 +7,7 @@ const {
     href,
     src,
     alt,
-    CDN_LINK,
+    CDN,
     PROJECT
 
 } = Astro.props
@@ -15,7 +15,7 @@ const {
 <a href={ href } target="_blank">
     <div class="w-60 h-20">
         <img
-            src={ CDN_LINK + PROJECT + "/" + src + "?quality=" + IMAGE_QUALITY }
+            src={ CDN + PROJECT + "/" + src + "?quality=" + IMAGE_QUALITY }
             alt={ alt }
             class="w-full h-full object-contain"
         />
