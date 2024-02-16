@@ -2,11 +2,6 @@
 // RUNTIME
 const runtime = Astro.locals.runtime
 
-// IMPORTS HOME API
-import { homeAPI } from "@/api/home/index"
-const data = await homeAPI()
-const { home_data, work, projects, blogs, pricing, meta, stack } = data
-
 // IMPORTS VARIABLE FROM .DEV.VARS FILE
 const {
 
@@ -15,6 +10,11 @@ const {
 	PROJECT
 
 } = runtime.env
+
+// IMPORTS HOME API
+import { homeAPI } from "@/api/home/index"
+const data = await homeAPI( ENDPOINT )
+const { home_data, work, projects, blogs, pricing, meta, stack } = data
 
 // IMPORTS ASTRO LAYOUTS
 import Layout from "@/layouts/layout/index.astro"

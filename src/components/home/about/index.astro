@@ -1,10 +1,8 @@
 ---
-// IMPORTS ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
-
 // IMPORTS ASTRO ATOMS
-import HeadingTwo from "@/atoms/headings/two/index.astro"
+import HeadingTwo from "@/atoms/headings/two/center/index.astro"
 import Paragraph from "@/atoms/paragraphs/large/index.astro"
+import Picture from "@/atoms/picture/index.astro"
 
 const {
 
@@ -15,15 +13,21 @@ const {
 } = Astro.props
 
 ---
-<section class="bg-gray-50">
-    <Container>
+<section class="space-y-4 md:space-y-12 px-4 md:px-0">
+    <HeadingTwo>{ data.title }</HeadingTwo>
+    <section class="bg-gray-50 ">
         <section class="grid md:grid-cols-2 gap-4">
             <section class="pb-4 md:pb-0 md:p-20 order-last md:order-none">
                 <Paragraph>{ data.description }</Paragraph>
             </section>
-            <section class="flex justify-end p-20 bg-zinc-200 w-full aspect-[3/2] bg-contain" style=`background-image: url(${ CDN + PROJECT + "/" + data.cover + "?quality=80" })`>
-                <HeadingTwo>{ data.title }</HeadingTwo>
-            </section>
+        <section>
+            <Picture
+                alt={ data.title }
+                CDN={ CDN }
+                image_width="1000"
+                PROJECT={ PROJECT }
+                src={ data.cover }
+            />
         </section>
-    </Container>
+    </section>
 </section>

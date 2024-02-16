@@ -3,29 +3,29 @@
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import ProjectCard from "@/components/projects/card/index.astro"
+import CaseStudyCard from "@/components/case-studies/card/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingOne from "@/atoms/headings/one/index.astro"
 
 const {
 
+    CDN,
     data,
-    PROJECT,
-    CDN
+    PROJECT
 
 } = Astro.props
 ---
 <Container>
     <section class="py-4 md:py-10 space-y-4 md:space-y-10 pt-28 md:pt-28">
-        <HeadingOne>Projects</HeadingOne>
+        <HeadingOne>Case Studies</HeadingOne>
         <section class="grid md:grid-cols-2 gap-4 md:gap-10">
             {
 
                 data.map( ( value ) => {
 
                     return(
-                        <ProjectCard
+                        <CaseStudyCard
                             alt={ value.name }
                             CDN={ CDN }
                             github_link={ value.github_link }

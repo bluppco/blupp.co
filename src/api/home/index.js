@@ -1,9 +1,8 @@
-export const homeAPI = async () => {
+export const homeAPI = async ( endpoint ) => {
 
-    const endpoint = "https://staging.api.blupp.co"
 
     // NETWORK CALL TO GET DATA
-    const network_data = await fetch( endpoint + "/home" )
+    const network_data = await fetch( endpoint + "home" )
     const data_json = await network_data.json()
 
     const { home, work, projects, blogs, pricing, meta, stack } = data_json.data

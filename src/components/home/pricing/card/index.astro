@@ -1,6 +1,7 @@
 ---
 // IMPORTS ASTRO COMPONENTS
 import Perks from "@/components/home/pricing/card/perks/index.astro"
+import NotIncludedPerks from "@/components/home/pricing/card/perks/not-included/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingThree from "@/atoms/headings/three/semibold/index.astro"
@@ -14,6 +15,8 @@ const {
     button_link,
     button_text,
     description,
+    index,
+    perks_not_included,
     perks,
     price,
     title,
@@ -21,7 +24,7 @@ const {
 
 } = Astro.props
 ---
-<div class="relative w-full border-[2px] border-zinc-300 hover:border-zinc-600 transition-all duration-300 rounded-2xl p-4 md:p-10 flex flex-col gap-10 justify-between shadow-lg">
+<div class={` ${ index === 1 ? "border-zinc-400" : "border-zinc-300" } group relative w-full border-[2px] hover:border-zinc-900 transition-all duration-300 rounded-2xl p-4 md:p-10 flex flex-col gap-10 justify-between shadow-lg`}>
     <div class="flex flex-col gap-2">
         <div class="flex gap-2 items-baseline">
             <!-- <HeadingThree>{ title }</HeadingThree> -->
@@ -41,6 +44,19 @@ const {
 
                     return(
                         <Perks
+                            text={ value }
+                        />
+                    )
+
+                })
+
+            }
+            {
+
+                perks_not_included.map( ( value ) => {
+
+                    return(
+                        <NotIncludedPerks
                             text={ value }
                         />
                     )

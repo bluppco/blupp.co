@@ -7,8 +7,13 @@ import PricingCard from "@/components/home/pricing/card/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/center/index.astro"
+import HeadingThree from "@/atoms/headings/three/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
 
 const { data, pricing } = Astro.props
+const html = marked.parse( data.description )
 ---
 <section class="py-10">
     <Container>
@@ -17,23 +22,29 @@ const { data, pricing } = Astro.props
             <section class="grid md:grid-cols-3 gap-8">
                 {
 
-                    pricing.map( ( value ) => {
+                    pricing.map( ( value, index ) => {
 
                         return(
                             <PricingCard
-                                type={ value.plan }
+                                button_link={ value.button_link }
+                                button_text={ value.button_text }
+                                description={ value.description }
+                                index={ index }
+                                perks_not_included={ value.perks_not_included }
+                                perks={ value.perks }
                                 price={ value.price }
                                 title={ value.title }
-                                description={ value.description }
-                                perks={ value.perks }
-                                button_text={ value.button_text }
-                                button_link={ value.button_link }
+                                type={ value.plan }
                             />
                         )
 
                     })
 
                 }
+            </section>
+            <section>
+                <HeadingThree>Perks included in all plans :</HeadingThree>
+                <section set:html={ html } class="markdown text-sm md:text-base" />
             </section>
         </section>
     </Container>
