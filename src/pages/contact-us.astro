@@ -1,0 +1,46 @@
+---
+// RUNTIME
+const runtime = Astro.locals.runtime
+
+// IMPORTS VARIABLE FROM .DEV.VARS FILE
+const {
+
+	CDN,
+	ENDPOINT,
+	PROJECT
+
+} = runtime.env
+
+// NETWORK CALL
+const data = await fetch( ENDPOINT + "/page/contact-us" )
+const data_json = await data.json()
+
+	if( data.status !== 200 ){
+
+		return Astro.redirect("/")
+
+	}
+
+let contact_us = data_json.data
+
+// IMPORTING ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import ContactUs from "@/components/contact-us/index.astro"
+---
+<Layout
+	description={ contact_us.meta_description }
+	image={ contact_us.cover }
+	title={ contact_us.meta_title }
+>
+	<Header />
+	<ContactUs
+		contact={ contact_us }
+		CDN={ CDN }
+		PROJECT={ PROJECT }
+	/>
+	<Footer />
+</Layout>

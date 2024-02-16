@@ -1,0 +1,18 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import ColumnOne from "@/components/common/footer/column-one/index.astro"
+import ColumnTwo from "@/components/common/footer/column-two/index.astro"
+import Copyright from "./copyright/index.astro"
+---
+<footer class="bg-gray-100">
+    <Container>
+        <section class="grid md:grid-cols-4 gap-8 md:gap-4 py-10 md:py-20">
+            <ColumnOne />
+            <ColumnTwo />
+        </section>
+    </Container>
+    <Copyright />
+</footer>

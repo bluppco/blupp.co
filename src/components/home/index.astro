@@ -1,0 +1,53 @@
+---
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Hero from "@/components/home/hero/index.astro"
+import About from "@/components/home/about/index.astro"
+import HowWeWork from "@/components/home/how-we-work/index.astro"
+import Clients from "@/components/home/clients/index.astro"
+import TechStack from "@/components/home/tech-stack/index.astro"
+import Pricing from "@/components/home/pricing/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+
+const {
+
+    blogs,
+    CDN,
+    home_data,
+    pricing,
+    PROJECT,
+    projects,
+    stack,
+    work
+
+} = Astro.props
+---
+<section class="md:h-screen md:max-h-screen">
+    <Header />
+    <Hero data={ home_data.hero } />
+</section>
+<About
+    CDN={ CDN }
+    PROJECT={ PROJECT }
+    data={ home_data.about }
+/>
+<HowWeWork
+    data={ home_data.how_we_work }
+    work={ work }
+/>
+<TechStack
+    data={ home_data.tech_stack }
+    tech_stack={ stack }
+    CDN={ CDN }
+    PROJECT={ PROJECT }
+/>
+<Clients
+    data={ home_data.clients }
+    CDN={ CDN }
+    PROJECT={ PROJECT }
+/>
+<Pricing
+    data={ home_data.pricing }
+    pricing={ pricing }
+/>
+<Footer />

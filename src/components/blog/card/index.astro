@@ -1,0 +1,34 @@
+---
+// IMPORTS ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import HeadingFour from "@/atoms/headings/four/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+
+const {
+
+    CDN,
+    date,
+    image,
+    PROJECT,
+    slug,
+    title
+
+} = Astro.props
+---
+<div class="h-full">
+    <Link href={ "/blog/" + slug } aria_label="">
+        <div class="flex flex-col gap-2 bg-slate-50 h-full overflow-hidden border border-zinc-300 shadow">
+            <div class="w-full aspect-square bg-zinc-200">
+                <Picture
+                    CDN={ CDN }
+                    PROJECT={ PROJECT }
+                    src={ image }
+                />
+            </div>
+            <div class="p-4 flex flex-col gap-4 justify-between grow">
+                <HeadingFour>{ title }</HeadingFour>
+                <div class="italic font-inter_tight text-sm text-slate-900 tracking-widest">{ date }</div>
+            </div>
+        </div>
+    </Link>
+</div>

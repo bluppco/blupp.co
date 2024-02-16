@@ -1,0 +1,27 @@
+---
+// IMPORTS ASTRO ATOMS
+import PictureContain from "@/atoms/picture/contain/index.astro"
+
+const {
+
+    alt,
+    CDN,
+    description,
+    PROJECT,
+    src,
+    title,
+
+} = Astro.props
+
+---
+<div class="flex justify-center items-center gap-4">
+    <div class="h-8 w-16">
+        <PictureContain
+            alt={ alt }
+            CDN={ CDN }
+            image_width="120"
+            PROJECT={ PROJECT }
+            src={ src + "?quality=80" }
+        />
+    </div>
+</div>

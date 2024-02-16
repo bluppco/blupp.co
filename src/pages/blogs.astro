@@ -1,0 +1,47 @@
+---
+// RUNTIME
+const runtime = Astro.locals.runtime
+
+// IMPORTS VARIABLE FROM .DEV.VARS FILE
+const {
+
+	CDN,
+	ENDPOINT,
+	PROJECT
+
+} = runtime.env
+
+// FETCH URL FROM SERVER AND DISPLAY THE DATA
+const data = await fetch( ENDPOINT + "blogs")
+const data_json = await data.json()
+
+    if( data.status !== 200 ){
+
+        return Astro.redirect("/")
+
+    }
+const blog = data_json.data.blogs
+
+// META
+const meta = data_json.data.meta_tags
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import Blogs from "@/components/blog/all/index.astro"
+---
+<Layout
+    description={ meta.description }
+    image={ meta.cover }
+    title={ meta.title }
+>
+	<Header />
+	<Blogs
+        blog= { blog }
+        CDN={ CDN }
+        PROJECT={ PROJECT }
+    />
+	<Footer />
+</Layout>

@@ -1,0 +1,86 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+import Link from "@/atoms/links/target-blank/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+const {
+
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
+---
+<Container>
+    <HeadingTwo>Team</HeadingTwo>
+    <div class="grid md:grid-cols-4 gap-4 py-4">
+        {
+
+            data.map( ( member ) => {
+
+                return (
+                    <div class="w-full flex flex-col items-center">
+                        <div class="bg-zinc-300 w-full aspect-square rounded-full relative overflow-hidden border border-zinc-200">
+                            <Picture
+                                alt={ member.name + "'s picture"}
+                                CDN={ CDN }
+                                PROJECT={ PROJECT }
+                                src={ member.cover }
+                            />
+                        </div>
+                        <div class="mt-2.5 items-center flex flex-col">
+                            <div class="font-semibold text-sm md:text-lg text-zinc-800">{ member.name }</div>
+                            <div class="font-normal text-xs md:text-sm text-zinc-800">{ member.designation }</div>
+                            <div class="flex gap-2 items-center mt-2">
+                                {
+
+                                    member.email &&
+
+                                    <Link href={ "mailto:" + member.email } aria_label="">
+                                        <div class="w-4 aspect-square">
+                                            <PictureInternal
+                                                alt=""
+                                                src="/icons/email.svg"
+                                            />
+                                        </div>
+                                    </Link>
+
+                                }
+                                {
+
+                                    member.linkedin_link &&
+
+                                    <Link href={ member.linkedin_link } aria-label="">
+                                        <div class="w-4 aspect-square">
+                                            <PictureInternal
+                                                alt=""
+                                                src="/icons/linkedin.svg"
+                                            />
+                                        </div>
+                                    </Link>
+
+                                }
+                                {
+
+                                    member.x_link &&
+
+                                    <Link href={ member.x_link } aria-label="">
+                                        <div class="relative w-6 aspect-square font-bold">&#120143;</div>
+                                    </Link>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                )
+
+            })
+
+        }
+    </div>
+</Container>

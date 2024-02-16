@@ -1,0 +1,39 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import HowWeWorkCard from "@/components/home/how-we-work/card/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/center/index.astro"
+
+const { data, work } = Astro.props
+---
+<section class="space-y-6 md:pt-20 pt-2 pb-4">
+    <Container>
+        <HeadingTwo>{ data.title }</HeadingTwo>
+    </Container>
+    <section class="grid md:grid-cols-4">
+        {
+
+            work.map( ( value, index ) => {
+
+                return(
+
+                    value.display_on_home &&
+
+                    <HowWeWorkCard
+                        bg_color={ value.background_color }
+                        index={ index + 1 }
+                        title={ value.title }
+                        sub_title={ value.sub_title }
+                        description={ value.description }
+                    />
+                )
+
+            })
+
+        }
+    </section>
+</section>

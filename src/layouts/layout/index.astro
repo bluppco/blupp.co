@@ -1,0 +1,47 @@
+---
+// IMPORTS CUSTOM CSS
+import '@/styles/globals.css'
+import '@/styles/custom.css'
+
+const {
+
+    CDN,
+    description,
+    image,
+    PROJECT,
+    title
+
+} = Astro.props
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="https://use.typekit.net/heo5kvy.css">
+        <title>{ title }</title>
+        <meta name="title" content={ title } />
+        <meta name="description" content={ description } />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://blupp.co/" />
+        <meta property="og:title" content={ title } />
+        <meta property="og:description" content={ description } />
+        <meta property="og:image" content={ CDN + PROJECT + "/" + image } />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://blupp.co/" />
+        <meta property="twitter:title" content={ title } />
+        <meta property="twitter:description" content={ description } />
+        <meta property="twitter:image" content={ CDN + PROJECT + "/" + image } />
+        <meta property="twitter:image" content={ CDN + PROJECT + "/" + image } />
+        <meta property="twitter:site" content="@bluppco" />
+        <meta property="article:publisher" content="https://blupp.co" />
+        <link rel="icon" href="/blupp_favicon.svg">
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=inter-tight:100,400,500,600,700,900" rel="stylesheet" />
+    </head>
+    <body class="font-inter_tight selection:bg-black selection:text-white">
+        <slot />
+    </body>
+</html>

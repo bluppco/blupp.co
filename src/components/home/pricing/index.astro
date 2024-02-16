@@ -1,0 +1,40 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import PricingCard from "@/components/home/pricing/card/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/center/index.astro"
+
+const { data, pricing } = Astro.props
+---
+<section class="py-10">
+    <Container>
+        <section class="space-y-4 md:space-y-14">
+            <HeadingTwo>{ data.title }</HeadingTwo>
+            <section class="grid md:grid-cols-3 gap-8">
+                {
+
+                    pricing.map( ( value ) => {
+
+                        return(
+                            <PricingCard
+                                type={ value.plan }
+                                price={ value.price }
+                                title={ value.title }
+                                description={ value.description }
+                                perks={ value.perks }
+                                button_text={ value.button_text }
+                                button_link={ value.button_link }
+                            />
+                        )
+
+                    })
+
+                }
+            </section>
+        </section>
+    </Container>
+</section>

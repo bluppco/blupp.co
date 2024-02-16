@@ -1,0 +1,11 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+const { policy } = Astro.props
+---
+<Container>
+    <section class="pt-20 md:pt-16">
+        <section set:html={ policy } class="markdown py-4 md:py-10" />
+    </section>
+</Container>

@@ -1,0 +1,23 @@
+---
+// IMPORTS ASTRO ATOMS
+import Link from "@/atoms/links/target-blank/index.astro"
+
+const {
+
+    href,
+    src,
+    alt,
+    CDN,
+    PROJECT
+
+} = Astro.props
+---
+<!-- <Link href={ href } aria_label="" target="_blank"> -->
+    <div class="w-60 h-20">
+        <img
+            src={ CDN + PROJECT + "/" + src + "?quality=80" }
+            alt={ alt }
+            class="w-full h-full object-contain"
+        />
+    </div>
+<!-- </Link> -->

@@ -1,0 +1,71 @@
+---
+// RUNTIME
+const runtime = Astro.locals.runtime
+
+// IMPORTS VARIABLE FROM .DEV.VARS FILE
+const {
+
+	CDN,
+	ENDPOINT,
+	PROJECT
+
+} = runtime.env
+
+const { slug } = Astro.params
+
+// FETCH URL FROM SERVER AND DISPLAY THE DATA
+const data = await fetch( ENDPOINT + "/blog/" + slug )
+const data_json = await data.json()
+
+if( data.status !== 200 ){
+
+    return Astro.redirect("/")
+
+}
+const blog = data_json.data
+const body_md = marked.parse( blog.md )
+
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import Blog from "@/components/blog/slug/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
+
+// HIGHLIGHT JS - THEME - WE CAN CHOOSE A BETTER THESE AS WELL.
+// LETS KEEP LOOKING
+import "highlight.js/styles/dark.min.css"
+---
+<Layout
+	description={ blog.seo_description }
+	image={ blog.cover }
+	title={ blog.seo_title }
+>
+	<Header />
+	<Blog
+		data={ body_md }
+		blog={ blog }
+		PROJECT={ PROJECT }
+		CDN={ CDN }
+	/>
+	<Footer />
+</Layout>
+<script>
+
+	import hljs from "highlight.js"
+
+	document.addEventListener('DOMContentLoaded', (event) => {
+
+  		document.querySelectorAll('pre code').forEach((block) => {
+
+    		hljs.highlightAll();
+
+  		})
+
+	})
+
+</script>

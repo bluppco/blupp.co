@@ -1,0 +1,47 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingOne from "@/atoms/headings/one/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import BlogCard from '@/components/blog/card/index.astro'
+
+const {
+
+    blog,
+    CDN,
+    PROJECT
+
+} = Astro.props
+---
+<section class="pt-32 md:pt-28 md:pb-10">
+    <Container>
+        <HeadingOne>Blogs</HeadingOne>
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4 py-6">
+
+            {
+
+                blog.map( ( blog ) => {
+
+                    return(
+                        <div class="h-full">
+                            <BlogCard
+                                image={ blog.cover }
+                                title={ blog.title }
+                                date={ blog.date }
+                                slug={ blog.slug }
+                                CDN={ CDN }
+                                PROJECT={ PROJECT }
+                            />
+                        </div>
+                        )
+
+                })
+
+            }
+
+        </section>
+    </Container>
+</section>

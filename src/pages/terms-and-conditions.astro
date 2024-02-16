@@ -1,0 +1,36 @@
+---
+// NETWORK CALL
+const data = await fetch( "https://staging.api.blupp.co/page/terms-and-conditions" )
+const data_json = await data.json()
+
+    if( data.status !== 200 ){
+
+        return Astro.redirect("/")
+
+    }
+
+let terms_and_conditions = data_json.data
+let content = data_json.data.md
+
+const html = marked.parse( content )
+
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import TermsAndConditions from "@/components/terms-and-conditions/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
+---
+<Layout
+	description={ terms_and_conditions.meta_description }
+	image={ terms_and_conditions.cover }
+	title={ terms_and_conditions.meta_title }
+>
+    <Header />
+    <TermsAndConditions terms={ html } />
+	<Footer />
+</Layout>

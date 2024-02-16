@@ -1,0 +1,34 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import Button from "@/atoms/buttons/primary/index.astro"
+import Link from "@/atoms/links/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+---
+<section class="grow h-full w-full flex flex-col justify-center items-center pt-32 md:pt-28">
+    <Container>
+        <section class="grid md:grid-cols-2 gap-4 md:gap-8">
+            <section class="flex justify-center items-center">
+                <div class="w-60 md:w-full aspect-square">
+                    <PictureInternal
+                        alt=""
+                        src="/images/not-found.jpg"
+                    />
+                </div>
+            </section>
+            <section class="flex flex-col items-center justify-center gap-8">
+                <p class="text-3xl md:text-7xl uppercase text-center tracking-wider">404: Journey Interrupted</p>
+                <div class="md:w-[70%] mx-auto">
+                <p class="text-lg md:text-xl text-center tracking-wide">Lost in the vast expanse of cyberspace? Fear not! Our 404 rescue team is en route to guide you back.</p>
+                </div>
+                <div class="flex justify-center">
+                    <Link href="/" aria_label="">
+                        <Button>Go to home page</Button>
+                    </Link>
+                </div>
+            </section>
+        </section>
+    </Container>
+</section>

@@ -1,0 +1,164 @@
+---
+// IMPORTS JSX COMPONENTS
+import TooltipJSX from "@/components/common/tooltip/index.jsx"
+
+// IMPORTS ASTRO ATOMS
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+const {
+
+    alt,
+    CDN,
+    github_link,
+    in_progress,
+    is_client,
+    is_private,
+    name,
+    notion_setup,
+    project_link,
+    PROJECT,
+    slug,
+    src
+
+} = Astro.props
+---
+<div class="space-y-4 md:space-y-6 border border-zinc-200 bg-gray-50 shadow">
+    <!-- <Link href={ "/project/" +  slug }> -->
+        <div class="w-full aspect-video bg-zinc-200">
+            <Picture
+                src={ src }
+                alt={ alt }
+                CDN={ CDN }
+                PROJECT={ PROJECT }
+                image_width="1200"
+            />
+        </div>
+    <!-- </Link> -->
+    <div class="px-4">
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <!-- <Link href={ "/project/" +  slug }> -->
+                <HeadingThree>{ name }</HeadingThree>
+            <!-- </Link> -->
+            <div class="flex gap-2 items-center md:justify-end">
+                <div class="flex items-center gap-1">
+                    <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded flex items-center gap-2">Is Client ?
+                        {
+
+                            is_client === true &&
+
+                            <div class="w-4 aspect-square">
+                                <PictureInternal
+                                    alt=""
+                                    src="/icons/tick.svg"
+                                />
+                            </div>
+
+                        }
+                        {
+
+                            is_client === false &&
+
+                            <div class="w-4 aspect-square">
+                                <PictureInternal
+                                    alt=""
+                                    src="/icons/cross.svg"
+                                />
+                            </div>
+
+                        }
+                    </button>
+                </div>
+                {
+
+                    is_private === false &&
+
+                    <button class="tracking-wider text-xs text-white bg-zinc-700 h-6 px-2 rounded">Open Source</button>
+
+                }
+                {
+
+                    in_progress === true &&
+
+                    <TooltipJSX
+                        client:load
+                        text="Project in progress"
+                        src="/icons/in_progress.svg"
+                        size="w-5 aspect-square"
+                        image_size="w-5 aspect-square"
+                    />
+
+                }
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-10">
+            <div>
+                <div class="flex gap-6 items-center">
+                    <TooltipJSX
+                        client:load
+                        text="Astro framework"
+                        src="/icons/astro-logo.svg"
+                        size="w-6 aspect-square"
+                        image_size="w-6 aspect-square"
+                    />
+                    <TooltipJSX
+                        client:load
+                        text="Tailwind CSS"
+                        src="/icons/tailwindcss-logo.svg"
+                        size="w-6 aspect-square"
+                        image_size="w-6 aspect-square"
+                    />
+                    <TooltipJSX
+                        client:load
+                        text="Cloudflare"
+                        src="/icons/cloudflare-logo.png"
+                        size="w-12 aspect-video"
+                        image_size="w-full h-full"
+                    />
+                    <TooltipJSX
+                        client:load
+                        text="Notion"
+                        src="/icons/notion.svg"
+                        size="w-16 aspect-square"
+                        image_size="w-16 aspect-square"
+                    />
+                </div>
+                <p class="text-xs font-inter_tight font-semibold uppercase tracking-widest">Tech stack</p>
+            </div>
+            <div class="md:space-y-4">
+                <div class="flex gap-6 items-center">
+                    <a href={ project_link } target="_blank">
+                        <TooltipJSX
+                            client:load
+                            text="Visit website"
+                            src="/icons/website.svg"
+                            size="w-5 aspect-square"
+                            image_size="w-5 aspect-square"
+                        />
+                    </a>
+                    <a href={ github_link } target="_blank">
+                        <TooltipJSX
+                            client:load
+                            text="View github"
+                            src="/icons/github.svg"
+                            size="w-6 aspect-squar"
+                            image_size="w-6 aspect-squar"
+                        />
+                    </a>
+                    <a href={ project_link + "/benchmarking" } target="_blank">
+                        <TooltipJSX
+                            client:load
+                            text="View benchmarking results"
+                            src="/icons/benchmarking.svg"
+                            size="w-5 aspect-squar"
+                            image_size="w-5 aspect-squar"
+                        />
+                    </a>
+                </div>
+                <p class="text-xs font-inter_tight font-semibold uppercase tracking-widest flex md:justify-end">Explore</p>
+            </div>
+        </div>
+    </div>
+</div>

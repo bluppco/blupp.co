@@ -1,0 +1,40 @@
+---
+// IMPORTS ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import HeadingFour from "@/atoms/headings/four/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+
+// IMPORTS CONSTANTS
+import { IMAGE_QUALITY } from "@/constants/images"
+
+const {
+
+    date,
+    image,
+    title,
+    slug,
+    CDN,
+	PROJECT
+
+} = Astro.props
+---
+<div>
+    <Link href={ "/blog/" + slug } aria_label="">
+        <div class="flex flex-col gap-2 bg-slate-50 h-full overflow-hidden border border-zinc-300 shadow">
+            <div class="w-full aspect-video bg-zinc-200">
+                <!-- <Picture
+                    src={ image }
+                /> -->
+                <img
+                    src={ CDN + PROJECT + "/" + image + "?quality=" + IMAGE_QUALITY }
+                    alt=""
+                    class="w-full h-full object-cover"
+                />
+            </div>
+            <div class="p-4 flex flex-col gap-4 justify-between grow">
+                <HeadingFour>{ title }</HeadingFour>
+                <div class="italic font-inter_tight text-sm text-slate-900 tracking-widest">{ date }</div>
+            </div>
+        </div>
+    </Link>
+</div>

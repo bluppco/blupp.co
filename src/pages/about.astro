@@ -1,41 +1,52 @@
 ---
-// IMPORTING COMPONENTS
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import MetaTags from "../components/MetaTags.astro"
-import Team from "../components/about/Team.astro"
+// RUNTIME
+const runtime = Astro.locals.runtime
+const {
 
-// IMPORTING ATOMS
-import H1 from "../components/atom/H1.astro"
-import P from "../components/atom/P.astro"
+	CDN,
+	ENDPOINT,
+	PROJECT
 
-// IMPORTING CONSTANTS
-import { BASE_URL } from "../constants"
+} = runtime.env
+
+// NETWORK CALL FOR TEAM
+const team_data = await fetch( ENDPOINT + "team" )
+const team_data_json = await team_data.json()
+const team = team_data_json.data.team
+
+// NETWORK CALL FOR ABOUT
+const data = await fetch( ENDPOINT + "page/about" )
+const data_json = await data.json()
+
+	if( data.status !== 200 ){
+
+		return Astro.redirect("/")
+
+	}
+
+let about = data_json.data
+let content = data_json.data.md
+
+const about_blupp = marked.parse( content )
+
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import About from "@/components/about/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
 ---
-
-<html lang="en">
-	<MetaTags
-		title="About | Blupp Company"
-		description="About Blupp Company"
-		image="ttps://metatags.io/images/meta-tags.png"
-		url={ BASE_URL + "about" }
+<Layout
+	description={ about.meta_description }
+	image={ about.cover }
+	title={ about.meta_title }
+>
+	<About
+		about={ about_blupp }
+		team={ team }
+		CDN={ CDN }
+		PROJECT={ PROJECT }
 	/>
-	<body>
-		<section class="min-h-screen flex flex-col">
-			<!-- COMPONENT FOR HEADER -->
-			<Header />
-
-			<section class="container max-w-4xl lg:max-w-6xl mx-auto py-6 flex grow px-4 xl:px-0 flex-col">
-				<H1
-					text="About Blupp Company"
-				/>
-				<P
-					text="I will write about our company and our vision on this page as I get time."
-				/>
-				<Team/>
-			</section>
-		</section>
-		<!-- FOOTER -->
-		<Footer />
-	</body>
-</html>
+</Layout>

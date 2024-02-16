@@ -1,56 +1,42 @@
 ---
-// IMPORTING COMPONENTS
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import MetaTags from "../components/MetaTags.astro"
+// RUNTIME
+const runtime = Astro.locals.runtime
 
-// IMPORTING CONSTANTS
-import { BASE_URL } from "../constants"
+// IMPORTS HOME API
+import { homeAPI } from "@/api/home/index"
+const data = await homeAPI()
+const { home_data, work, projects, blogs, pricing, meta, stack } = data
+
+// IMPORTS VARIABLE FROM .DEV.VARS FILE
+const {
+
+	CDN,
+	ENDPOINT,
+	PROJECT
+
+} = runtime.env
+
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Home from "@/components/home/index.astro"
 ---
-
-<html lang="en">
-	<MetaTags
-		title="Home | Blupp Company"
-		description="Blupp Company"
-		image="ttps://metatags.io/images/meta-tags.png"
-		url={ BASE_URL }
+<Layout
+	CDN={ CDN }
+	description={ meta.description }
+	image={ meta.cover }
+	PROJECT={ PROJECT }
+	title={ meta.title }
+>
+	<Home
+		blogs={ blogs }
+		CDN={ CDN }
+		home_data={ home_data }
+		pricing={ pricing }
+		PROJECT={ PROJECT }
+		projects={ projects }
+		stack={ stack }
+		work={ work }
 	/>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Blupp.co</title>
-	</head>
-	<body>
-		<section class="min-h-screen flex flex-col">
-			<!-- COMPONENT FOR HEADER -->
-			<Header />
-
-			<!-- MAIN BODY -->
-			{
-
-				/*
-				FIX FOR IPAD
-				- md to xl
-				- reduced font size upto xl
-
-				REFERENCING SIZE
-				'sm': '640px'
-      			'md': '768px'
-      			'lg': '1024px'
-      			'xl': '1280px'
-      			'2xl': '1536px'
-				*/
-
-			}
-			<section class="container max-w-4xl lg:max-w-6xl mx-auto py-6 flex items-center justify-center grow px-4 xl:px-0 flex-col gap-12">
-				<h1 class="text-center text-4xl xl:text-6xl font-bold text-zinc-900">Blupp Company</h1>
-				<div class="bg-purple-100 px-10 py-2">
-					<h1 class="text-center text-4xl xl:text-8xl font-bold text-purple-900">Making web 2.0 faster.</h1>
-				</div>
-			</section>
-		</section>
-		<!-- FOOTER -->
-		<Footer />
-	</body>
-</html>
+</Layout>
