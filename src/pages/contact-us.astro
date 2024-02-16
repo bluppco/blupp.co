@@ -1,21 +1,18 @@
 ---
-// IMPORTING ASTRO LAYOUTS
-import Layout from "@/layouts/layout/index.astro"
-import Container from "@/layouts/container/index.astro"
+// RUNTIME
+const runtime = Astro.locals.runtime
 
-// IMPORTS ASTRO COMPONENTS
-import Header from "@/components/common/header/index.jsx"
-import Footer from "@/components/common/footer/index.astro"
+// IMPORTS VARIABLE FROM .DEV.VARS FILE
+const {
 
-// IMPORTS JSX COMPONENTS
-import ContactForm from "@/components/contact-us/contact-form/index.jsx"
+	CDN,
+	ENDPOINT,
+	PROJECT
 
-// IMPORTS ASTRO ATOMS
-import HeadingOne from "@/atoms/headings/one/index.astro"
-import Picture from "@/atoms/picture/index.astro"
+} = runtime.env
 
 // NETWORK CALL
-const data = await fetch( "https://staging.api.blupp.co/page/contact-us" )
+const data = await fetch( ENDPOINT + "/page/contact-us" )
 const data_json = await data.json()
 
 	if( data.status !== 200 ){
@@ -24,34 +21,26 @@ const data_json = await data.json()
 
 	}
 
-let contact = data_json.data
+let contact_us = data_json.data
+
+// IMPORTING ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import ContactUs from "@/components/contact-us/index.astro"
 ---
 <Layout
-	title={ contact.meta_title }
-	description={ contact.meta_description }
-	image={ contact.cover }
+	description={ contact_us.meta_description }
+	image={ contact_us.cover }
+	title={ contact_us.meta_title }
 >
-	<Header client:load />
-	<Container>
-		<section class="pt-28 md:pt-28 pb-4 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-20">
-			<section class="flex flex-col justify-center">
-				<HeadingOne>{ contact.name }</HeadingOne>
-				<ContactForm client:load />
-			</section>
-			{
-
-				contact.cover &&
-
-				<section>
-					<div class="w-full aspect-square bg-zinc-200">
-						<Picture
-							src={ contact.cover }
-						/>
-					</div>
-				</section>
-
-			}
-		</section>
-	</Container>
+	<Header />
+	<ContactUs
+		contact={ contact_us }
+		CDN={ CDN }
+		PROJECT={ PROJECT }
+	/>
 	<Footer />
 </Layout>

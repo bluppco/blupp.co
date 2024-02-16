@@ -1,6 +1,18 @@
 ---
+// RUNTIME
+const runtime = Astro.locals.runtime
+
+// IMPORTS VARIABLE FROM .DEV.VARS FILE
+const {
+
+	CDN,
+	ENDPOINT,
+	PROJECT
+
+} = runtime.env
+
 // NETWORK CALL
-const data = await fetch( "https://staging.api.blupp.co/projects" )
+const data = await fetch( ENDPOINT + "projects" )
 const data_json = await data.json()
 
 const projects = data_json.data.projects
@@ -12,20 +24,24 @@ if( data.status !== 200 ){
 
 }
 
-// IMPORTING LAYOUTS
+// IMPORTS ASTRO LAYOUTS
 import Layout from "@/layouts/layout/index.astro"
 
-// IMPORTING COMPONENTS
-import Header from "@/components/common/header/index.jsx"
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
 import Footer from "@/components/common/footer/index.astro"
 import AllProjects from "@/components/projects/all/index.astro"
 ---
 <Layout
-    title={ meta.title }
     description={ meta.description }
     image={ meta.cover }
+    title={ meta.title }
 >
-    <Header client:load />
-    <AllProjects data={ projects } />
+    <Header />
+    <AllProjects
+        data={ projects }
+        CDN={ CDN }
+        PROJECT={ PROJECT }
+    />
     <Footer />
 </Layout>

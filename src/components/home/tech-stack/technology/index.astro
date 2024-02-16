@@ -1,10 +1,6 @@
 ---
 // IMPORTS ASTRO ATOMS
-import HeadingSix from "@/atoms/headings/six/index.astro"
-import Paragraph from "@/atoms/paragraphs/regular/index.astro"
-
-// IMPORTS CONSTANTS
-import { IMAGE_QUALITY } from "@/constants/images"
+import PictureContain from "@/atoms/picture/contain/index.astro"
 
 const {
 
@@ -18,16 +14,14 @@ const {
 } = Astro.props
 
 ---
-<div class="flex justify-center gap-4">
-    <div class="flex items-center gap-6">
-        <div class="h-8 w-16">
-            <img
-                src={ CDN + PROJECT + "/" + src + "?quality=" + IMAGE_QUALITY }
-                alt={ alt }
-                class="w-full h-full object-contain"
-            />
-        </div>
-        <!-- <HeadingSix>{ title }</HeadingSix> -->
+<div class="flex justify-center items-center gap-4">
+    <div class="h-8 w-16">
+        <PictureContain
+            alt={ alt }
+            CDN={ CDN }
+            image_width="120"
+            PROJECT={ PROJECT }
+            src={ src + "?quality=80" }
+        />
     </div>
-    <!-- <Paragraph>{ description }</Paragraph> -->
 </div>

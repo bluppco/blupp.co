@@ -3,7 +3,7 @@
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import Technology from "./technology/index.astro"
+import Technology from "@/components/home/tech-stack/technology/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/center/index.astro"
@@ -18,33 +18,31 @@ const {
 } = Astro.props
 
 ---
-<section class="">
-    <Container>
-        <section class="space-y-4 md:space-y-10 pb-4 md:py-10">
-            <HeadingTwo>{ data.title }</HeadingTwo>
-            <section class="grid grid-cols-4 md:grid-cols-5 gap-x-2 md:gap-x-10 gap-y-10 max-w-4xl mx-auto">
-                {
+<Container>
+    <section class="space-y-4 md:space-y-10 pb-4 md:py-10">
+        <HeadingTwo>{ data.title }</HeadingTwo>
+        <section class="grid grid-cols-4 md:grid-cols-5 gap-x-2 md:gap-x-10 gap-y-10 max-w-4xl mx-auto">
+            {
 
-                    tech_stack.map( ( value ) => {
+                tech_stack.map( ( value ) => {
 
-                        return(
+                    return(
 
-                            value.display_on_home &&
+                        value.display_on_home &&
 
-                            <Technology
-                                alt={ value.title }
-                                CDN={ CDN }
-                                description={ value.description }
-                                PROJECT={ PROJECT }
-                                src={ value.cover }
-                                title={ value.title }
-                            />
-                        )
+                        <Technology
+                            alt={ value.title }
+                            CDN={ CDN }
+                            description={ value.description }
+                            PROJECT={ PROJECT }
+                            src={ value.cover }
+                            title={ value.title }
+                        />
+                    )
 
-                    })
+                })
 
-                }
-            </section>
+            }
         </section>
-    </Container>
-</section>
+    </section>
+</Container>

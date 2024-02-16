@@ -1,6 +1,6 @@
 ---
 // IMPORTS ASTRO COMPONENTS
-import Feature from "@/components/home/pricing/card/feature/index.astro"
+import Perks from "@/components/home/pricing/card/perks/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingThree from "@/atoms/headings/three/semibold/index.astro"
@@ -11,13 +11,13 @@ import Link from "@/atoms/links/target-blank/index.astro"
 
 const {
 
-    description,
-    price,
-    type,
-    perks,
-    button_text,
     button_link,
-    title
+    button_text,
+    description,
+    perks,
+    price,
+    title,
+    type
 
 } = Astro.props
 ---
@@ -40,7 +40,7 @@ const {
                 perks.map( ( value ) => {
 
                     return(
-                        <Feature
+                        <Perks
                             text={ value }
                         />
                     )

@@ -1,16 +1,19 @@
-const Li = ( props ) => {
+// IMPORTS ATOMS
+import Link from "@/atoms/links/jsx/index.jsx"
 
-    const { href } = props
+const ListItem = ( props ) => {
+
+    const { href, aria_label } = props
 
     return(
         <li className="group font-inter_tight tracking-wide">
-            <a href={ href }>
+            <Link href={ href } aria_label={ aria_label }>
                 { props.children }
-            </a>
+            </Link>
             <div className="w-0 bg-black group-hover:w-full h-[1px] transition-width duration-300 ease-in"></div>
         </li>
     )
 
 }
 
-export default Li
+export default ListItem

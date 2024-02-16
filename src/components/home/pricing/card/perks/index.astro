@@ -1,12 +1,14 @@
 ---
+// IMPORTS ASTRO ATOMS
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
 const { text } = Astro.props
 ---
 <div class="flex items-center gap-2">
     <div class="w-5 aspect-square">
-        <img
-            src="/icons/white-tick.svg"
+        <PictureInternal
             alt=""
-            class="w-full h-full"
+            src="/icons/white-tick.svg"
         />
     </div>
     <p class="font-inter_tight text-sm tracking-wider text-black/70">{ text }</p>

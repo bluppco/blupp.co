@@ -1,17 +1,23 @@
-// IMPORTS CONSTANTS
-import { CDN_LINK, IMAGE_QUALITY } from "@/constants/images.js"
-
 const Picture = ( props ) => {
 
-    const { src } = props
+    const {
+
+        alt,
+        CDN,
+        image_width,
+        PROJECT,
+        src
+
+    } = props
 
     return(
-        <picture>
-            <source media="(max-width: 375px)" srcset={ CDN_LINK +  src + "?height=300&quality=" + IMAGE_QUALITY } />
-            <source media="(max-width: 640px)" srcset={ CDN_LINK +  src + "?height=400&quality=" + IMAGE_QUALITY } />
+        <picture className="w-full h-full">
+            <source media="(max-width: 375px)" srcset={ CDN + PROJECT + "/" + src + "?height=300&quality=80" } />
+            <source media="(max-width: 640px)" srcset={ CDN + PROJECT + "/" + src + "?height=400&quality=80" } />
             <img
-                src={ CDN_LINK +  src + "?height=650&quality=" + IMAGE_QUALITY }
-                className="w-full h-full object-cover scale-100 group-hover:scale-110 duration-700 overflow-hidden"
+                src={ CDN + PROJECT + "/" +  src + "?quality=80" + "&width=" + image_width }
+                alt={ alt }
+                className="w-full h-full object-cover"
             />
         </picture>
     )

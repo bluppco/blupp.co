@@ -1,6 +1,6 @@
 ---
-// IMPORTS CONSTANTS
-import { IMAGE_QUALITY } from "@/constants/images"
+// IMPORTS ASTRO ATOMS
+import Link from "@/atoms/links/target-blank/index.astro"
 
 const {
 
@@ -12,12 +12,12 @@ const {
 
 } = Astro.props
 ---
-<a href={ href } target="_blank">
+<!-- <Link href={ href } aria_label="" target="_blank"> -->
     <div class="w-60 h-20">
         <img
-            src={ CDN + PROJECT + "/" + src + "?quality=" + IMAGE_QUALITY }
+            src={ CDN + PROJECT + "/" + src + "?quality=80" }
             alt={ alt }
             class="w-full h-full object-contain"
         />
     </div>
-</a>
+<!-- </Link> -->

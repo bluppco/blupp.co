@@ -4,18 +4,17 @@ import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
-
-// IMPORTS CONSTANTS
-import { IMAGE_QUALITY } from "@/constants/images"
+import Picture from "@/atoms/picture/index.astro"
+import Link from "@/atoms/links/target-blank/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
 
 const {
 
+    CDN,
     data,
-    CDN_LINK,
-	PROJECT_NAME
+    PROJECT
 
 } = Astro.props
-console.log( CDN_LINK, PROJECT_NAME )
 ---
 <Container>
     <HeadingTwo>Team</HeadingTwo>
@@ -27,47 +26,52 @@ console.log( CDN_LINK, PROJECT_NAME )
                 return (
                     <div class="w-full flex flex-col items-center">
                         <div class="bg-zinc-300 w-full aspect-square rounded-full relative overflow-hidden border border-zinc-200">
-                            <img
-                                src={ CDN_LINK + PROJECT_NAME + "/" + member.cover + "?quality=" + IMAGE_QUALITY }
+                            <Picture
                                 alt={ member.name + "'s picture"}
-                                class="w-full h-full"
+                                CDN={ CDN }
+                                PROJECT={ PROJECT }
+                                src={ member.cover }
                             />
                         </div>
                         <div class="mt-2.5 items-center flex flex-col">
                             <div class="font-semibold text-sm md:text-lg text-zinc-800">{ member.name }</div>
                             <div class="font-normal text-xs md:text-sm text-zinc-800">{ member.designation }</div>
-                            <div class="flex gap-2 items-center">
+                            <div class="flex gap-2 items-center mt-2">
                                 {
 
                                     member.email &&
 
-                                    <a href={ "mailto:" + member.email } target="_blank" class="mt-2.5">
-                                        <img
-                                            src="/icons/email.svg"
-                                            class="w-4 h-4"
-                                        />
-                                    </a>
+                                    <Link href={ "mailto:" + member.email } aria_label="">
+                                        <div class="w-4 aspect-square">
+                                            <PictureInternal
+                                                alt=""
+                                                src="/icons/email.svg"
+                                            />
+                                        </div>
+                                    </Link>
 
                                 }
                                 {
 
                                     member.linkedin_link &&
 
-                                    <a href={ member.linkedin_link } target="_blank" class="mt-2.5">
-                                        <img
-                                            src="/icons/linkedin.svg"
-                                            class="w-4 h-4"
-                                        />
-                                    </a>
+                                    <Link href={ member.linkedin_link } aria-label="">
+                                        <div class="w-4 aspect-square">
+                                            <PictureInternal
+                                                alt=""
+                                                src="/icons/linkedin.svg"
+                                            />
+                                        </div>
+                                    </Link>
 
                                 }
                                 {
 
                                     member.x_link &&
 
-                                    <a href={ member.x_link } target="_blank" class="mt-2.5">
-                                        <div class="relative w-6 h-6 font-bold">&#120143;</div>
-                                    </a>
+                                    <Link href={ member.x_link } aria-label="">
+                                        <div class="relative w-6 aspect-square font-bold">&#120143;</div>
+                                    </Link>
 
                                 }
                             </div>

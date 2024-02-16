@@ -1,0 +1,26 @@
+---
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import Team from "@/components/about/team/index.astro"
+import AboutOurCompany from "@/components/about/our-company/index.astro"
+
+const {
+
+	about,
+	CDN,
+	PROJECT,
+	team
+
+} = Astro.props
+---
+<section class="min-h-screen flex flex-col">
+	<Header />
+	<AboutOurCompany data={ about } />
+	<Team
+		data={ team }
+		CDN={ CDN }
+		PROJECT={ PROJECT }
+	/>
+</section>
+<Footer />

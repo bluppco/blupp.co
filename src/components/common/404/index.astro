@@ -1,20 +1,20 @@
 ---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
 // IMPORTS ASTRO ATOMS
 import Button from "@/atoms/buttons/primary/index.astro"
 import Link from "@/atoms/links/index.astro"
-
-// IMPORTS ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
 ---
 <section class="grow h-full w-full flex flex-col justify-center items-center pt-32 md:pt-28">
     <Container>
         <section class="grid md:grid-cols-2 gap-4 md:gap-8">
             <section class="flex justify-center items-center">
                 <div class="w-60 md:w-full aspect-square">
-                    <img
-                        src="/images/not-found.jpg"
+                    <PictureInternal
                         alt=""
-                        class="w-full h-full"
+                        src="/images/not-found.jpg"
                     />
                 </div>
             </section>
@@ -24,7 +24,7 @@ import Container from "@/layouts/container/index.astro"
                 <p class="text-lg md:text-xl text-center tracking-wide">Lost in the vast expanse of cyberspace? Fear not! Our 404 rescue team is en route to guide you back.</p>
                 </div>
                 <div class="flex justify-center">
-                    <Link href="/" aria_label>
+                    <Link href="/" aria_label="">
                         <Button>Go to home page</Button>
                     </Link>
                 </div>
