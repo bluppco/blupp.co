@@ -7,7 +7,7 @@ import HeadingThree from "@/atoms/headings/three/semibold/index.astro"
 import HeadingFive from "@/atoms/headings/five/semibold/index.astro"
 import Paragraph from "@/atoms/paragraphs/regular/index.astro"
 import BookACallButton from "@/atoms/buttons/book-a-call/index.astro"
-import Link from "@/atoms/links/index.astro"
+import Link from "@/atoms/links/target-blank/index.astro"
 
 const {
 
@@ -24,8 +24,9 @@ const {
 <div class="relative w-full border-[2px] border-zinc-300 hover:border-zinc-600 transition-all duration-300 rounded-2xl p-4 md:p-10 flex flex-col gap-10 justify-between shadow-lg">
     <div class="flex flex-col gap-2">
         <div class="flex gap-2 items-baseline">
-            <HeadingThree>{ title }</HeadingThree>
-            <HeadingFive>{ type }</HeadingFive>
+            <!-- <HeadingThree>{ title }</HeadingThree> -->
+            <HeadingThree>{ type }</HeadingThree>
+            <!-- <HeadingFive>{ type }</HeadingFive> -->
         </div>
         <div class="flex gap-1 items-center">
             <span class="text-3xl font-inter_tight font-bold">${ price }</span><span class="text-3xl font-inter_tight text-gray-600"> /</span><span class="text-2xl font-inter_tight text-gray-600"> month</span>
