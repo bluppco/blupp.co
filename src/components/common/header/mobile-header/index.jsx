@@ -1,17 +1,17 @@
+// IMPORTS ATOMS
+import ListItem from "@/atoms/mobile-header/list-item/index.jsx"
+import PictureInternal from "@/atoms/picture/internal/jsx/index.jsx"
+import Link from "@/atoms/links/jsx/index.jsx"
+
 // IMPORTS FRAMER MOTION
-import { motion, useScroll, useAnimation, useMotionValueEvent, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 // IMPORTS REACT
 import { useState } from "react"
 
-// IMPORTS COMPONENTS
-import Li from "./li/index"
-
 const HeaderMobile = () => {
 
     const [ isOpen, updateOpen ] = useState( false )
-
-    {/*const { scrollY } = useScroll()*/}
 
     const squareVariants = {
 
@@ -19,22 +19,6 @@ const HeaderMobile = () => {
         hide: { y: "-100%", transition: { duration: .4 } },
 
     }
-    {/*const controls = useAnimation( scrollY )
-    useMotionValueEvent(scrollY, "change", (latest) => {
-
-        let isScrollingDown = scrollY.getPrevious() - latest < 0;
-        if( isScrollingDown && latest > 0 ){
-
-            controls.start("hide")
-
-        } else {
-
-            controls.start("display")
-
-        }
-
-
-    })*/}
 
     return (
         <header className="md:hidden">
@@ -44,27 +28,31 @@ const HeaderMobile = () => {
             >
                 <div className="flex justify-between items-center">
                     <p className="font-bold text-lg md:text-2xl text-black">
-                        <a href="/">
+                        <Link href="/" aria_label="">
                             <span className="text-5xl">&#120121;</span>
-                        </a>
+                        </Link>
                     </p>
                     <div onClick={ () => updateOpen( !isOpen ) }>
                         {
 
                             isOpen &&
-                            <img
-                                src="/icons/close.svg"
-                                className="w-6 aspect-square"
-                            />
+                            <div className="w-6 aspect-square">
+                                <PictureInternal
+                                    src="/icons/close.svg"
+                                    alt=""
+                                />
+                            </div>
 
                         }
                         {
 
                             !isOpen &&
-                            <img
-                                src="/icons/menu.svg"
-                                className="w-6 aspect-square"
-                            />
+                            <div className="w-6 aspect-square">
+                                <PictureInternal
+                                    src="/icons/menu.svg"
+                                    alt=""
+                                />
+                            </div>
 
                         }
                     </div>
@@ -87,9 +75,9 @@ const HeaderMobile = () => {
                     >
                         <div className="flex flex-col gap-1 items-center justify-center h-full z-10">
                             <ul className="flex flex-col gap-8 justify-center items-center">
-                                <Li href="/projects">Projects</Li>
-                                <Li href="/about">Company</Li>
-                                <Li href="/blogs">Blogs</Li>
+                                <ListItem href="/projects" aria_label="">Projects</ListItem>
+                                <ListItem href="/about" aria_label="">Company</ListItem>
+                                <ListItem href="/blogs" aria_label="">Blogs</ListItem>
                             </ul>
                         </div>
                     </motion.div>

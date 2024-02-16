@@ -1,93 +1,42 @@
 ---
+// RUNTIME
 const runtime = Astro.locals.runtime
+
+// IMPORTS HOME API
+import { homeAPI } from "@/api/home/index"
+const data = await homeAPI()
+const { home_data, work, projects, blogs, pricing, meta, stack } = data
+
+// IMPORTS VARIABLE FROM .DEV.VARS FILE
 const {
 
-	CDN_LINK,
+	CDN,
 	ENDPOINT,
-	PROJECT_NAME
+	PROJECT
 
 } = runtime.env
 
-import { homeAPI } from "../api/home/index"
-
-const data = await homeAPI()
-
-const { home_data } = data
-
-// NETWORK CALL FOR TECH STACK
-const stack_data = await fetch( ENDPOINT + "stack" )
-const stack_data_json = await stack_data.json()
-const tech_stack = stack_data_json.data.stack
-
-// NETWORK CALL FOR PROJECTS
-const projects_data = await fetch( ENDPOINT + "projects" )
-const projects_data_json = await projects_data.json()
-const projects = projects_data_json.data.projects
-
-// NETWORK CALL FOR HOW WE WORK
-const work_data = await fetch( ENDPOINT + "work" )
-const work_data_json = await work_data.json()
-const how_we_work = work_data_json.data.work
-
-// NETWORK CALL FOR BLOGS
-const blogs_data = await fetch( ENDPOINT + "blogs" )
-const blogs_data_json = await blogs_data.json()
-const blogs = blogs_data_json.data.blogs
-
-// IMPORTING LAYOUTS
+// IMPORTS ASTRO LAYOUTS
 import Layout from "@/layouts/layout/index.astro"
 
-// IMPORTING COMPONENTS
-import Header from "@/components/common/header/index.jsx"
-import Hero from "@/components/home/hero/index.astro"
-import About from "@/components/home/about/index.astro"
-import HowWeWork from "@/components/home/how-we-work/index.astro"
-import Clients from "@/components/home/clients/index.astro"
-import Projects from "@/components/home/projects/index.astro"
-import TechStack from "@/components/home/tech-stack/index.astro"
-import Blogs from "@/components/home/blogs/index.astro"
-import Pricing from "@/components/home/pricing/index.astro"
-import Footer from "@/components/common/footer/index.astro"
+// IMPORTS ASTRO COMPONENTS
+import Home from "@/components/home/index.astro"
 ---
 <Layout
-	title="Home | Blupp Company"
-	description="Blupp Company"
-	image=""
+	CDN={ CDN }
+	description={ meta.description }
+	image={ meta.cover }
+	PROJECT={ PROJECT }
+	title={ meta.title }
 >
-	<section class="md:h-screen md:max-h-screen">
-		<Header client:load />
-		<Hero data={ home_data.hero } />
-	</section>
-	<About
-		CDN_LINK={ CDN_LINK }
-		PROJECT_NAME={ PROJECT_NAME }
-		data={ home_data.about }
-	/>
-	<HowWeWork
-		data={ home_data.how_we_work }
-		work={ how_we_work }
-	/>
-	<TechStack
-		data={ home_data.tech_stack }
-		tech_stack={ tech_stack }
-		CDN_LINK={ CDN_LINK }
-		PROJECT_NAME={ PROJECT_NAME }
-	/>
-	<Clients
-		data={ home_data.clients }
-		CDN_LINK={ CDN_LINK }
-		PROJECT_NAME={ PROJECT_NAME }
-	/>
-	<Pricing />
-	<Projects
-		data={ home_data.projects }
-		projects={ projects }
-	/>
-	<Blogs
-		data={ home_data.blogs }
+	<Home
 		blogs={ blogs }
-		CDN_LINK={ CDN_LINK }
-		PROJECT_NAME={ PROJECT_NAME }
+		CDN={ CDN }
+		home_data={ home_data }
+		pricing={ pricing }
+		PROJECT={ PROJECT }
+		projects={ projects }
+		stack={ stack }
+		work={ work }
 	/>
-	<Footer />
 </Layout>

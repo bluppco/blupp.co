@@ -6,7 +6,7 @@ export const homeAPI = async () => {
     const network_data = await fetch( endpoint + "/home" )
     const data_json = await network_data.json()
 
-    const { home } = data_json.data
+    const { home, work, projects, blogs, pricing, meta, stack } = data_json.data
 
     let home_data = {
 
@@ -17,7 +17,8 @@ export const homeAPI = async () => {
         clients : "",
         projects : "",
         blogs : "",
-        about : ""
+        about : "",
+        pricing : "",
 
     }
     home.map( ( data ) => {
@@ -36,9 +37,11 @@ export const homeAPI = async () => {
             home_data.blogs = data
         else if( data.slug === "about" )
             home_data.about = data
+        else if( data.slug === "pricing" )
+            home_data.pricing = data
 
     })
 
-    return { home_data }
+    return { home_data, work, projects, blogs, pricing, meta, stack }
 
 }

@@ -1,41 +1,46 @@
 ---
 // IMPORTS ASTRO COMPONENTS
-import Feature from "@/components/home/pricing/card/feature/index.astro"
+import Perks from "@/components/home/pricing/card/perks/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingThree from "@/atoms/headings/three/semibold/index.astro"
 import HeadingFive from "@/atoms/headings/five/semibold/index.astro"
 import Paragraph from "@/atoms/paragraphs/regular/index.astro"
 import BookACallButton from "@/atoms/buttons/book-a-call/index.astro"
-import Link from "@/atoms/links/index.astro"
+import Link from "@/atoms/links/target-blank/index.astro"
 
 const {
 
+    button_link,
+    button_text,
     description,
+    perks,
     price,
+    title,
     type
 
 } = Astro.props
-
-const features = [ "3 design changes", "2 Notion seats included", "bi-weekly progress update", "Dedicated product team", "48h response time", "Email support", "Weekly Analytics report", "100k events and page analylics", "Astro - unlimited hits", "Vercel - bandwidth 1tb", "CDN - bandwidth 500gb" ]
 ---
-<div class="relative w-full border-[2px] border-zinc-300 hover:border-zinc-600 transition-all duration-300 rounded-2xl p-10 flex flex-col gap-10 justify-between shadow-lg">
+<div class="relative w-full border-[2px] border-zinc-300 hover:border-zinc-600 transition-all duration-300 rounded-2xl p-4 md:p-10 flex flex-col gap-10 justify-between shadow-lg">
     <div class="flex flex-col gap-2">
         <div class="flex gap-2 items-baseline">
-            <HeadingThree>Development</HeadingThree>
-            <HeadingFive>{ type }</HeadingFive>
+            <!-- <HeadingThree>{ title }</HeadingThree> -->
+            <HeadingThree>{ type }</HeadingThree>
+            <!-- <HeadingFive>{ type }</HeadingFive> -->
         </div>
         <div class="flex gap-1 items-center">
             <span class="text-3xl font-inter_tight font-bold">${ price }</span><span class="text-3xl font-inter_tight text-gray-600"> /</span><span class="text-2xl font-inter_tight text-gray-600"> month</span>
         </div>
-        <Paragraph>{ description }</Paragraph>
+        <div class="md:h-14">
+            <Paragraph>{ description }</Paragraph>
+        </div>
         <div class="py-4 space-y-4">
             {
 
-                features.map( ( value ) => {
+                perks.map( ( value ) => {
 
                     return(
-                        <Feature
+                        <Perks
                             text={ value }
                         />
                     )
@@ -46,8 +51,8 @@ const features = [ "3 design changes", "2 Notion seats included", "bi-weekly pro
         </div>
     </div>
     <div class="w-full">
-        <Link href="" aria_label="">
-            <BookACallButton>Book a call</BookACallButton>
+        <Link href={ button_link } aria_label="">
+            <BookACallButton>{ button_text }</BookACallButton>
         </Link>
     </div>
     {

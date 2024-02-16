@@ -1,20 +1,30 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import Link from "@/atoms/links/target-blank/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+---
 <section class="space-y-2">
-    <p class="font-inter_tight font-semibold text-2xl tracking-wider">Follow Us</p>
+    <HeadingThree>Follow Us</HeadingThree>
     <div class="flex gap-4 items-center">
-        <a href="https://github.com/bluppco" target="_blank">
-            <img
-                src="/icons/github.svg"
-                class="w-8 h-8"
-            />
-        </a>
-        <a href="https://x.com/bluppco" target="_blank">
+        <Link href="https://github.com/bluppco">
+            <div class="w-8 aspect-square">
+                <PictureInternal
+                    alt=""
+                    src="/icons/github.svg"
+                />
+            </div>
+        </Link>
+        <Link href="https://x.com/bluppco" aria_label="">
             <div class="text-3xl">&#120143;</div>
-        </a>
-        <a href="https://www.linkedin.com/company/blupp" target="_blank">
-            <img
-                src="/icons/linkedin.svg"
-                class="w-7 h-7"
-            />
-        </a>
+        </Link>
+        <Link href="https://www.linkedin.com/company/blupp" aria_label="">
+            <div class="w-7 aspect-square">
+                <PictureInternal
+                    alt=""
+                    src="/icons/linkedin.svg"
+                />
+            </div>
+        </Link>
     </div>
 </section>

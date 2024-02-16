@@ -1,17 +1,18 @@
 ---
-// LAYOUTS
-import Layout from "@/layouts/layout/index.astro"
+// RUNTIME
+const runtime = Astro.locals.runtime
 
-// COMPONENTS
-import Header from "@/components/common/header/index.jsx"
-import Footer from "@/components/common/footer/index.astro"
-import Blogs from "@/components/blog/all/index.astro"
+// IMPORTS VARIABLE FROM .DEV.VARS FILE
+const {
 
-// CONSTANTS
-import { CDN_LINK } from "@/constants/images"
+	CDN,
+	ENDPOINT,
+	PROJECT
+
+} = runtime.env
 
 // FETCH URL FROM SERVER AND DISPLAY THE DATA
-const data = await fetch("https://staging.api.blupp.co/blogs")
+const data = await fetch( ENDPOINT + "blogs")
 const data_json = await data.json()
 
     if( data.status !== 200 ){
@@ -23,13 +24,24 @@ const blog = data_json.data.blogs
 
 // META
 const meta = data_json.data.meta_tags
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import Blogs from "@/components/blog/all/index.astro"
 ---
 <Layout
-    title={ meta.title }
     description={ meta.description }
-    image={ CDN_LINK + meta.cover }
+    image={ meta.cover }
+    title={ meta.title }
 >
-	<Header client:load />
-	<Blogs blog= { blog } />
+	<Header />
+	<Blogs
+        blog= { blog }
+        CDN={ CDN }
+        PROJECT={ PROJECT }
+    />
 	<Footer />
 </Layout>

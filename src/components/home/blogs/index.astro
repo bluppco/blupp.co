@@ -12,8 +12,8 @@ const {
 
     data,
     blogs,
-    CDN_LINK,
-	PROJECT_NAME
+    CDN,
+	PROJECT
 
 } = Astro.props
 ---
@@ -34,8 +34,8 @@ const {
                             image={ value.cover }
                             title={ value.title }
                             slug={ value.slug }
-                            CDN_LINK={ CDN_LINK }
-                            PROJECT_NAME={ PROJECT_NAME }
+                            CDN={ CDN }
+                            PROJECT={ PROJECT }
                         />
                     )
 

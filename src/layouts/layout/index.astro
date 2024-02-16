@@ -5,11 +5,14 @@ import '@/styles/custom.css'
 
 const {
 
+    CDN,
     description,
     image,
-    title,
+    PROJECT,
+    title
 
 } = Astro.props
+
 ---
 
 <!DOCTYPE html>
@@ -25,13 +28,13 @@ const {
         <meta property="og:url" content="https://blupp.co/" />
         <meta property="og:title" content={ title } />
         <meta property="og:description" content={ description } />
-        <meta property="og:image" content={ image } />
+        <meta property="og:image" content={ CDN + PROJECT + "/" + image } />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://blupp.co/" />
         <meta property="twitter:title" content={ title } />
         <meta property="twitter:description" content={ description } />
-        <meta property="twitter:image" content={ image } />
-        <meta property="twitter:image" content={ image } />
+        <meta property="twitter:image" content={ CDN + PROJECT + "/" + image } />
+        <meta property="twitter:image" content={ CDN + PROJECT + "/" + image } />
         <meta property="twitter:site" content="@bluppco" />
         <meta property="article:publisher" content="https://blupp.co" />
         <link rel="icon" href="/blupp_favicon.svg">

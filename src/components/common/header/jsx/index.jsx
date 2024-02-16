@@ -1,19 +1,19 @@
+// IMPORTS LAYOUTS
+import Container from "@/layouts/container/jsx/index.jsx"
+
+// IMPORTS COMPONENTS
+import HeaderMobile from "@/components/common/header/mobile-header/index.jsx"
+
+// IMPORTS ATOMS
+import PrimaryButton from "@/atoms/buttons/primary/jsx/index.jsx"
+import ListItem from "@/atoms/header/list-item/index.jsx"
+import Link from "@/atoms/links/jsx/index.jsx"
+
 // IMPORTS FRAMER MOTION
 import { motion, useScroll, useAnimation, useMotionValueEvent } from "framer-motion"
 
 // IMPORTS REACT
 import { useState } from "react"
-
-// IMPORTS COMPONENTS
-import Li from "./li/index.jsx"
-import HeaderMobile from "./mobile-header/index.jsx"
-
-// IMPORTS LAYOUTS
-import Container from "@/layouts/container/jsx/index.jsx"
-
-// IMPORTS ATOMS
-import PrimaryButton from "@/atoms/buttons/primary/jsx/index.jsx"
-import Link from "@/atoms/links/jsx/index.jsx"
 
 const Header = ( props ) => {
 
@@ -62,9 +62,9 @@ const Header = ( props ) => {
                             </Link>
                             <nav className="flex items-center h-full justify-end">
                                 <ul className="flex items-center gap-8">
-                                    <Li href="/about">Company</Li>
-                                    <Li href="/projects">Projects</Li>
-                                    <Li href="/blogs">Blogs</Li>
+                                    <ListItem href="/about" aria_label="">Company</ListItem>
+                                    <ListItem href="/projects" aria_label="">Projects</ListItem>
+                                    <ListItem href="/blogs" aria_label="">Blogs</ListItem>
                                     <Link href="mailto:mohit@blupp.co" aria_label="">
                                         <PrimaryButton>Get in Touch</PrimaryButton>
                                     </Link>

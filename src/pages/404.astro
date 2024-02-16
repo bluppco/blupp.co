@@ -3,17 +3,17 @@
 import Layout from "@/layouts/layout/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import Header from "@/components/common/header/index.jsx"
+import Header from "@/components/common/header/index.astro"
 import Footer from "@/components/common/footer/index.astro"
 import NotFound from "@/components/common/404/index.astro"
 ---
 <Layout
-	title="4O4 PAGE NOT FOUND"
 	description=""
 	image=""
+	title="4O4 PAGE NOT FOUND"
 >
     <section class="h-screen max-h-screen">
-        <Header client:load />
+        <Header />
         <NotFound />
     </section>
 	<Footer />
