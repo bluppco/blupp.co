@@ -2,6 +2,7 @@
 // IMPORTS ASTRO ATOMS
 import HeadingFour from "@/atoms/headings/four/index.astro"
 import Picture from "@/atoms/picture/index.astro"
+import Link from "@/atoms/links/index.astro"
 
 const {
 
@@ -12,18 +13,18 @@ const {
 } = Astro.props
 ---
 <div class="border border-zinc-200 bg-gray-50 shadow overflow-hidden">
-    <a href="/projects">
+    <Link href="/case-studies" aria_label="">
         <div class="w-full aspect-video bg-zinc-200 overflow-hidden">
             <Picture
                 src={ src }
             />
         </div>
-    </a>
+    </Link>
     <div class="p-4">
         <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <a href="/projects">
+            <Link href="/case-studies" aria_label="">
                 <HeadingFour>{ name }</HeadingFour>
-            </a>
+            </Link>
         </div>
     </div>
 </div>

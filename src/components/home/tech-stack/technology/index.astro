@@ -1,6 +1,6 @@
 ---
-// IMPORTS ASTRO ATOMS
-import PictureContain from "@/atoms/picture/contain/index.astro"
+// IMPORTS JSX COMPONENTS
+import TooltipJSX from "@/components/common/tooltip/cdn-image/index.jsx"
 
 const {
 
@@ -9,19 +9,22 @@ const {
     description,
     PROJECT,
     src,
-    title,
+    title
 
 } = Astro.props
 
 ---
 <div class="flex justify-center items-center gap-4">
-    <div class="h-8 w-16">
-        <PictureContain
+    <div class="h-8 w-fit">
+        <TooltipJSX
             alt={ alt }
             CDN={ CDN }
-            image_width="120"
+            client:load
+            image_size="w-full h-full object-contain"
             PROJECT={ PROJECT }
-            src={ src + "?quality=80" }
+            size="h-8 w-full"
+            src={ src }
+            text={ title }
         />
     </div>
 </div>

@@ -63,7 +63,7 @@ const Header = ( props ) => {
                             <nav className="flex items-center h-full justify-end">
                                 <ul className="flex items-center gap-8">
                                     <ListItem href="/about" aria_label="">Company</ListItem>
-                                    <ListItem href="/projects" aria_label="">Projects</ListItem>
+                                    <ListItem href="/case-studies" aria_label="">Case Studies</ListItem>
                                     <ListItem href="/blogs" aria_label="">Blogs</ListItem>
                                     <Link href="mailto:mohit@blupp.co" aria_label="">
                                         <PrimaryButton>Get in Touch</PrimaryButton>

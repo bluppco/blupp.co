@@ -30,7 +30,7 @@ import Layout from "@/layouts/layout/index.astro"
 // IMPORTS ASTRO COMPONENTS
 import Header from "@/components/common/header/index.astro"
 import Footer from "@/components/common/footer/index.astro"
-import AllProjects from "@/components/projects/all/index.astro"
+import AllCaseStudies from "@/components/case-studies/all/index.astro"
 ---
 <Layout
     description={ meta.description }
@@ -38,7 +38,7 @@ import AllProjects from "@/components/projects/all/index.astro"
     title={ meta.title }
 >
     <Header />
-    <AllProjects
+    <AllCaseStudies
         data={ projects }
         CDN={ CDN }
         PROJECT={ PROJECT }

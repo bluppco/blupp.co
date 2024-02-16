@@ -75,8 +75,8 @@ const HeaderMobile = () => {
                     >
                         <div className="flex flex-col gap-1 items-center justify-center h-full z-10">
                             <ul className="flex flex-col gap-8 justify-center items-center">
-                                <ListItem href="/projects" aria_label="">Projects</ListItem>
                                 <ListItem href="/about" aria_label="">Company</ListItem>
+                                <ListItem href="/case-studies" aria_label="">Case Studies</ListItem>
                                 <ListItem href="/blogs" aria_label="">Blogs</ListItem>
                             </ul>
                         </div>
