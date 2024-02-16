@@ -3,14 +3,14 @@
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import Technology from "./technology/index.astro"
+import Technology from "@/components/home/tech-stack/technology/index.astro"
 
 // IMPORTS ASTRO ATOMS
-import HeadingTwo from "@/atoms/headings/two/index.astro"
+import HeadingTwo from "@/atoms/headings/two/center/index.astro"
 
 const {
 
-    CDN_LINK,
+    CDN,
     data,
     PROJECT,
     tech_stack,
@@ -19,9 +19,9 @@ const {
 
 ---
 <Container>
-    <section class="space-y-4 md:space-y-6 pb-4 md:py-10">
+    <section class="space-y-4 md:space-y-10 pb-4 md:py-10">
         <HeadingTwo>{ data.title }</HeadingTwo>
-        <section class="grid md:grid-cols-3 gap-4 md:gap-6">
+        <section class="grid grid-cols-4 md:grid-cols-5 gap-x-2 md:gap-x-10 gap-y-10 max-w-4xl mx-auto">
             {
 
                 tech_stack.map( ( value ) => {
@@ -32,7 +32,7 @@ const {
 
                         <Technology
                             alt={ value.title }
-                            CDN_LINK={ CDN_LINK }
+                            CDN={ CDN }
                             description={ value.description }
                             PROJECT={ PROJECT }
                             src={ value.cover }

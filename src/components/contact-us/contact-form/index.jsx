@@ -1,9 +1,11 @@
+// IMPORTS REACT
 import { useState } from "react"
-import { Toaster, toast } from "sonner"
-import { Turnstile } from '@marsidev/react-turnstile'
 
-// IMPORTS JSX LAYOUTS
-import Container from "@/layouts/container/jsx/index"
+// IMPORTS SONNER
+import { Toaster, toast } from "sonner"
+
+// IMPORTS REACT TURNSTILE
+import { Turnstile } from '@marsidev/react-turnstile'
 
 const ContactFormJSX = ( props ) => {
 
@@ -106,7 +108,7 @@ const ContactFormJSX = ( props ) => {
     }
 
     return (
-        <Container>
+        <section>
             <div className="space-y-2 pt-4 md:pt-10">
                 <p className="text-2xl md:text-3xl font-inter_tight pb-4">Get in Touch</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -198,7 +200,7 @@ const ContactFormJSX = ( props ) => {
                 </div>
                 <Toaster />
             </div>
-        </Container>
+        </section>
 
     )
 

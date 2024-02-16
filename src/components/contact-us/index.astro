@@ -1,0 +1,38 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS JSX COMPONENTS
+import ContactForm from "@/components/contact-us/contact-form/index.jsx"
+
+// IMPORTS ASTRO ATOMS
+import HeadingOne from "@/atoms/headings/one/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+
+const {
+
+    CDN,
+    contact,
+    PROJECT
+
+} = Astro.props
+---
+<Container>
+    <section class="pt-28 md:pt-28 pb-4 md:py-20 md:h-screen grid md:grid-cols-2 gap-4 md:gap-20">
+        <section class="flex flex-col justify-center">
+            <HeadingOne>{ contact.name }</HeadingOne>
+            <ContactForm client:load />
+        </section>
+        <section>
+            <div class="w-full aspect-square bg-zinc-200">
+                <Picture
+                    alt=""
+                    CDN={ CDN }
+                    PROJECT={ PROJECT }
+                    src={ contact.cover }
+                    image_width="1200"
+                />
+            </div>
+        </section>
+    </section>
+</Container>

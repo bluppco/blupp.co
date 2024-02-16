@@ -1,18 +1,4 @@
 ---
-// IMPORTS MARKED
-import { marked } from "marked"
-
-// IMPORTING ASTRO LAYOUTS
-import Layout from "@/layouts/layout/index.astro"
-import Container from "@/layouts/container/index.astro"
-
-// IMPORTS ASTRO COMPONENTS
-import Header from "@/components/common/header/index.jsx"
-import Footer from "@/components/common/footer/index.astro"
-
-// IMPORTS ASTRO ATOMS
-import HeadingOne from "@/atoms/headings/one/index.astro"
-
 // NETWORK CALL
 const data = await fetch( "https://staging.api.blupp.co/page/terms-and-conditions" )
 const data_json = await data.json()
@@ -27,17 +13,24 @@ let terms_and_conditions = data_json.data
 let content = data_json.data.md
 
 const html = marked.parse( content )
+
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import Header from "@/components/common/header/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import TermsAndConditions from "@/components/terms-and-conditions/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
 ---
 <Layout
-	title={ terms_and_conditions.meta_title }
 	description={ terms_and_conditions.meta_description }
 	image={ terms_and_conditions.cover }
+	title={ terms_and_conditions.meta_title }
 >
-    <Header client:load />
-    <Container>
-        <section class="pt-20 md:pt-16">
-            <section set:html={ html } class="markdown py-4 md:py-10" />
-        </section>
-    </Container>
+    <Header />
+    <TermsAndConditions terms={ html } />
 	<Footer />
 </Layout>

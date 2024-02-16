@@ -1,31 +1,20 @@
 ---
+// RUNTIME
 const runtime = Astro.locals.runtime
 const {
 
-	CDN_LINK,
+	CDN,
 	ENDPOINT,
-	PROJECT_NAME
+	PROJECT
 
 } = runtime.env
-
-// IMPORTS MARKED
-import { marked } from "marked"
-
-// IMPORTING LAYOUTS
-import Layout from "@/layouts/layout/index.astro"
-
-// IMPORTING COMPONENTS
-import Header from "@/components/common/header/index.jsx"
-import Footer from "@/components/common/footer/index.astro"
-import Team from "@/components/about/team/index.astro"
-import AboutOurCompany from "@/components/about/our-company/index.astro"
 
 // NETWORK CALL FOR TEAM
 const team_data = await fetch( ENDPOINT + "team" )
 const team_data_json = await team_data.json()
 const team = team_data_json.data.team
 
-// NETWORK CALL
+// NETWORK CALL FOR ABOUT
 const data = await fetch( ENDPOINT + "page/about" )
 const data_json = await data.json()
 
@@ -38,21 +27,26 @@ const data_json = await data.json()
 let about = data_json.data
 let content = data_json.data.md
 
-const html = marked.parse( content )
+const about_blupp = marked.parse( content )
+
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import About from "@/components/about/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
 ---
 <Layout
-	title={ about.meta_title }
 	description={ about.meta_description }
 	image={ about.cover }
+	title={ about.meta_title }
 >
-	<section class="min-h-screen flex flex-col">
-		<Header client:load />
-		<AboutOurCompany data={ html } />
-		<Team
-			data={ team }
-			CDN_LINK={ CDN_LINK }
-			PROJECT_NAME={ PROJECT_NAME }
-		/>
-	</section>
-	<Footer />
+	<About
+		about={ about_blupp }
+		team={ team }
+		CDN={ CDN }
+		PROJECT={ PROJECT }
+	/>
 </Layout>

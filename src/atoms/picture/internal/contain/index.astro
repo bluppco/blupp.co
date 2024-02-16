@@ -1,0 +1,17 @@
+---
+const {
+
+    alt,
+    src
+
+} = Astro.props
+---
+<picture class="w-full h-full">
+    <source media="(max-width: 375px)" srcset={ src } />
+    <source media="(max-width: 640px)" srcset={  src } />
+    <img
+        src={ src }
+        alt={ alt }
+        class="w-full h-full object-contain"
+    />
+</picture>

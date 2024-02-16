@@ -13,8 +13,8 @@ const {
     image,
     title,
     slug,
-    CDN_LINK,
-	PROJECT_NAME
+    CDN,
+	PROJECT
 
 } = Astro.props
 ---
@@ -26,7 +26,7 @@ const {
                     src={ image }
                 /> -->
                 <img
-                    src={ CDN_LINK + PROJECT_NAME + "/" + image + "?quality=" + IMAGE_QUALITY }
+                    src={ CDN + PROJECT + "/" + image + "?quality=" + IMAGE_QUALITY }
                     alt=""
                     class="w-full h-full object-cover"
                 />
