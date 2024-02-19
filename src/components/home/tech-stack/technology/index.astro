@@ -14,15 +14,15 @@ const {
 } = Astro.props
 
 ---
-<div class="flex justify-center items-center gap-4">
-    <div class="h-8 w-fit">
+<div class="flex justify-center items-center">
+    <div class="w-fit">
         <TooltipJSX
             alt={ alt }
             CDN={ CDN }
             client:load
             image_size="w-full h-full object-contain"
             PROJECT={ PROJECT }
-            size="h-8 w-full"
+            size="h-12 w-full"
             src={ src }
             text={ title }
         />
