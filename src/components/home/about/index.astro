@@ -23,7 +23,6 @@ const description = marked.parse( data.description )
         <section class="grid md:grid-cols-2 gap-4">
             <section class="pb-4 md:pb-0 md:p-20 order-last md:order-none">
                 <section set:html={ description } class="markdown" />
-                <Paragraph>{ data.description }</Paragraph>
             </section>
         <section>
             <Picture
