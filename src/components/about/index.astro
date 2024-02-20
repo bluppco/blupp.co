@@ -14,13 +14,11 @@ const {
 
 } = Astro.props
 ---
-<section class="min-h-screen flex flex-col">
-	<Header />
-	<AboutOurCompany data={ about } />
-	<Team
-		data={ team }
-		CDN={ CDN }
-		PROJECT={ PROJECT }
-	/>
-</section>
+<Header />
+<AboutOurCompany data={ about } />
+<Team
+	data={ team }
+	CDN={ CDN }
+	PROJECT={ PROJECT }
+/>
 <Footer />

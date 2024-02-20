@@ -12,7 +12,9 @@ const TooltipJSX = ( props ) => {
     const {
 
         alt,
+        CDN,
         image_size,
+        PROJECT,
         size,
         src,
         text
@@ -25,7 +27,7 @@ const TooltipJSX = ( props ) => {
                 <TooltipTrigger>
                 <div className={ size }>
                     <img
-                        src={ src }
+                        src={ CDN + PROJECT + "/" + src }
                         alt={ alt }
                         className={ image_size }
                     />

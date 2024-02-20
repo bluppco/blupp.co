@@ -19,3 +19,9 @@
 .markdown p {
     @apply md:text-lg font-inter_tight py-2 !important;
 }
+.markdown ul {
+    @apply py-4 pl-4 !important;
+}
+.markdown ul li {
+    @apply list-disc py-1 !important;
+}

@@ -9,8 +9,8 @@ const PictureInternal = ( props ) => {
 
     return(
         <picture className="w-full h-full">
-            <source media="(max-width: 375px)" srcset={ src } />
-            <source media="(max-width: 640px)" srcset={  src } />
+            <source media="(max-width: 375px)" srcSet={ src } />
+            <source media="(max-width: 640px)" srcSet={  src } />
             <img
                 src={ src }
                 alt={ alt }
